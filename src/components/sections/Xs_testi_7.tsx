@@ -36,7 +36,7 @@ const Xs_testi_7 = () => {
         >
           <SwiperSlide>
             <div className="swiper-slide-inner"><div className="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-42f3647"><div className="elementskit-commentor-bio client_left"><div className="elementskit-commentor-image ekit-testimonial--avatar">
-              <img data-lazyloaded="1" data-placeholder-resp="420x540"  loading="lazy" decoding="async" width="420" height="540" data-src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" data-srcset="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" data-sizes="(max-width: 420px) 100vw, 420px" /></div>
+              <img    loading="lazy" decoding="async" width="420" height="540" src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" srcSet="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" sizes="(max-width: 420px) 100vw, 420px" /></div>
               <span className="elementskit-profile-info">
                 <strong className="elementskit-author-name">Hiromi Mastumoto</strong>
                 <span className="elementskit-author-des">V.P. of Finance International Transport U.S.A., Inc.</span>
@@ -46,7 +46,7 @@ const Xs_testi_7 = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="swiper-slide-inner"><div className="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-20475f8"><div className="elementskit-commentor-bio client_left"><div className="elementskit-commentor-image ekit-testimonial--avatar">
-              <img data-lazyloaded="1" data-placeholder-resp="420x540"  loading="lazy" decoding="async" width="420" height="540" data-src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" data-srcset="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" data-sizes="(max-width: 420px) 100vw, 420px" /></div>
+              <img    loading="lazy" decoding="async" width="420" height="540" src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" srcSet="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" sizes="(max-width: 420px) 100vw, 420px" /></div>
               <span className="elementskit-profile-info">
                 <strong className="elementskit-author-name">Romeo Sanchez</strong>
                 <span className="elementskit-author-des">Hotels group</span>
@@ -56,7 +56,7 @@ const Xs_testi_7 = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="swiper-slide-inner"><div className="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-a37e819"><div className="elementskit-commentor-bio client_left"><div className="elementskit-commentor-image ekit-testimonial--avatar">
-              <img data-lazyloaded="1" data-placeholder-resp="420x540"  loading="lazy" decoding="async" width="420" height="540" data-src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" data-srcset="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" data-sizes="(max-width: 420px) 100vw, 420px" /></div>
+              <img    loading="lazy" decoding="async" width="420" height="540" src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" srcSet="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" sizes="(max-width: 420px) 100vw, 420px" /></div>
               <span className="elementskit-profile-info">
                 <strong className="elementskit-author-name">Mary Vinero</strong>
                 <span className="elementskit-author-des">Management</span>
@@ -66,7 +66,7 @@ const Xs_testi_7 = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="swiper-slide-inner"><div className="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-42f3647"><div className="elementskit-commentor-bio client_left"><div className="elementskit-commentor-image ekit-testimonial--avatar">
-              <img data-lazyloaded="1" data-placeholder-resp="420x540"  loading="lazy" decoding="async" width="420" height="540" data-src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" data-srcset="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" data-sizes="(max-width: 420px) 100vw, 420px" /></div>
+              <img    loading="lazy" decoding="async" width="420" height="540" src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" srcSet="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" sizes="(max-width: 420px) 100vw, 420px" /></div>
               <span className="elementskit-profile-info">
                 <strong className="elementskit-author-name">Hiromi Mastumoto</strong>
                 <span className="elementskit-author-des">V.P. of Finance International Transport U.S.A., Inc.</span>
@@ -76,7 +76,7 @@ const Xs_testi_7 = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="swiper-slide-inner"><div className="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-20475f8"><div className="elementskit-commentor-bio client_left"><div className="elementskit-commentor-image ekit-testimonial--avatar">
-              <img data-lazyloaded="1" data-placeholder-resp="420x540"  loading="lazy" decoding="async" width="420" height="540" data-src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" data-srcset="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" data-sizes="(max-width: 420px) 100vw, 420px" /></div>
+              <img    loading="lazy" decoding="async" width="420" height="540" src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" srcSet="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" sizes="(max-width: 420px) 100vw, 420px" /></div>
               <span className="elementskit-profile-info">
                 <strong className="elementskit-author-name">Romeo Sanchez</strong>
                 <span className="elementskit-author-des">Hotels group</span>
@@ -86,7 +86,7 @@ const Xs_testi_7 = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="swiper-slide-inner"><div className="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style  elementor-repeater-item-a37e819"><div className="elementskit-commentor-bio client_left"><div className="elementskit-commentor-image ekit-testimonial--avatar">
-              <img data-lazyloaded="1" data-placeholder-resp="420x540"  loading="lazy" decoding="async" width="420" height="540" data-src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" data-srcset="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" data-sizes="(max-width: 420px) 100vw, 420px" /></div>
+              <img    loading="lazy" decoding="async" width="420" height="540" src="/images/local/with-out-background.png.webp" className="attachment-full size-full" alt="" srcSet="/images/local/with-out-background.png.webp 420w, /images/local/with-out-background-233x300.png.webp 233w" sizes="(max-width: 420px) 100vw, 420px" /></div>
               <span className="elementskit-profile-info">
                 <strong className="elementskit-author-name">Mary Vinero</strong>
                 <span className="elementskit-author-des">Management</span>
