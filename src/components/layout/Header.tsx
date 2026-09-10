@@ -237,7 +237,7 @@ const Header = () => {
                       <ul id="menu-1-b478dbd" className="elementor-nav-menu">
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1122">
                           <a
-                            href="/offices/index.html#California"
+                            href="/our-offices#California"
                             className="elementor-item elementor-item-anchor"
                           >
                             California
@@ -245,7 +245,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1123">
                           <a
-                            href="/offices/index.html#portland"
+                            href="/our-offices#portland"
                             className="elementor-item elementor-item-anchor"
                           >
                             Portland
@@ -253,7 +253,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1124">
                           <a
-                            href="/offices/index.html#seattle"
+                            href="/our-offices#seattle"
                             className="elementor-item elementor-item-anchor"
                           >
                             Seattle
@@ -261,7 +261,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1125">
                           <a
-                            href="/offices/index.html#vanc"
+                            href="/our-offices#vanc"
                             className="elementor-item elementor-item-anchor"
                           >
                             Vancouver
@@ -269,7 +269,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1126">
                           <a
-                            href="/offices/index.html#Texas"
+                            href="/our-offices#Texas"
                             className="elementor-item elementor-item-anchor"
                           >
                             Houston
@@ -277,7 +277,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1127">
                           <a
-                            href="/offices/index.html#san"
+                            href="/our-offices#san"
                             className="elementor-item elementor-item-anchor"
                           >
                             San Antonio
@@ -1385,7 +1385,7 @@ const Header = () => {
                             data-vertical-menu="1200"
                           >
                             <a
-                              href="/offices/index.html"
+                              href="/our-offices"
                               className="ekit-menu-nav-link"
                             >
                               OUR OFFICES
@@ -1474,7 +1474,7 @@ const Header = () => {
                                                     <div className="elementor-icon-box-wrapper">
                                                       <div className="elementor-icon-box-content">
                                                         <h3 className="elementor-icon-box-title">
-                                                          <a href="https://adsguards.com/offices#California">
+                                                          <a href="/our-offices#California">
                                                             California (Bay
                                                             Area){" "}
                                                           </a>
@@ -1565,7 +1565,7 @@ const Header = () => {
                                                     <div className="elementor-icon-box-wrapper">
                                                       <div className="elementor-icon-box-content">
                                                         <h3 className="elementor-icon-box-title">
-                                                          <a href="https://adsguards.com/offices#portland">
+                                                          <a href="/our-offices#portland">
                                                             Portland Oregon{" "}
                                                           </a>
                                                         </h3>
@@ -1655,7 +1655,7 @@ const Header = () => {
                                                     <div className="elementor-icon-box-wrapper">
                                                       <div className="elementor-icon-box-content">
                                                         <h3 className="elementor-icon-box-title">
-                                                          <a href="https://adsguards.com/offices#seattle">
+                                                          <a href="/our-offices#seattle">
                                                             Seattle
                                                             Washington{" "}
                                                           </a>
@@ -1756,7 +1756,7 @@ const Header = () => {
                                                     <div className="elementor-icon-box-wrapper">
                                                       <div className="elementor-icon-box-content">
                                                         <h3 className="elementor-icon-box-title">
-                                                          <a href="https://adsguards.com/offices#vanc">
+                                                          <a href="/our-offices#vanc">
                                                             Vancouver
                                                             Washington{" "}
                                                           </a>
@@ -1847,7 +1847,7 @@ const Header = () => {
                                                     <div className="elementor-icon-box-wrapper">
                                                       <div className="elementor-icon-box-content">
                                                         <h3 className="elementor-icon-box-title">
-                                                          <a href="https://adsguards.com/offices#Texas">
+                                                          <a href="/our-offices#Texas">
                                                             Houston Texas{" "}
                                                           </a>
                                                         </h3>
@@ -1932,7 +1932,7 @@ const Header = () => {
                                                     <div className="elementor-icon-box-wrapper">
                                                       <div className="elementor-icon-box-content">
                                                         <h3 className="elementor-icon-box-title">
-                                                          <a href="https://adsguards.com/offices#san">
+                                                          <a href="/our-offices#san">
                                                             San Antonio
                                                             Texas{" "}
                                                           </a>
@@ -1980,7 +1980,7 @@ const Header = () => {
                             data-vertical-menu="750px"
                           >
                             <a
-                              href="/ads-blog/index.html"
+                              href="/ads-blog"
                               className="ekit-menu-nav-link"
                             >
                               Blog
@@ -2232,7 +2232,7 @@ const Header = () => {
                           <ul className="sub-menu elementor-nav-menu--dropdown">
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1710">
                               <a
-                                href="/offices/index.html#California"
+                                href="/our-offices#California"
                                 className="elementor-sub-item elementor-item-anchor"
                               >
                                 California(Bay area)
@@ -2240,7 +2240,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1711">
                               <a
-                                href="/offices/index.html#Texas"
+                                href="/our-offices#Texas"
                                 className="elementor-sub-item elementor-item-anchor"
                               >
                                 Houston Texas
@@ -2248,7 +2248,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1712">
                               <a
-                                href="/offices/index.html#portland"
+                                href="/our-offices#portland"
                                 className="elementor-sub-item elementor-item-anchor"
                               >
                                 Portland Oregon
@@ -2256,7 +2256,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1713">
                               <a
-                                href="/offices/index.html#seattle"
+                                href="/our-offices#seattle"
                                 className="elementor-sub-item elementor-item-anchor"
                               >
                                 Seattle Washington
@@ -2264,7 +2264,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1714">
                               <a
-                                href="/offices/index.html#san"
+                                href="/our-offices#san"
                                 className="elementor-sub-item elementor-item-anchor"
                               >
                                 San Antonio Texas
@@ -2272,7 +2272,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1715">
                               <a
-                                href="/offices/index.html#vanc"
+                                href="/our-offices#vanc"
                                 className="elementor-sub-item elementor-item-anchor"
                               >
                                 Vancouver Washington
@@ -2290,7 +2290,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-394">
                           <a
-                            href="/ads-blog/index.html"
+                            href="/ads-blog"
                             className="elementor-item"
                           >
                             Blog
@@ -2433,24 +2433,24 @@ const Header = () => {
               {mobileOfficesOpen && (
                 <ul className="mobile-nav-submenu">
                   <li>
-                    <a href="/offices/index.html#California">
+                    <a href="/our-offices#California">
                       California (Bay area)
                     </a>
                   </li>
                   <li>
-                    <a href="/offices/index.html#Texas">Houston Texas</a>
+                    <a href="/our-offices#Texas">Houston Texas</a>
                   </li>
                   <li>
-                    <a href="/offices/index.html#portland">Portland Oregon</a>
+                    <a href="/our-offices#portland">Portland Oregon</a>
                   </li>
                   <li>
-                    <a href="/offices/index.html#seattle">Seattle Washington</a>
+                    <a href="/our-offices#seattle">Seattle Washington</a>
                   </li>
                   <li>
-                    <a href="/offices/index.html#san">San Antonio Texas</a>
+                    <a href="/our-offices#san">San Antonio Texas</a>
                   </li>
                   <li>
-                    <a href="/offices/index.html#vanc">Vancouver Washington</a>
+                    <a href="/our-offices#vanc">Vancouver Washington</a>
                   </li>
                 </ul>
               )}
@@ -2464,7 +2464,7 @@ const Header = () => {
               </a>
             </li>
             <li className="menu-item">
-              <a href="/ads-blog/index.html" className="mobile-nav-link">
+              <a href="/ads-blog" className="mobile-nav-link">
                 Blog
               </a>
             </li>

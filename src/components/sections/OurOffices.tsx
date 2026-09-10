@@ -1,0 +1,460 @@
+// @ts-nocheck
+import React from "react";
+
+const OurOffices = () => {
+  return (
+    <>
+      <section
+        className="elementor-section elementor-top-section elementor-element elementor-element-ca3e0d1 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+        data-id="ca3e0d1"
+        data-element_type="section"
+        data-e-type="section"
+        data-settings='{"background_background":"classic","animation":"none"}'
+      >
+        <div className="elementor-container elementor-column-gap-default">
+          <div
+            className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5aa9f50"
+            data-id="5aa9f50"
+            data-element_type="column"
+            data-e-type="column"
+          >
+            <div className="elementor-widget-wrap elementor-element-populated">
+              <div
+                className="elementor-element elementor-element-11c2b36 elementor-widget elementor-widget-heading"
+                data-id="11c2b36"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    Our offices
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        className="elementor-section elementor-top-section elementor-element elementor-element-bff1acc elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+        data-id="bff1acc"
+        data-element_type="section"
+        data-e-type="section"
+        data-settings='{"background_background":"classic"}'
+      >
+        <div className="elementor-container elementor-column-gap-default">
+          <div
+            className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-a23bee1"
+            data-id="a23bee1"
+            data-element_type="column"
+            data-e-type="column"
+          >
+            <div className="elementor-widget-wrap elementor-element-populated">
+              <div
+                className="elementor-element elementor-element-0fd56be elementor-widget elementor-widget-image"
+                data-id="0fd56be"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="image.default"
+              >
+                <div className="elementor-widget-container">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="201"
+                    src="/images/local/california.jpg.webp"
+                    className="attachment-large size-large wp-image-2472"
+                    alt="Bay Bridge with San Francisco skyline in the background under a cloudy sky."
+                  />
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-a2d753e elementor-widget elementor-widget-heading"
+                data-id="a2d753e"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    California (Bay Area)
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-14cb32b elementor-widget elementor-widget-heading"
+                data-id="14cb32b"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    LIC:PPO14579
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-a68ec81 elementor-widget elementor-widget-text-editor"
+                data-id="a68ec81"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="text-editor.default"
+              >
+                <div className="elementor-widget-container">
+                  <p>
+                    Headquarter
+                    <br />
+                    33446 Western AVE
+                    <br />
+                    Union City, CA 94587
+                    <br />
+                    Call: 510-742-8000
+                  </p>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-1c6ddac elementor-widget elementor-widget-image"
+                data-id="1c6ddac"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="image.default"
+              >
+                <div className="elementor-widget-container">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="203"
+                    src="/images/local/oregon.jpg.webp"
+                    className="attachment-large size-large wp-image-2475"
+                    alt="Beautiful waterfall cascading over lush cliffs with a bridge, surrounded by vibrant green foliage."
+                  />
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-ad58fb9 elementor-widget elementor-widget-heading"
+                data-id="ad58fb9"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    Portland Oregon
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-8724050 elementor-widget elementor-widget-heading"
+                data-id="8724050"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    LIC:105G258C2
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-ca718ef elementor-widget elementor-widget-text-editor"
+                data-id="ca718ef"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="text-editor.default"
+              >
+                <div className="elementor-widget-container">
+                  <p>
+                    Branch Office
+                    <br />
+                    650 NE Holladay St Suite <br />
+                    1600 Portland, OR 97232
+                    <br />
+                    Call: 503-925-4600
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-cbeab62"
+            data-id="cbeab62"
+            data-element_type="column"
+            data-e-type="column"
+          >
+            <div className="elementor-widget-wrap elementor-element-populated">
+              <div
+                className="elementor-element elementor-element-654b573 elementor-widget elementor-widget-image"
+                data-id="654b573"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="image.default"
+              >
+                <div className="elementor-widget-container">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="200"
+                    src="/images/local/Houston.jpg.webp"
+                    className="attachment-large size-large wp-image-2473"
+                    alt="Skyline of a bustling city with modern skyscrapers and lush green spaces under a partly cloudy blue sky."
+                  />
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-bd41f46 elementor-widget elementor-widget-heading"
+                data-id="bd41f46"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    Houston Texas
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-aa603ec elementor-widget elementor-widget-heading"
+                data-id="aa603ec"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    LIC:B07283801
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-1a2fd8e elementor-widget elementor-widget-text-editor"
+                data-id="1a2fd8e"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="text-editor.default"
+              >
+                <div className="elementor-widget-container">
+                  <p>
+                    Call: 832-917-6994
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                  </p>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-bf2533f elementor-widget elementor-widget-image"
+                data-id="bf2533f"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="image.default"
+              >
+                <div className="elementor-widget-container">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="204"
+                    src="/images/local/San_Antonio_Texas.jpg.webp"
+                    className="attachment-large size-large wp-image-2476"
+                    alt="Colorful San Antonio River Walk at night, with bright lights reflecting on the water and bustling riverside restaurants."
+                  />
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-be61c7c elementor-widget elementor-widget-heading"
+                data-id="be61c7c"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    San Antonio Texas
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-646246c elementor-widget elementor-widget-heading"
+                data-id="646246c"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    LIC:B07283801
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-c1dbde2 elementor-widget elementor-widget-text-editor"
+                data-id="c1dbde2"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="text-editor.default"
+              >
+                <div className="elementor-widget-container">
+                  <p>
+                    Branch Office
+                    <br />
+                    14215 S. US Highway 181
+                    <br />
+                    San Antonio, TX 78223
+                    <br />
+                    Call: 210-714-3030
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7ad76f8"
+            data-id="7ad76f8"
+            data-element_type="column"
+            data-e-type="column"
+          >
+            <div className="elementor-widget-wrap elementor-element-populated">
+              <div
+                className="elementor-element elementor-element-08a9630 elementor-widget elementor-widget-image"
+                data-id="08a9630"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="image.default"
+              >
+                <div className="elementor-widget-container">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="206"
+                    src="/images/local/portland.jpg.webp"
+                    className="attachment-large size-large wp-image-2474"
+                    alt="Seattle skyline at dusk featuring the iconic Space Needle and city skyscrapers against a blue evening sky."
+                  />
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-4ca3b48 elementor-widget elementor-widget-heading"
+                data-id="4ca3b48"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    Seattle Washington
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-0a60537 elementor-widget elementor-widget-heading"
+                data-id="0a60537"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    LIC:1206
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-8d8139c elementor-widget elementor-widget-text-editor"
+                data-id="8d8139c"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="text-editor.default"
+              >
+                <div className="elementor-widget-container">
+                  <p>
+                    Branch Office
+                    <br />
+                    600 Stewart St Suite <br />
+                    400 Seattle, WA 98101
+                    <br />
+                    Call: 206-620-2260
+                  </p>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-4ed58c5 elementor-widget elementor-widget-image"
+                data-id="4ed58c5"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="image.default"
+              >
+                <div className="elementor-widget-container">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="200"
+                    src="/images/local/vancouver.jpg.webp"
+                    className="attachment-large size-large wp-image-2477"
+                    alt="Historic steam clock in vibrant city street scene at night, surrounded by lit buildings and blurred motion of lights."
+                  />
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-691835d elementor-widget elementor-widget-heading"
+                data-id="691835d"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    Vancouver Washington
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-d70df1c elementor-widget elementor-widget-heading"
+                data-id="d70df1c"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+              >
+                <div className="elementor-widget-container">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    LIC:1206
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-17b10e6 elementor-widget elementor-widget-text-editor"
+                data-id="17b10e6"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="text-editor.default"
+              >
+                <div className="elementor-widget-container">
+                  <p>
+                    Branch Office
+                    <br />
+                    2910 E Evergreen BLVD
+                    <br />
+                    Vancouver, WA 98661
+                    <br />
+                    Call:&nbsp; 360-719-4991
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default OurOffices;
