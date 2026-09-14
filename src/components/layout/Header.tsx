@@ -185,7 +185,7 @@ const Header = () => {
                   data-widget_type="image.default"
                 >
                   <div className="elementor-widget-container">
-                    <a href="/index.html">
+                    <a href="/">
                       <img
                         fetchPriority="high"
                         width="420"
@@ -365,6 +365,7 @@ const Header = () => {
                       <div
                         id="ekit-megamenu-primary-menu"
                         className={`elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover ${mainMenuOpen ? "active" : ""}`}
+                        suppressHydrationWarning
                       >
                         <ul
                           id="menu-primary-menu"
@@ -376,7 +377,7 @@ const Header = () => {
                             data-vertical-menu="750px"
                           >
                             <a
-                              href="/index.html"
+                              href="/"
                               className="ekit-menu-nav-link active"
                               aria-current="page"
                             >
@@ -1223,7 +1224,7 @@ const Header = () => {
                                                     <div className="elementor-icon-box-wrapper">
                                                       <div className="elementor-icon-box-content">
                                                         <h3 className="elementor-icon-box-title">
-                                                          <a href="/shopping-center-security-guards/index.html">
+                                                          <a href="/shopping-center-security-guards">
                                                             Shopping Center,
                                                             Malls &amp;
                                                             Warehouses{" "}
@@ -1253,7 +1254,7 @@ const Header = () => {
                                                     <div className="elementor-button-wrapper">
                                                       <a
                                                         className="elementor-button elementor-button-link elementor-size-sm"
-                                                        href="/shopping-center-security-guards/index.html"
+                                                        href="/shopping-center-security-guards"
                                                       >
                                                         <span className="elementor-button-content-wrapper">
                                                           <span className="elementor-button-icon">
@@ -1992,7 +1993,7 @@ const Header = () => {
                             data-vertical-menu="750px"
                           >
                             <a
-                              href="/ads-guards-contact-us/index.html"
+                              href="/contact-us"
                               className="ekit-menu-nav-link"
                             >
                               Contact Us
@@ -2004,7 +2005,7 @@ const Header = () => {
                             data-vertical-menu="750px"
                           >
                             <a
-                              href="/career/index.html"
+                              href="/career"
                               className="ekit-menu-nav-link"
                             >
                               Career
@@ -2016,7 +2017,7 @@ const Header = () => {
                             data-vertical-menu="750px"
                           >
                             <a
-                              href="/privacy-policy/index.html"
+                              href="/privacy-policy"
                               className="ekit-menu-nav-link"
                             >
                               Privacy Policy
@@ -2063,7 +2064,7 @@ const Header = () => {
                   data-widget_type="image.default"
                 >
                   <div className="elementor-widget-container">
-                    <a href="/index.html">
+                    <a href="/">
                       <img
                         fetchPriority="high"
                         width="420"
@@ -2133,7 +2134,7 @@ const Header = () => {
                       <ul id="menu-1-4e18aba" className="elementor-nav-menu">
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item menu-item-393">
                           <a
-                            href="/index.html"
+                            href="/"
                             aria-current="page"
                             className="elementor-item elementor-item-active"
                           >
@@ -2150,7 +2151,7 @@ const Header = () => {
                           <ul className="sub-menu elementor-nav-menu--dropdown">
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-395">
                               <a
-                                href="/armed-security/index.html"
+                                href="/armed-security"
                                 className="elementor-sub-item"
                               >
                                 Armed Security
@@ -2158,7 +2159,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-404">
                               <a
-                                href="/unarmed-security/index.html"
+                                href="/unarmed-security"
                                 className="elementor-sub-item"
                               >
                                 Unarmed Security
@@ -2166,7 +2167,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-399">
                               <a
-                                href="/construction-site-security/index.html"
+                                href="/construction-site-security"
                                 className="elementor-sub-item"
                               >
                                 Construction Site Security
@@ -2174,7 +2175,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-402">
                               <a
-                                href="/mobile-patrol-security/index.html"
+                                href="/mobile-patrol-security"
                                 className="elementor-sub-item"
                               >
                                 Mobile Patrol Security
@@ -2182,7 +2183,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-401">
                               <a
-                                href="/event-security/index.html"
+                                href="/event-security"
                                 className="elementor-sub-item"
                               >
                                 Event Security
@@ -2190,7 +2191,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-398">
                               <a
-                                href="/commercial-security/index.html"
+                                href="/commercial-security"
                                 className="elementor-sub-item"
                               >
                                 Commercial Security
@@ -2198,7 +2199,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-403">
                               <a
-                                href="/residential-security/index.html"
+                                href="/residential-security"
                                 className="elementor-sub-item"
                               >
                                 Residential Security
@@ -2206,7 +2207,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2567">
                               <a
-                                href="/shopping-center-security-guards/index.html"
+                                href="/shopping-center-security-guards"
                                 className="elementor-sub-item"
                               >
                                 Shopping Center, Malls &#038; Warehouses
@@ -2214,7 +2215,7 @@ const Header = () => {
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2568">
                               <a
-                                href="/office-buildings/index.html"
+                                href="/office-buildings"
                                 className="elementor-sub-item"
                               >
                                 Office buildings, High rise, Parking lots
@@ -2282,7 +2283,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-400">
                           <a
-                            href="/ads-guards-contact-us/index.html"
+                            href="/contact-us"
                             className="elementor-item"
                           >
                             Contact Us
@@ -2298,7 +2299,7 @@ const Header = () => {
                         </li>
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-397">
                           <a
-                            href="/career/index.html"
+                            href="/career"
                             className="elementor-item"
                           >
                             Career
@@ -2307,7 +2308,7 @@ const Header = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3806">
                           <a
                             rel="privacy-policy"
-                            href="/privacy-policy/index.html"
+                            href="/privacy-policy"
                             className="elementor-item"
                           >
                             Privacy Policy
@@ -2348,7 +2349,7 @@ const Header = () => {
           <ul className="mobile-nav-list">
             <li className="menu-item current-menu-item current_page_item">
               <a
-                href="/index.html"
+                href="/"
                 className="mobile-nav-link mobile-nav-link--active"
               >
                 Home
@@ -2373,41 +2374,41 @@ const Header = () => {
               {mobileServicesOpen && (
                 <ul className="mobile-nav-submenu">
                   <li>
-                    <a href="/armed-security/index.html">Armed Security</a>
+                    <a href="/armed-security">Armed Security</a>
                   </li>
                   <li>
-                    <a href="/unarmed-security/index.html">Unarmed Security</a>
+                    <a href="/unarmed-security">Unarmed Security</a>
                   </li>
                   <li>
-                    <a href="/construction-site-security/index.html">
+                    <a href="/construction-site-security">
                       Construction Site Security
                     </a>
                   </li>
                   <li>
-                    <a href="/mobile-patrol-security/index.html">
+                    <a href="/mobile-patrol-security">
                       Mobile Patrol Security
                     </a>
                   </li>
                   <li>
-                    <a href="/event-security/index.html">Event Security</a>
+                    <a href="/event-security">Event Security</a>
                   </li>
                   <li>
-                    <a href="/commercial-security/index.html">
+                    <a href="/commercial-security">
                       Commercial Security
                     </a>
                   </li>
                   <li>
-                    <a href="/residential-security/index.html">
+                    <a href="/residential-security">
                       Residential Security
                     </a>
                   </li>
                   <li>
-                    <a href="/shopping-center-security-guards/index.html">
+                    <a href="/shopping-center-security-guards">
                       Shopping Center, Malls &amp; Warehouses
                     </a>
                   </li>
                   <li>
-                    <a href="/office-buildings/index.html">
+                    <a href="/office-buildings">
                       Office buildings, High rise, Parking lots
                     </a>
                   </li>
@@ -2457,7 +2458,7 @@ const Header = () => {
             </li>
             <li className="menu-item">
               <a
-                href="/ads-guards-contact-us/index.html"
+                href="/contact-us"
                 className="mobile-nav-link"
               >
                 Contact Us
@@ -2469,12 +2470,12 @@ const Header = () => {
               </a>
             </li>
             <li className="menu-item">
-              <a href="/career/index.html" className="mobile-nav-link">
+              <a href="/career" className="mobile-nav-link">
                 Career
               </a>
             </li>
             <li className="menu-item">
-              <a href="/privacy-policy/index.html" className="mobile-nav-link">
+              <a href="/privacy-policy" className="mobile-nav-link">
                 Privacy Policy
               </a>
             </li>
