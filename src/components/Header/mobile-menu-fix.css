@@ -1,0 +1,59 @@
+/* Fix for Mobile Menu Full Width and Styling */
+@media (max-width: 1024px) {
+  /* Make the dropdown container full width */
+  .elementor-nav-menu__container.elementor-nav-menu--dropdown {
+    position: fixed !important;
+    top: 130px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    background-color: #f2f3f5 !important;
+    z-index: 9999 !important;
+    border-top: 1px solid #ddd;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+  }
+
+  /* Style the menu items */
+  .elementor-nav-menu--dropdown .elementor-item,
+  .elementor-nav-menu--dropdown .elementor-sub-item {
+    display: block !important;
+    padding: 15px 20px !important;
+    color: #33373d !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    border-bottom: 1px solid #e1e3e6 !important;
+    background-color: #f2f3f5 !important;
+    text-decoration: none !important;
+    width: 100% !important;
+  }
+
+  /* Hover and active states for menu items */
+  .elementor-nav-menu--dropdown .elementor-item:hover,
+  .elementor-nav-menu--dropdown .elementor-sub-item:hover,
+  .elementor-nav-menu--dropdown .elementor-item.elementor-item-active {
+    background-color: #444b54 !important;
+    color: #fff !important;
+  }
+
+  /* Toggle Button Close (X) State */
+  .elementor-menu-toggle.elementor-active {
+    background-color: transparent !important;
+  }
+
+  .elementor-menu-toggle.elementor-active .elementor-menu-toggle__icon--close {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #F29424 !important;
+    font-size: 32px !important;
+    font-weight: bold !important;
+  }
+
+  /* When open, hide the hamburger icon */
+  .elementor-menu-toggle.elementor-active .elementor-menu-toggle__icon--open {
+    display: none !important;
+  }
+}
+

@@ -1,0 +1,180 @@
+"use client";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const GUARDONE_LIST_STYLE = `
+.guardone-heading { font-weight: 600; font-size: 1.25rem; line-height: 1.75rem; color: #fff; }
+.guardone-list { list-style-type: disc; list-style-position: outside; padding-left: 2rem; color: #f3f4f6; font-size: 19px; line-height: 2.25rem; }
+`;
+
+export default function Tracking() {
+  const [firstExpanded, setFirstExpanded] = useState(false);
+  const [secondExpanded, setSecondExpanded] = useState(false);
+
+  return (
+    <><section className="elementor-section elementor-top-section elementor-element elementor-element-1f6bb37 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="1f6bb37" data-element_type="section" data-e-type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+    <style dangerouslySetInnerHTML={{ __html: GUARDONE_LIST_STYLE }} />
+    <div className="elementor-container elementor-column-gap-default">
+      <div className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f98bd95 profile-card" data-id="f98bd95" data-element_type="column" data-e-type="column">
+        <motion.div 
+          className="elementor-widget-wrap elementor-element-populated u-overflow-hidden"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="elementor-background-overlay" />
+          <div className="elementor-element elementor-element-a7bf670 elementor-widget elementor-widget-image" data-id="a7bf670" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+            <div className="elementor-widget-container">
+              <img src="/wp-content/uploads/2023/02/GuardOne-Logowhite.png" loading="lazy" decoding="async" width={73} height={73} className="attachment-large size-large wp-image-122" alt="Logo of GuardOne featuring a stylized G and 1 with gold and white color scheme." />
+            </div>
+          </div>
+          <div className="elementor-element elementor-element-d4ab36d elementor-widget elementor-widget-heading" data-id="d4ab36d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+            <div className="elementor-widget-container">
+              <h2 className="elementor-heading-title elementor-size-default">
+                Real-Time Guard Tracking, Reporting, and Client Updates
+              </h2>
+            </div>
+          </div>
+          
+          <AnimatePresence>
+            {firstExpanded && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="elementor-element elementor-element-c9e7336 details-area e-flex e-con-boxed e-con e-parent u-overflow-hidden" 
+                data-id="c9e7336" 
+                data-element_type="container" 
+                data-e-type="container"
+              >
+                <div className="e-con-inner">
+                  <div className="elementor-element elementor-element-ad20cfb elementor-widget elementor-widget-text-editor" data-id="ad20cfb" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+                    <div className="elementor-widget-container">
+                      <p className="guardone-heading" style={{textAlign: 'center'}}><strong>We use GuardOne to:</strong></p>
+                      <ul className="guardone-list">
+                        <li>Create incident reports/activity reports and more</li>
+                        <li>Create and publish security guard’s schedules</li>
+                        <li>We track security guard activities</li>
+                        <li>GuardOne is GPS activated</li>
+                        <li>Officers activities/reports are available real time</li>
+                        <li>Officers can contact Security and Patrol management directly from GuardOne</li>
+                        <li>PDF reports are sent automatically to the clients</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {!firstExpanded ? (
+            <div className="elementor-element elementor-element-042d98e elementor-align-center show-more elementor-widget elementor-widget-button u-mt-4" data-id="042d98e" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+              <div className="elementor-widget-container">
+                <div className="elementor-button-wrapper">
+                  <a className="elementor-button elementor-button-link elementor-size-sm" href="#" onClick={(e) => { e.preventDefault(); setFirstExpanded(true); }}>
+                    <span className="elementor-button-content-wrapper">
+                      <span className="elementor-button-text">Show More</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="elementor-element elementor-element-59a4c60 elementor-align-center show-less elementor-widget elementor-widget-button u-mt-4" data-id="59a4c60" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+              <div className="elementor-widget-container">
+                <div className="elementor-button-wrapper">
+                  <a className="elementor-button elementor-button-link elementor-size-sm" href="#" onClick={(e) => { e.preventDefault(); setFirstExpanded(false); }}>
+                    <span className="elementor-button-content-wrapper">
+                      <span className="elementor-button-text">Show Less</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </div>
+
+      <div className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-604aa78 profile-card" data-id="604aa78" data-element_type="column" data-e-type="column">
+        <motion.div 
+          className="elementor-widget-wrap elementor-element-populated u-overflow-hidden"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="elementor-background-overlay" />
+          <div className="elementor-element elementor-element-af8692a elementor-widget elementor-widget-heading" data-id="af8692a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+            <div className="elementor-widget-container">
+              <h2 className="elementor-heading-title elementor-size-default">
+                24/7 Dispatch Center
+              </h2>
+            </div>
+          </div>
+
+          <AnimatePresence>
+            {secondExpanded && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="elementor-element elementor-element-a2aaf12 details-area e-flex e-con-boxed e-con e-parent u-overflow-hidden" 
+                data-id="a2aaf12" 
+                data-element_type="container" 
+                data-e-type="container"
+              >
+                <div className="e-con-inner">
+                  <div className="elementor-element elementor-element-4a0b848 elementor-widget elementor-widget-text-editor" data-id="4a0b848" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+                    <div className="elementor-widget-container">
+                      <p style={{textAlign: 'center'}}>
+                        <strong>Friendly and reliable dispatch services:</strong>
+                      </p>
+                      <ul className="guardone-list">
+                        <li>All dispatch is control from our 24/7 central office</li>
+                        <li>Live operators are available to solve problems</li>
+                        <li>Dispatcher monitor security guard activities</li>
+                        <li>Prompt and reliable communication with clients and guard</li>
+                        <li>Officers activities/reports are available real time</li>
+                        <li>Prompt response to emergency situation(s)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {!secondExpanded ? (
+            <div className="elementor-element elementor-element-f0fda03 elementor-align-center show-more elementor-widget elementor-widget-button u-mt-4" data-id="f0fda03" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+              <div className="elementor-widget-container">
+                <div className="elementor-button-wrapper">
+                  <a className="elementor-button elementor-button-link elementor-size-sm" href="#" onClick={(e) => { e.preventDefault(); setSecondExpanded(true); }}>
+                    <span className="elementor-button-content-wrapper">
+                      <span className="elementor-button-text">Show More</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="elementor-element elementor-element-4f7cf3e elementor-align-center show-less elementor-widget elementor-widget-button u-mt-4" data-id="4f7cf3e" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+              <div className="elementor-widget-container">
+                <div className="elementor-button-wrapper">
+                  <a className="elementor-button elementor-button-link elementor-size-sm" href="#" onClick={(e) => { e.preventDefault(); setSecondExpanded(false); }}>
+                    <span className="elementor-button-content-wrapper">
+                      <span className="elementor-button-text">Show Less</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </div>
+    </div>
+  </section></>
+  );
+}

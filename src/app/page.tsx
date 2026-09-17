@@ -1,27 +1,71 @@
-import HeroSection from "@/components/sections/HeroSection";
-import Section2 from "@/components/sections/Section2";
-import ServicesSection_3 from "@/components/sections/ServicesSection_3";
-import ServicesSection_4 from "@/components/sections/ServicesSection_4";
-import ServicesSection_5 from "@/components/sections/ServicesSection_5";
-import ContactSection_6 from "@/components/sections/ContactSection_6";
-import Section7 from "@/components/sections/Section7";
-import OurOffices from "@/components/sections/OurOffices";
-import Xs_testi_7 from "@/components/sections/Xs_testi_7";
-import ContactSection_10 from "@/components/sections/ContactSection_10";
+import ConnectedHeader from '@/components/Header/Connected';
+import Hero from '@/components/Hero';
+import Tracking from '@/components/Tracking';
+import WhyChoose from '@/components/WhyChoose';
+import ServicesIntro from '@/components/ServicesIntro';
+import ServicesList from '@/components/ServicesList';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import OfficesIntro from '@/components/OfficesIntro';
+import OfficesList from '@/components/OfficesList';
+import Testimonials from '@/components/Testimonials';
+import ContactUs from '@/components/ContactUs';
+import Footer from '@/components/Footer';
+import { getAllOffices } from '@/lib/data/offices';
+import { getServicesBySlugs } from '@/lib/data/services';
 
-export default function Home() {
+export const revalidate = 0;
+
+const HOME_FEATURED_SERVICE_SLUGS = [
+  'unarmed-security',
+  'armed-security',
+  'construction-site-security',
+  'mobile-patrol-security',
+  'event-security',
+  'commercial-security',
+];
+
+export default async function Home() {
+  const [offices, featuredServices] = await Promise.all([
+    getAllOffices(),
+    getServicesBySlugs(HOME_FEATURED_SERVICE_SLUGS),
+  ]);
   return (
     <>
-      <HeroSection />
-      <Section2 />
-      <ServicesSection_3 />
-      <ServicesSection_4 />
-      <ServicesSection_5 />
-      <ContactSection_6 />
-      {/* <Section7 /> */}
-      <OurOffices />
-      <Xs_testi_7 />
-      <ContactSection_10 />
+      <div id="wrapper" className="site wp-site-blocks">
+        <a className="skip-link screen-reader-text scroll-ignore" href="#main">Skip to content</a>
+        <ConnectedHeader />
+        <div id="content" className="site-content">
+          <main id="inner-wrap" className="wrap kt-clear" role="main">
+            <div id="primary" className="content-area">
+              <div className="content-container site-container">
+                <div id="main" className="site-main">
+                  <div className="content-wrap">
+                    <article id="post-7" className="entry content-bg single-entry post-7 page type-page status-publish has-post-thumbnail hentry">
+                      <div className="entry-content-wrap">
+                        <div className="entry-content single-content">
+                          <div data-elementor-type="wp-page" data-elementor-id="7" className="elementor elementor-7" data-elementor-post-type="page">
+                            <Hero />
+                            <Tracking />
+                            <WhyChoose />
+                            <ServicesIntro />
+                            <ServicesList services={featuredServices} />
+                            <WhyChooseUs />
+                            <OfficesIntro />
+                            <OfficesList offices={offices} />
+                            <Testimonials />
+                            {/* <ContactUs /> */}
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }
