@@ -27,6 +27,13 @@ function getPool() {
 }
 
 export async function query<T>(sql: string, params: unknown[] = []): Promise<T> {
-  const [rows] = await getPool().execute(sql, params as never);
-  return rows as T;
+  try {
+    const [rows] = await getPool().execute(sql, params as never);
+    return rows as T;
+  } catch (error: any) {
+    // If it's a connection error (like ECONNREFUSED), it might be an AggregateError
+    // which Next.js struggles to serialize to the client, causing "object null is not iterable".
+    // Throwing a standard Error fixes the crash and gives a clear message.
+    throw new Error(`Database query failed: ${error?.message || String(error)}`);
+  }
 }

@@ -17,7 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script src="/wp-includes/js/jquery/jquery.min.js" strategy="beforeInteractive" />
       <link rel="stylesheet" href="/wp-content/litespeed/css/5834dbfd8229134341b4d2a13861b4ea3741.css?ver=1b4ea" />
         <link rel="stylesheet" href="/wp-content/litespeed/css/b53ba5285d939da6a4d3628bc09c01f35e7e.css?ver=c01f3" />
         <link rel="stylesheet" href="/wp-content/litespeed/css/d014a89e9df7235417cded97ef5db763e135.css?ver=db763" />
@@ -92,6 +91,7 @@ export default function RootLayout({
       <body suppressHydrationWarning className="home wp-singular page-template-default page page-id-7 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-standard content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide non-transparent-header mobile-non-transparent-header kadence-elementor-colors elementor-default elementor-kit-6 elementor-page elementor-page-7">
         {children}
       </body>
+      <Script src="/wp-includes/js/jquery/jquery.min.js" strategy="beforeInteractive" />
     </html>
   );
 }
