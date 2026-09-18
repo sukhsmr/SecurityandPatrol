@@ -3,7 +3,7 @@ import React from 'react';
 export default function ServicesIntro() {
   return (
     <>
-      <section className="elementor-section elementor-top-section elementor-element elementor-element-16c05f7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="16c05f7" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;none&quot;}">
+      {/* <section className="elementor-section elementor-top-section elementor-element elementor-element-16c05f7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="16c05f7" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;none&quot;}">
         <div className="elementor-container elementor-column-gap-default">
           <div className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-0506024" data-id="0506024" data-element_type="column" data-e-type="column">
             <div className="elementor-widget-wrap elementor-element-populated">
@@ -145,7 +145,7 @@ export default function ServicesIntro() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section
         className="elementor-section elementor-top-section elementor-element elementor-element-16c05f7 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
         data-id="16c05f7"
