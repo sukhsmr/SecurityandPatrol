@@ -16,3 +16,12 @@ const { execSync } = require('child_process');
 process.chdir(fs.realpathSync(process.cwd()));
 
 execSync('npx next build --webpack', { stdio: 'inherit', cwd: process.cwd() });
+
+// next.config.ts sets output: 'standalone', which emits a minimal
+// .next/standalone/server.js but deliberately does NOT include the public/
+// and .next/static/ folders (Next's docs say to copy them in yourself —
+// https://nextjs.org/docs/app/api-reference/config/next-config-js/output).
+// Without them the standalone server 404s on every asset and CSS/JS/image
+// request, which is what was producing the live-site 500.
+fs.cpSync('public', '.next/standalone/public', { recursive: true });
+fs.cpSync('.next/static', '.next/standalone/.next/static', { recursive: true });
