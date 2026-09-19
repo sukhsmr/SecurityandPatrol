@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import BlogCard from '@/components/BlogCard';
 import { getAllBlogPosts } from '@/lib/data/blog';
 
-export const revalidate = 0;
+
 
 export const metadata = {
   title: 'Security Tips | Safety Advice | Licensed Security Guards & Patrols',

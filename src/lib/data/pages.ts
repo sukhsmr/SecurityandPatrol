@@ -1,4 +1,5 @@
-import { query } from '@/lib/db';
+import fs from 'fs';
+import path from 'path';
 
 export interface PageContent {
   slug: string;
@@ -7,24 +8,22 @@ export interface PageContent {
   contentHtml: string;
 }
 
-interface PageRow {
-  slug: string;
-  title: string;
-  meta_description: string | null;
-  content_html: string;
-}
-
 export async function getPageBySlug(slug: string): Promise<PageContent | null> {
-  const rows = await query<PageRow[]>(
-    'SELECT slug, title, meta_description, content_html FROM pages WHERE slug = ? LIMIT 1',
-    [slug]
-  );
-  if (!rows.length) return null;
-  const row = rows[0];
-  return {
-    slug: row.slug,
-    title: row.title,
-    metaDescription: row.meta_description,
-    contentHtml: row.content_html,
-  };
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'data', `${slug}.json`);
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const data = JSON.parse(fileContents);
+    return {
+      slug,
+      title: data.title || '',
+      metaDescription: data.seo?.description || data.metaDescription || null,
+      contentHtml: data.contentHtml || '',
+    };
+  } catch (error) {
+    console.error(`Error reading ${slug}.json`, error);
+    return null;
+  }
 }

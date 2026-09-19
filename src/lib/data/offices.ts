@@ -1,4 +1,5 @@
-import { query } from '@/lib/db';
+import fs from 'fs';
+import path from 'path';
 
 export interface Office {
   anchor: string | null;
@@ -11,33 +12,68 @@ export interface Office {
   imageAlt: string | null;
 }
 
-interface OfficeRow {
-  anchor: string | null;
-  name: string;
-  license_number: string | null;
-  office_type: string | null;
-  address: string | null;
-  phone: string | null;
-  image_url: string | null;
-  image_alt: string | null;
-}
-
-function toOffice(row: OfficeRow): Office {
-  return {
-    anchor: row.anchor,
-    name: row.name,
-    licenseNumber: row.license_number,
-    officeType: row.office_type,
-    address: row.address,
-    phone: row.phone,
-    imageUrl: row.image_url,
-    imageAlt: row.image_alt,
-  };
-}
-
 export async function getAllOffices(): Promise<Office[]> {
-  const rows = await query<OfficeRow[]>(
-    'SELECT anchor, name, license_number, office_type, address, phone, image_url, image_alt FROM offices ORDER BY sort_order ASC, id ASC'
-  );
-  return rows.map(toOffice);
+  return [
+    {
+      anchor: 'California',
+      name: 'California (Bay Area)',
+      licenseNumber: 'PPO14579',
+      officeType: 'Headquarter',
+      address: '33446 Western AVE, Union City, CA 94587',
+      phone: '510-742-8000',
+      imageUrl: null,
+      imageAlt: null,
+    },
+    {
+      anchor: 'portland',
+      name: 'Portland Oregon',
+      licenseNumber: '105G258C2',
+      officeType: 'Branch Office',
+      address: '650 NE Holladay St Suite 1600, Portland, OR 97232',
+      phone: '503-925-4600',
+      imageUrl: null,
+      imageAlt: null,
+    },
+    {
+      anchor: 'seattle',
+      name: 'Seattle Washington',
+      licenseNumber: '1206',
+      officeType: 'Branch Office',
+      address: '600 Stewart St Suite 400, Seattle, WA 98101',
+      phone: '206-620-2260',
+      imageUrl: null,
+      imageAlt: null,
+    },
+    {
+      anchor: 'vanc',
+      name: 'Vancouver Washington',
+      licenseNumber: '1206',
+      officeType: 'Branch Office',
+      address: '2910 E Evergreen BLVD, Vancouver, WA 98661',
+      phone: '360-719-4991',
+      imageUrl: null,
+      imageAlt: null,
+    },
+    {
+      anchor: 'Texas',
+      name: 'Houston Texas',
+      licenseNumber: 'B07283801',
+      officeType: 'Branch Office',
+      address: null,
+      phone: '832-917-6994',
+      imageUrl: null,
+      imageAlt: null,
+    },
+    {
+      anchor: 'san',
+      name: 'San Antonio Texas',
+      licenseNumber: 'B07283801',
+      officeType: 'Branch Office',
+      address: '14215 S. US Highway 181, San Antonio, TX 78223',
+      phone: '210-714-3030',
+      imageUrl: null,
+      imageAlt: null,
+    }
+  ];
 }
+

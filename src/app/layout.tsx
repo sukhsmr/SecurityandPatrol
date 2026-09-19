@@ -89,9 +89,9 @@ export default function RootLayout({
         <link rel="stylesheet" href="/wp-content/litespeed/css/fd133818a995fe1687242fb98369205fa12e.css" />
         </head>
       <body suppressHydrationWarning className="home wp-singular page-template-default page page-id-7 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-standard content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide non-transparent-header mobile-non-transparent-header kadence-elementor-colors elementor-default elementor-kit-6 elementor-page elementor-page-7">
+        <Script src="/wp-includes/js/jquery/jquery.min.js" strategy="beforeInteractive" />
         {children}
       </body>
-      <Script src="/wp-includes/js/jquery/jquery.min.js" strategy="beforeInteractive" />
     </html>
   );
 }

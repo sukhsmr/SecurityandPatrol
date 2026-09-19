@@ -13,7 +13,7 @@ import Footer from '@/components/Footer';
 import { getAllOffices } from '@/lib/data/offices';
 import { getServicesBySlugs } from '@/lib/data/services';
 
-export const revalidate = 0;
+
 
 const HOME_FEATURED_SERVICE_SLUGS = [
   'unarmed-security',

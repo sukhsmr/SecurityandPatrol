@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import ElementorRawView from '@/components/ElementorRawView';
 import { getPageBySlug } from '@/lib/data/pages';
 
-export const revalidate = 0;
+
 
 export default async function OfficesPage() {
   const officesData = await getPageBySlug('offices');

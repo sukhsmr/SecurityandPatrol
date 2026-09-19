@@ -7,8 +7,7 @@ import BlogPostView from '@/components/BlogPostView';
 import { getAllServices, getServiceBySlug } from '@/lib/data/services';
 import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/data/blog';
 
-export const revalidate = 0;
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const [services, posts] = await Promise.all([getAllServices(), getAllBlogPosts()]);
