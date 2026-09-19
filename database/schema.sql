@@ -16,10 +16,10 @@
 -- home-page sections) that don't warrant their own table. `site_settings` holds
 -- single values reused across the site (phone number, email, social links).
 
-CREATE DATABASE IF NOT EXISTS securityand_patrol
-  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- CREATE DATABASE IF NOT EXISTS securityand_patrol
+--   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE securityand_patrol;
+USE aviorcon_security;
 
 -- Whole-page HTML content, one row per route (contact-us, offices, home sections
 -- not yet broken into their own tables, privacy-policy, career, etc.)
