@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/favicon.ico/route": "/favicon.ico",
+  "/icon.png/route": "/icon.png",
+  "/career/page": "/career",
+  "/privacy-policy/page": "/privacy-policy",
+  "/[slug]/page": "/[slug]",
+  "/ads-blog/page": "/ads-blog",
+  "/ads-guards-contact-us/page": "/ads-guards-contact-us",
+  "/offices/page": "/offices",
+  "/page": "/"
+}

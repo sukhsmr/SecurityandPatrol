@@ -1,0 +1,29 @@
+{
+  "name": "securityand-patrol",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "node scripts/build.js",
+    "start": "next start",
+    "lint": "eslint",
+    "db:seed": "node database/seed.js"
+  },
+  "dependencies": {
+    "framer-motion": "^13.3.0",
+    "mysql2": "^3.24.4",
+    "next": "16.3.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "swiper": "^14.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "typescript": "^5"
+  }
+}
