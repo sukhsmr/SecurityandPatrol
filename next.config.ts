@@ -1,9 +1,22 @@
+// import type { NextConfig } from "next";
+
+// const nextConfig: NextConfig = {
+//   output: 'export',
+//   images: {
+//     unoptimized: true,
+//   },
+// };
+
+// export default nextConfig;
+
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  experimental: {
-    cpus: 1,
+  output: "export",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
   },
 };
 
