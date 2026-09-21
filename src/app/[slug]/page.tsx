@@ -57,7 +57,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
                 <div id="main" className="site-main">
                   <div className="content-wrap">
                     {service ? (
-                      <article className="entry content-bg single-entry page type-page status-publish has-post-thumbnail hentry">
+                      <article className="entry single-entry page type-page status-publish has-post-thumbnail hentry">
                         <div className="entry-content-wrap">
                           <div className="entry-content single-content">
                             <ElementorRawView contentHtml={service.contentHtml} />

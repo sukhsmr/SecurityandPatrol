@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import RequestQuoteModal from '../RequestQuoteModal';
 import type { Service } from '@/lib/data/services';
@@ -40,6 +41,13 @@ const SERVICES_MENU_STYLE = `
 export default function Header({ services, offices }: { services: Service[]; offices: Office[] }) {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openSubMenus, setOpenSubMenus] = useState<Record<string, boolean>>({});
+  const pathname = usePathname();
+
+  const toggleSubMenu = (menuId: string) => {
+    setOpenSubMenus(prev => ({ ...prev, [menuId]: !prev[menuId] }));
+  };
+
   const serviceColumns = chunk(services, Math.ceil(services.length / 3) || 1);
   const officeColumns = chunk(offices, Math.ceil(offices.length / 3) || 1);
   return (
@@ -396,10 +404,13 @@ export default function Header({ services, offices }: { services: Service[]; off
               <div className="elementor-widget-container">
                 <nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
                   <ul id="menu-1-4e18aba" className="elementor-nav-menu">
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item menu-item-393">
-                      <a href="/" aria-current="page" className="elementor-item elementor-item-active">Home</a></li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
-                      <a href="#" className="elementor-item elementor-item-anchor">Services</a>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-7 menu-item-393 ${pathname === '/' ? 'current-menu-item current_page_item' : ''}`}>
+                      <a href="/" aria-current={pathname === '/' ? 'page' : undefined} className={`elementor-item ${pathname === '/' ? 'elementor-item-active' : ''}`}>Home</a></li>
+                    <li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405 ${pathname !== '/' && !pathname.startsWith('/ads-blog') && !pathname.startsWith('/ads-guards-contact-us') && !pathname.startsWith('/career') && !pathname.startsWith('/privacy-policy') && !pathname.startsWith('/offices') ? 'current-menu-item' : ''}`}>
+                      <a href="#" className={`elementor-item elementor-item-anchor ${pathname !== '/' && !pathname.startsWith('/ads-blog') && !pathname.startsWith('/ads-guards-contact-us') && !pathname.startsWith('/career') && !pathname.startsWith('/privacy-policy') && !pathname.startsWith('/offices') ? 'elementor-item-active' : ''}`}>
+                        Services
+                        <span className="sub-arrow"><i className="fas fa-caret-down"></i></span>
+                      </a>
                       <ul className="sub-menu elementor-nav-menu--dropdown">
                         {services.map((service) => (
                           <li key={service.id} className="menu-item menu-item-type-post_type menu-item-object-page">
@@ -409,7 +420,10 @@ export default function Header({ services, offices }: { services: Service[]; off
                       </ul>
                     </li>
                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-412">
-                      <a href="#" className="elementor-item elementor-item-anchor">Our Offices</a>
+                      <a href="#" className="elementor-item elementor-item-anchor">
+                        Our Offices
+                        <span className="sub-arrow"><i className="fas fa-caret-down"></i></span>
+                      </a>
                       <ul className="sub-menu elementor-nav-menu--dropdown">
                         {offices.map((office) => (
                           <li key={office.anchor} className="menu-item menu-item-type-custom menu-item-object-custom">
@@ -418,14 +432,14 @@ export default function Header({ services, offices }: { services: Service[]; off
                         ))}
                       </ul>
                     </li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-400">
-                      <a href="/ads-guards-contact-us" className="elementor-item">Contact Us</a></li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-394">
-                      <a href="/ads-blog" className="elementor-item">Blog</a></li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-397">
-                      <a href="/career" className="elementor-item">Career</a></li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3806">
-                      <a rel="privacy-policy" href="/privacy-policy" className="elementor-item">Privacy Policy</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-400 ${pathname === '/ads-guards-contact-us' ? 'current-menu-item' : ''}`}>
+                      <a href="/ads-guards-contact-us" className={`elementor-item ${pathname === '/ads-guards-contact-us' ? 'elementor-item-active' : ''}`}>Contact Us</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-394 ${pathname.startsWith('/ads-blog') ? 'current-menu-item' : ''}`}>
+                      <a href="/ads-blog" className={`elementor-item ${pathname.startsWith('/ads-blog') ? 'elementor-item-active' : ''}`}>Blog</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-397 ${pathname === '/career' ? 'current-menu-item' : ''}`}>
+                      <a href="/career" className={`elementor-item ${pathname === '/career' ? 'elementor-item-active' : ''}`}>Career</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3806 ${pathname === '/privacy-policy' ? 'current-menu-item' : ''}`}>
+                      <a rel="privacy-policy" href="/privacy-policy" className={`elementor-item ${pathname === '/privacy-policy' ? 'elementor-item-active' : ''}`}>Privacy Policy</a></li>
                   </ul>
                 </nav>
                 <div className={`elementor-menu-toggle ${isMobileMenuOpen ? "elementor-active" : ""}`} role="button" tabIndex={0} aria-label="Menu Toggle" aria-expanded={isMobileMenuOpen ? "true" : "false"} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -433,12 +447,15 @@ export default function Header({ services, offices }: { services: Service[]; off
                 </div>
                 <nav className={`elementor-nav-menu--dropdown elementor-nav-menu__container ${isMobileMenuOpen ? "elementor-active" : ""}`} aria-hidden={isMobileMenuOpen ? "false" : "true"} style={{ height: isMobileMenuOpen ? "auto" : "0px", opacity: isMobileMenuOpen ? 1 : 0, overflow: "hidden", display: isMobileMenuOpen ? "block" : "none" }}>
                   <ul id="menu-2-4e18aba" className="elementor-nav-menu">
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item menu-item-393">
-                      <a href="/" aria-current="page" className="elementor-item elementor-item-active" tabIndex={-1}>Home</a>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-7 menu-item-393 ${pathname === '/' ? 'current-menu-item current_page_item' : ''}`}>
+                      <a href="/" aria-current={pathname === '/' ? 'page' : undefined} className={`elementor-item ${pathname === '/' ? 'elementor-item-active' : ''}`} tabIndex={-1}>Home</a>
                     </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
-                      <a href="#" className="elementor-item elementor-item-anchor" tabIndex={-1}>Services</a>
-                      <ul className="sub-menu elementor-nav-menu--dropdown">
+                    <li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405 ${openSubMenus['services'] ? 'elementor-active' : ''}`}>
+                      <a href="#" className={`elementor-item elementor-item-anchor ${openSubMenus['services'] ? 'elementor-item-active' : ''}`} tabIndex={-1} onClick={(e) => { e.preventDefault(); toggleSubMenu('services'); }} style={{ display: 'flex !important', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
+                        Services
+                        <span className="sub-arrow"><i className="fas fa-caret-down"></i></span>
+                      </a>
+                      <ul className="sub-menu elementor-nav-menu--dropdown" style={{ display: openSubMenus['services'] ? 'block' : 'none' }}>
                         {services.map((service) => (
                           <li key={service.id} className="menu-item menu-item-type-post_type menu-item-object-page">
                             <a href={`/${service.id}`} className="elementor-sub-item" tabIndex={-1}>{service.title}</a>
@@ -446,9 +463,12 @@ export default function Header({ services, offices }: { services: Service[]; off
                         ))}
                       </ul>
                     </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-412">
-                      <a href="#" className="elementor-item elementor-item-anchor" tabIndex={-1}>Our Offices</a>
-                      <ul className="sub-menu elementor-nav-menu--dropdown">
+                    <li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-412 ${openSubMenus['offices'] ? 'elementor-active' : ''}`}>
+                      <a href="#" className={`elementor-item elementor-item-anchor ${openSubMenus['offices'] ? 'elementor-item-active' : ''}`} tabIndex={-1} onClick={(e) => { e.preventDefault(); toggleSubMenu('offices'); }} style={{ display: 'flex !important', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
+                        Our Offices
+                        <span className="sub-arrow"><i className="fas fa-caret-down"></i></span>
+                      </a>
+                      <ul className="sub-menu elementor-nav-menu--dropdown" style={{ display: openSubMenus['offices'] ? 'block' : 'none' }}>
                         {offices.map((office) => (
                           <li key={office.anchor} className="menu-item menu-item-type-custom menu-item-object-custom">
                             <a href={`/offices#${office.anchor}`} className="elementor-sub-item elementor-item-anchor" tabIndex={-1}>{OFFICE_ANCHOR_LABELS[office.anchor || ''] || office.name}</a>
@@ -456,14 +476,14 @@ export default function Header({ services, offices }: { services: Service[]; off
                         ))}
                       </ul>
                     </li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-400">
-                      <a href="/ads-guards-contact-us" className="elementor-item" tabIndex={-1}>Contact Us</a></li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-394">
-                      <a href="/ads-blog" className="elementor-item" tabIndex={-1}>Blog</a></li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-397">
-                      <a href="/career" className="elementor-item" tabIndex={-1}>Career</a></li>
-                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3806">
-                      <a rel="privacy-policy" href="/privacy-policy" className="elementor-item" tabIndex={-1}>Privacy Policy</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-400 ${pathname === '/ads-guards-contact-us' ? 'current-menu-item' : ''}`}>
+                      <a href="/ads-guards-contact-us" className={`elementor-item ${pathname === '/ads-guards-contact-us' ? 'elementor-item-active' : ''}`} tabIndex={-1}>Contact Us</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-394 ${pathname.startsWith('/ads-blog') ? 'current-menu-item' : ''}`}>
+                      <a href="/ads-blog" className={`elementor-item ${pathname.startsWith('/ads-blog') ? 'elementor-item-active' : ''}`} tabIndex={-1}>Blog</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-397 ${pathname === '/career' ? 'current-menu-item' : ''}`}>
+                      <a href="/career" className={`elementor-item ${pathname === '/career' ? 'elementor-item-active' : ''}`} tabIndex={-1}>Career</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3806 ${pathname === '/privacy-policy' ? 'current-menu-item' : ''}`}>
+                      <a rel="privacy-policy" href="/privacy-policy" className={`elementor-item ${pathname === '/privacy-policy' ? 'elementor-item-active' : ''}`} tabIndex={-1}>Privacy Policy</a></li>
                   </ul>
                 </nav>
               </div>

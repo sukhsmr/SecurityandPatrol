@@ -17,6 +17,9 @@ interface ElementorRawViewProps {
  * as-is guarantees every selector matches.
  */
 export default function ElementorRawView({ contentHtml }: ElementorRawViewProps) {
+  // Elementor's CSS hides backgrounds on mobile for .e-con elements unless they have .e-lazyloaded or .e-no-lazyload
+  const patchedHtml = contentHtml.replace(/class="([^"]*\be-con\b[^"]*)"/g, 'class="$1 e-no-lazyload"');
+  
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,5 +66,5 @@ export default function ElementorRawView({ contentHtml }: ElementorRawViewProps)
     return () => cleanups.forEach((fn) => fn());
   }, [contentHtml]);
 
-  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: contentHtml }} />;
+  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: patchedHtml }} suppressHydrationWarning />;
 }

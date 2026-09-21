@@ -5,15 +5,12 @@ import WhyChoose from '@/components/WhyChoose';
 import ServicesIntro from '@/components/ServicesIntro';
 import ServicesList from '@/components/ServicesList';
 import WhyChooseUs from '@/components/WhyChooseUs';
-import OfficesIntro from '@/components/OfficesIntro';
-import OfficesList from '@/components/OfficesList';
+import Offices from '@/components/Offices';
 import Testimonials from '@/components/Testimonials';
 import ContactUs from '@/components/ContactUs';
 import Footer from '@/components/Footer';
 import { getAllOffices } from '@/lib/data/offices';
 import { getServicesBySlugs } from '@/lib/data/services';
-
-
 
 const HOME_FEATURED_SERVICE_SLUGS = [
   'unarmed-security',
@@ -40,7 +37,7 @@ export default async function Home() {
               <div className="content-container site-container">
                 <div id="main" className="site-main">
                   <div className="content-wrap">
-                    <article id="post-7" className="entry content-bg single-entry post-7 page type-page status-publish has-post-thumbnail hentry">
+                    <article id="post-7" className="entry single-entry post-7 page type-page status-publish has-post-thumbnail hentry">
                       <div className="entry-content-wrap">
                         <div className="entry-content single-content">
                           <div data-elementor-type="wp-page" data-elementor-id="7" className="elementor elementor-7" data-elementor-post-type="page">
@@ -50,8 +47,7 @@ export default async function Home() {
                             <ServicesIntro />
                             <ServicesList services={featuredServices} />
                             <WhyChooseUs />
-                            <OfficesIntro />
-                            <OfficesList offices={offices} />
+                            <Offices offices={offices} />
                             <Testimonials />
                             {/* <ContactUs /> */}
                           </div>

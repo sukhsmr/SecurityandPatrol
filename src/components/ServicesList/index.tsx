@@ -26,6 +26,14 @@ const CARD_STYLE_OVERRIDE = `
   font-family: Plus Jakarta, sans-serif;
   font-size: 16px;
 }
+.services-list-card.elementor-widget {
+  margin-bottom: 0 !important;
+}
+@media (max-width: 767px) {
+  .elementor-element-065e8c7 {
+    margin-bottom: 0 !important;
+  }
+}
 `;
 
 export default function ServicesList({ services }: { services: Service[] }) {

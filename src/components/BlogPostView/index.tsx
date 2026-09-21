@@ -116,10 +116,6 @@ export default function BlogPostView({ post }: { post: BlogPost }) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Browsers never execute <script> tags injected via innerHTML, so any
-    // interactive widgets embedded in the original post content (e.g. a
-    // PDF-download modal) need to be re-created as real script elements
-    // to actually run, once per mount.
     const container = contentRef.current;
     if (!container) return;
     const scripts = Array.from(container.querySelectorAll('script'));
@@ -132,85 +128,61 @@ export default function BlogPostView({ post }: { post: BlogPost }) {
   }, [post.contentHtml]);
 
   return (
-    <article
-      id={`post-${post.id}`}
-      className={`entry content-bg single-entry post-${post.id} post type-post status-publish format-standard hentry${
-        post.featuredImage ? ' has-post-thumbnail' : ''
-      }`}
-      style={{ maxWidth: '750px', margin: '0 auto', padding: '0 20px' }}
-    >
-      <div className="entry-content-wrap">
-        {post.featuredImage?.url ? (
-          <div style={{ position: 'relative', margin: '30px 0 60px' }}>
-            <div className="post-thumbnail" style={{ borderRadius: '8px', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: '#fff', padding: '60px 0' }}>
+      <article
+        id={`post-${post.id}`}
+        style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px', width: '100%' }}
+      >
+        <div style={{ width: '100%' }}>
+          
+          {/* Featured Image */}
+          {post.featuredImage?.url && (
+            <div style={{ marginBottom: '30px', width: '100%', overflow: 'hidden', borderRadius: '8px' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={post.featuredImage.url}
                 alt={post.featuredImage.alt || post.title}
-                className="attachment-full size-full wp-post-image"
-                style={{ width: '100%', height: 'auto', display: 'block', aspectRatio: '4 / 3', objectFit: 'cover' }}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
               />
             </div>
-            <header
-              className="entry-header"
-              style={{
-                position: 'absolute',
-                left: '20px',
-                right: '20px',
-                bottom: '-40px',
-                background: '#fff',
-                borderRadius: '8px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
-                padding: '24px',
-              }}
-            >
-              {post.categories && post.categories.length > 0 && (
-                <div className="cat-links">
-                  {post.categories.map((cat) => (
-                    <span key={cat} className="cat-link" style={{ marginRight: '10px', color: '#2b6cb0', fontWeight: 600, fontSize: '13px', textTransform: 'uppercase' }}>{cat}</span>
-                  ))}
+          )}
+
+          {/* Header (Title and Meta) */}
+          <header style={{ marginBottom: '40px' }}>
+            <h1 
+              style={{ fontSize: '36px', fontWeight: 'bold', lineHeight: '1.3', marginBottom: '20px', color: '#111' }} 
+              dangerouslySetInnerHTML={{ __html: post.title }} 
+            />
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', color: '#666', fontSize: '14px', flexWrap: 'wrap' }}>
+              {/* Avatar placeholder */}
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#ccc"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ fontWeight: 'bold', color: '#333' }}>
+                  {post.author || 'Author'} <span style={{ fontWeight: 'normal', color: '#888' }}>- Writer</span>
                 </div>
-              )}
-              <h1 className="entry-title" style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: post.title }} />
-              <div className="entry-meta">
-                <span className="posted-on">
-                  <time className="entry-date published" dateTime={post.date}>{formatDate(post.date)}</time>
-                </span>
-                {post.author && (
-                  <span className="byline">
-                    {' '}by <span className="author vcard">{post.author}</span>
-                  </span>
-                )}
+                <div style={{ display: 'flex', gap: '15px', marginTop: '4px' }}>
+                  <time dateTime={post.date}>{formatDate(post.date)}</time>
+                  <span>0 Comments</span>
+                </div>
               </div>
-            </header>
-          </div>
-        ) : (
-          <header className="entry-header" style={{ margin: '30px 0' }}>
-            {post.categories && post.categories.length > 0 && (
-              <div className="cat-links">
-                {post.categories.map((cat) => (
-                  <span key={cat} className="cat-link" style={{ marginRight: '10px' }}>{cat}</span>
-                ))}
-              </div>
-            )}
-            <h1 className="entry-title" style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: post.title }} />
-            <div className="entry-meta">
-              <span className="posted-on">
-                <time className="entry-date published" dateTime={post.date}>{formatDate(post.date)}</time>
-              </span>
-              {post.author && (
-                <span className="byline">
-                  {' '}by <span className="author vcard">{post.author}</span>
-                </span>
-              )}
             </div>
           </header>
-        )}
 
-        {post.audioUrl && <AudioPlayer src={post.audioUrl} />}
+          {post.audioUrl && <AudioPlayer src={post.audioUrl} />}
 
-        <div ref={contentRef} className="entry-content single-content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
-      </div>
-    </article>
+          {/* Main Content */}
+          <div 
+            ref={contentRef} 
+            className="single-content" 
+            style={{ fontSize: '18px', lineHeight: '1.8', color: '#333', width: '100%', overflowWrap: 'break-word' }} 
+            dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
+          />
+        </div>
+      </article>
+    </div>
   );
 }
