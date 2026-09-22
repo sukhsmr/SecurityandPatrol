@@ -12,25 +12,57 @@ function chunk<T>(items: T[], size: number): T[][] {
 }
 
 const CARD_STYLE_OVERRIDE = `
+/* Legend Numbers */
 .services-list-card .u-px-3 {
-  background-color: #171717;
-  font-family: Plus Jakarta, sans-serif;
-  font-size: 24px;
-  font-weight: 100;
+  background-color: #171717 !important;
+  color: #ffffff !important;
+  font-family: Plus Jakarta, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 300 !important;
 }
+/* Card Titles */
 .services-list-card .u-text-xl {
-  font-weight: 300;
-  font-family: Plus Jakarta, sans-serif;
+  font-weight: 600 !important;
+  font-family: Plus Jakarta, sans-serif !important;
+  color: #ffffff !important;
+  text-transform: capitalize !important;
 }
+/* Card Descriptions */
 .services-list-card .u-text-gray-400 {
-  font-family: Plus Jakarta, sans-serif;
-  font-size: 16px;
+  font-family: Plus Jakarta, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #a1a1aa !important;
 }
+/* Backgrounds and Borders */
+.services-list-card fieldset {
+  background-color: #171717 !important;
+  border-color: #ffffff !important;
+}
+/* Ensure widget doesn't add extra margin */
+.elementor-widget-wrap > .services-list-card.elementor-widget,
 .services-list-card.elementor-widget {
   margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
+/* Responsive Layout */
 @media (max-width: 767px) {
+  /* Remove Elementor gap to stick cards together */
+  .elementor-element-065e8c7 .elementor-widget-wrap,
+  .elementor-element-e069192 .elementor-widget-wrap {
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+  /* Remove gap between columns */
   .elementor-element-065e8c7 {
+    margin-bottom: 0 !important;
+  }
+  /* 
+   * Use minus margin to stick the cards together,
+   * collapsing the borders perfectly without overlapping text.
+   */
+  .services-list-card fieldset {
+    margin-top: -1px !important;
     margin-bottom: 0 !important;
   }
 }

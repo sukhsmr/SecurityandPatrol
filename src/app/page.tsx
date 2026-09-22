@@ -2,8 +2,7 @@ import ConnectedHeader from '@/components/Header/Connected';
 import Hero from '@/components/Hero';
 import Tracking from '@/components/Tracking';
 import WhyChoose from '@/components/WhyChoose';
-import ServicesIntro from '@/components/ServicesIntro';
-import ServicesList from '@/components/ServicesList';
+import OriginalServicesSection from '@/components/OriginalServicesSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import Offices from '@/components/Offices';
 import Testimonials from '@/components/Testimonials';
@@ -44,8 +43,7 @@ export default async function Home() {
                             <Hero />
                             <Tracking />
                             <WhyChoose />
-                            <ServicesIntro />
-                            <ServicesList services={featuredServices} />
+                            <OriginalServicesSection />
                             <WhyChooseUs />
                             <Offices offices={offices} />
                             <Testimonials />

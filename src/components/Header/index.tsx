@@ -28,13 +28,53 @@ function chunk<T>(items: T[], size: number): T[][] {
 // per-item IDs to hang those rules on, so the same values are applied here
 // once, scoped to this menu only.
 const SERVICES_MENU_STYLE = `
-.services-menu-number > .elementor-widget-container {
-  background-color: #EDF2F7;
-  padding: 7px 18px;
-  border-radius: 5px;
+.services-menu-item {
+  display: flex;
+  margin-bottom: 25px;
+  padding-right: 15px;
+}
+.services-menu-number-container {
+  background-color: #f7f7f7;
+  min-width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-right: 15px;
+  font-weight: 700;
+  color: #d89b33;
+  font-size: 16px;
+}
+.services-menu-content {
+  display: flex;
+  flex-direction: column;
 }
 .services-menu-title {
   color: #4F92DA !important;
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.services-menu-description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+.services-menu-read-more {
+  font-size: 13px;
+  color: #333 !important;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.services-menu-read-more:hover {
+  color: #d89b33 !important;
 }
 `;
 
@@ -225,57 +265,24 @@ export default function Header({ services, offices }: { services: Service[]; off
                                   <div key={colIdx} className="elementor-column elementor-col-33 elementor-top-column elementor-element" data-element_type="column" data-e-type="column">
                                     <div className="elementor-widget-wrap elementor-element-populated">
                                       {column.map((service) => (
-                                        <section key={service.id} className="elementor-section elementor-inner-section elementor-element elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-e-type="section">
-                                          <div className="elementor-container elementor-column-gap-default">
-                                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element" data-element_type="column" data-e-type="column">
-                                              <div className="elementor-widget-wrap elementor-element-populated">
-                                                <div className="elementor-element elementor-widget__width-auto elementor-widget elementor-widget-heading services-menu-number" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-                                                  <div className="elementor-widget-container">
-                                                    <h2 className="elementor-heading-title elementor-size-default">
-                                                      {services.indexOf(service) + 1}</h2>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="elementor-column elementor-col-66 elementor-inner-column elementor-element" data-element_type="column" data-e-type="column">
-                                              <div className="elementor-widget-wrap elementor-element-populated">
-                                                <div className="elementor-element elementor-widget elementor-widget-icon-box" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
-                                                  <div className="elementor-widget-container">
-                                                    <div className="elementor-icon-box-wrapper">
-                                                      <div className="elementor-icon-box-content">
-                                                        <h3 className="elementor-icon-box-title services-menu-title">
-                                                          <a href={`/${service.id}`}>
-                                                            {service.title}
-                                                          </a>
-                                                        </h3>
-                                                        {service.summary && (
-                                                          <p className="elementor-icon-box-description">
-                                                            {service.summary}
-                                                          </p>
-                                                        )}
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div className="elementor-element elementor-widget elementor-widget-button" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
-                                                  <div className="elementor-widget-container">
-                                                    <div className="elementor-button-wrapper">
-                                                      <a className="elementor-button elementor-button-link elementor-size-sm" href={`/${service.id}`}>
-                                                        <span className="elementor-button-content-wrapper">
-                                                          <span className="elementor-button-icon">
-                                                            <i aria-hidden="true" className="icon icon-right-arrow2" />
-                                                          </span>
-                                                          <span className="elementor-button-text">Read
-                                                            More</span>
-                                                        </span>
-                                                      </a>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
+                                        <div key={service.id} className="services-menu-item">
+                                          <div className="services-menu-number-container">
+                                            {services.indexOf(service) + 1}
                                           </div>
-                                        </section>
+                                          <div className="services-menu-content">
+                                            <a href={`/${service.id}`} className="services-menu-title">
+                                              {service.title}
+                                            </a>
+                                            {service.summary && (
+                                              <p className="services-menu-description">
+                                                {service.summary}
+                                              </p>
+                                            )}
+                                            <a href={`/${service.id}`} className="services-menu-read-more">
+                                              Read More →
+                                            </a>
+                                          </div>
+                                        </div>
                                       ))}
                                     </div>
                                   </div>
@@ -296,55 +303,29 @@ export default function Header({ services, offices }: { services: Service[]; off
                                   <div key={colIdx} className="elementor-column elementor-col-33 elementor-top-column elementor-element" data-element_type="column" data-e-type="column">
                                     <div className="elementor-widget-wrap elementor-element-populated">
                                       {column.map((office) => (
-                                        <section key={office.anchor} className="elementor-section elementor-inner-section elementor-element elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-e-type="section">
-                                          <div className="elementor-container elementor-column-gap-default">
-                                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element" data-element_type="column" data-e-type="column">
-                                              <div className="elementor-widget-wrap elementor-element-populated">
-                                                <div className="elementor-element elementor-widget__width-auto elementor-widget elementor-widget-heading services-menu-number" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-                                                  <div className="elementor-widget-container">
-                                                    <h2 className="elementor-heading-title elementor-size-default">
-                                                      {offices.indexOf(office) + 1}</h2>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="elementor-column elementor-col-66 elementor-inner-column elementor-element" data-element_type="column" data-e-type="column">
-                                              <div className="elementor-widget-wrap elementor-element-populated">
-                                                <div className="elementor-element elementor-widget elementor-widget-icon-box" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
-                                                  <div className="elementor-widget-container">
-                                                    <div className="elementor-icon-box-wrapper">
-                                                      <div className="elementor-icon-box-content">
-                                                        <h3 className="elementor-icon-box-title services-menu-title">
-                                                          <a href={`/offices#${office.anchor}`}>
-                                                            {OFFICE_ANCHOR_LABELS[office.anchor || ''] || office.name}
-                                                          </a>
-                                                        </h3>
-                                                        {(office.officeType || office.address) && (
-                                                          <p className="elementor-icon-box-description">
-                                                            {office.officeType}{office.officeType && office.address ? ' ' : ''}{office.address}
-                                                          </p>
-                                                        )}
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                {office.phone && (
-                                                  <div className="elementor-element elementor-widget elementor-widget-icon-box" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
-                                                    <div className="elementor-widget-container">
-                                                      <div className="elementor-icon-box-wrapper">
-                                                        <div className="elementor-icon-box-content">
-                                                          <p className="elementor-icon-box-description">
-                                                            {office.phone}
-                                                          </p>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                )}
-                                              </div>
-                                            </div>
+                                        <div key={office.anchor} className="services-menu-item">
+                                          <div className="services-menu-number-container">
+                                            {offices.indexOf(office) + 1}
                                           </div>
-                                        </section>
+                                          <div className="services-menu-content">
+                                            <a href={`/offices#${office.anchor}`} className="services-menu-title">
+                                              {OFFICE_ANCHOR_LABELS[office.anchor || ''] || office.name}
+                                            </a>
+                                            {(office.officeType || office.address) && (
+                                              <p className="services-menu-description" style={{ marginBottom: office.phone ? '2px' : '8px' }}>
+                                                {office.officeType}{office.officeType && office.address ? ' ' : ''}{office.address}
+                                              </p>
+                                            )}
+                                            {office.phone && (
+                                              <p className="services-menu-description" style={{ color: '#333', fontWeight: 500, marginBottom: '8px' }}>
+                                                {office.phone}
+                                              </p>
+                                            )}
+                                            <a href={`/offices#${office.anchor}`} className="services-menu-read-more">
+                                              Read More →
+                                            </a>
+                                          </div>
+                                        </div>
                                       ))}
                                     </div>
                                   </div>

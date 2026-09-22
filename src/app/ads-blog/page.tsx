@@ -37,13 +37,13 @@ export default async function AdsBlogPage() {
               <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.4)'
               }}></div>
-              <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 1, paddingLeft: '40px' }}>
-                <h1 style={{ fontSize: '28px', fontWeight: 'bold', margin: '0 0 5px 0', textTransform: 'uppercase', color: '#fff' }}>OUR</h1>
-                <h2 style={{ color: '#ee8e09', fontSize: '72px', fontWeight: 'bold', margin: '0 0 20px 0', lineHeight: '1' }}>BLOGS</h2>
-                <p style={{ fontSize: '18px', marginBottom: '30px', maxWidth: '500px' }}>New product features, the latest in technology and updates.</p>
-                <form style={{ display: 'flex', gap: '10px', maxWidth: '400px' }}>
-                  <input type="email" placeholder="Enter your email" style={{ padding: '12px 16px', borderRadius: '4px', border: 'none', flex: '1', color: '#000', outline: 'none' }} required />
-                  <button type="submit" style={{ padding: '12px 32px', backgroundColor: '#ee8e09', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Subscribe</button>
+              <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+                <h1 style={{ fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 'bold', margin: '0 0 5px 0', textTransform: 'uppercase', color: '#fff' }}>OUR</h1>
+                <h2 style={{ color: '#ee8e09', fontSize: 'clamp(48px, 10vw, 72px)', fontWeight: 'bold', margin: '0 0 20px 0', lineHeight: '1' }}>BLOGS</h2>
+                <p style={{ fontSize: 'clamp(15px, 3vw, 18px)', marginBottom: '30px', maxWidth: '500px' }}>New product features, the latest in technology and updates.</p>
+                <form style={{ display: 'flex', flexDirection: 'row', gap: '8px', maxWidth: '400px', width: '100%' }}>
+                  <input type="email" placeholder="Enter your email" style={{ padding: '12px 16px', borderRadius: '4px', border: 'none', flex: '1', minWidth: 0, color: '#000', outline: 'none' }} required />
+                  <button type="submit" style={{ padding: '12px 24px', backgroundColor: '#ee8e09', color: '#fff', border: 'none', borderRadius: '4px', flexShrink: 0, cursor: 'pointer', fontWeight: 'bold' }}>Subscribe</button>
                 </form>
               </div>
             </div>
@@ -59,14 +59,12 @@ export default async function AdsBlogPage() {
             </div>
 
             {/* Blog List Section */}
-            <div style={{ backgroundColor: '#f9f9f9', padding: '60px 20px' }}>
+            <div style={{ backgroundColor: '#fff', padding: '60px 0' }}>
               <div style={{ 
                 maxWidth: '800px', 
                 margin: '0 auto', 
-                backgroundColor: '#fff', 
-                padding: '40px',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-                borderRadius: '8px',
+                padding: '0 20px',
+                width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '60px'

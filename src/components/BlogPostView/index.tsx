@@ -150,7 +150,7 @@ export default function BlogPostView({ post }: { post: BlogPost }) {
           {/* Header (Title and Meta) */}
           <header style={{ marginBottom: '40px' }}>
             <h1 
-              style={{ fontSize: '36px', fontWeight: 'bold', lineHeight: '1.3', marginBottom: '20px', color: '#111' }} 
+              style={{ fontSize: 'clamp(28px, 6vw, 36px)', fontWeight: 'bold', lineHeight: '1.3', marginBottom: '20px', color: '#111' }} 
               dangerouslySetInnerHTML={{ __html: post.title }} 
             />
             
