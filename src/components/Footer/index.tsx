@@ -201,7 +201,7 @@ export default function Footer() {
                     </a>
                   </li>
                   <li className="elementor-icon-list-item">
-                    <a href="/benefits-of-ads-security-guards"><span className="elementor-icon-list-icon">
+                    <a href="/benefits-of-security-and-patrol-security-guards"><span className="elementor-icon-list-icon">
                         <i aria-hidden="true" className="icon icon-right-arrow" /> </span>
                       <span className="elementor-icon-list-text">Benefits of Security and Patrol</span>
                     </a>

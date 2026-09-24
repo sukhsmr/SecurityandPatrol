@@ -110,12 +110,12 @@ export default function Header({ services, offices }: { services: Service[]; off
               <div className="elementor-widget-container">
                 <div className="elementor-social-icons-wrapper elementor-grid" role="list">
                   <span className="elementor-grid-item" role="listitem">
-                    <a className="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-38321e7" href="https://www.facebook.com/ADS-Guards-419408835286802" target="_blank">
+                    <a className="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-38321e7" href="https://www.facebook.com/security-and-patrol-419408835286802" target="_blank">
                       <span className="elementor-screen-only">Facebook-f</span>
                       <i aria-hidden="true" className="fab fa-facebook-f" /> </a>
                   </span>
                   <span className="elementor-grid-item" role="listitem">
-                    <a className="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-b0b1f9c" href="https://twitter.com/ADSGuards" target="_blank">
+                    <a className="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-b0b1f9c" href="https://twitter.com/securityandpatrol" target="_blank">
                       <span className="elementor-screen-only">Twitter</span>
                       <i aria-hidden="true" className="fab fa-twitter" /> </a>
                   </span>
@@ -125,7 +125,7 @@ export default function Header({ services, offices }: { services: Service[]; off
                       <i aria-hidden="true" className="fab fa-youtube" /> </a>
                   </span>
                   <span className="elementor-grid-item" role="listitem">
-                    <a className="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-8044d7a" href="https://www.instagram.com/adsguards/" target="_blank">
+                    <a className="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-8044d7a" href="https://www.instagram.com/securityandpatrol/" target="_blank">
                       <span className="elementor-screen-only">Instagram</span>
                       <i aria-hidden="true" className="fab fa-instagram" /> </a>
                   </span>
@@ -336,8 +336,8 @@ export default function Header({ services, offices }: { services: Service[]; off
                         </div>
                       </li>
                       
-<li id="menu-item-28" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-28 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/ads-blog" className="ekit-menu-nav-link">Blog</a></li>
-                      <li id="menu-item-30" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-30 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/ads-guards-contact-us" className="ekit-menu-nav-link">Contact Us</a></li>
+<li id="menu-item-28" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-28 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/blog" className="ekit-menu-nav-link">Blog</a></li>
+                      <li id="menu-item-30" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-30 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/security-and-patrol-contact-us" className="ekit-menu-nav-link">Contact Us</a></li>
                       <li id="menu-item-29" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-29 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/career" className="ekit-menu-nav-link">Career</a></li>
                       <li id="menu-item-3807" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3807 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/privacy-policy" className="ekit-menu-nav-link">Privacy Policy</a></li>
                     </ul>
@@ -387,8 +387,8 @@ export default function Header({ services, offices }: { services: Service[]; off
                   <ul id="menu-1-4e18aba" className="elementor-nav-menu">
                     <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-7 menu-item-393 ${pathname === '/' ? 'current-menu-item current_page_item' : ''}`}>
                       <a href="/" aria-current={pathname === '/' ? 'page' : undefined} className={`elementor-item ${pathname === '/' ? 'elementor-item-active' : ''}`}>Home</a></li>
-                    <li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405 ${pathname !== '/' && !pathname.startsWith('/ads-blog') && !pathname.startsWith('/ads-guards-contact-us') && !pathname.startsWith('/career') && !pathname.startsWith('/privacy-policy') && !pathname.startsWith('/offices') ? 'current-menu-item' : ''}`}>
-                      <a href="#" className={`elementor-item elementor-item-anchor ${pathname !== '/' && !pathname.startsWith('/ads-blog') && !pathname.startsWith('/ads-guards-contact-us') && !pathname.startsWith('/career') && !pathname.startsWith('/privacy-policy') && !pathname.startsWith('/offices') ? 'elementor-item-active' : ''}`}>
+                    <li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405 ${pathname !== '/' && !pathname.startsWith('/blog') && !pathname.startsWith('/security-and-patrol-contact-us') && !pathname.startsWith('/career') && !pathname.startsWith('/privacy-policy') && !pathname.startsWith('/offices') ? 'current-menu-item' : ''}`}>
+                      <a href="#" className={`elementor-item elementor-item-anchor ${pathname !== '/' && !pathname.startsWith('/blog') && !pathname.startsWith('/security-and-patrol-contact-us') && !pathname.startsWith('/career') && !pathname.startsWith('/privacy-policy') && !pathname.startsWith('/offices') ? 'elementor-item-active' : ''}`}>
                         Services
                         <span className="sub-arrow"><i className="fas fa-caret-down"></i></span>
                       </a>
@@ -413,10 +413,10 @@ export default function Header({ services, offices }: { services: Service[]; off
                         ))}
                       </ul>
                     </li>
-                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-400 ${pathname === '/ads-guards-contact-us' ? 'current-menu-item' : ''}`}>
-                      <a href="/ads-guards-contact-us" className={`elementor-item ${pathname === '/ads-guards-contact-us' ? 'elementor-item-active' : ''}`}>Contact Us</a></li>
-                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-394 ${pathname.startsWith('/ads-blog') ? 'current-menu-item' : ''}`}>
-                      <a href="/ads-blog" className={`elementor-item ${pathname.startsWith('/ads-blog') ? 'elementor-item-active' : ''}`}>Blog</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-400 ${pathname === '/security-and-patrol-contact-us' ? 'current-menu-item' : ''}`}>
+                      <a href="/security-and-patrol-contact-us" className={`elementor-item ${pathname === '/security-and-patrol-contact-us' ? 'elementor-item-active' : ''}`}>Contact Us</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-394 ${pathname.startsWith('/blog') ? 'current-menu-item' : ''}`}>
+                      <a href="/blog" className={`elementor-item ${pathname.startsWith('/blog') ? 'elementor-item-active' : ''}`}>Blog</a></li>
                     <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-397 ${pathname === '/career' ? 'current-menu-item' : ''}`}>
                       <a href="/career" className={`elementor-item ${pathname === '/career' ? 'elementor-item-active' : ''}`}>Career</a></li>
                     <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3806 ${pathname === '/privacy-policy' ? 'current-menu-item' : ''}`}>
@@ -457,10 +457,10 @@ export default function Header({ services, offices }: { services: Service[]; off
                         ))}
                       </ul>
                     </li>
-                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-400 ${pathname === '/ads-guards-contact-us' ? 'current-menu-item' : ''}`}>
-                      <a href="/ads-guards-contact-us" className={`elementor-item ${pathname === '/ads-guards-contact-us' ? 'elementor-item-active' : ''}`} tabIndex={-1}>Contact Us</a></li>
-                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-394 ${pathname.startsWith('/ads-blog') ? 'current-menu-item' : ''}`}>
-                      <a href="/ads-blog" className={`elementor-item ${pathname.startsWith('/ads-blog') ? 'elementor-item-active' : ''}`} tabIndex={-1}>Blog</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-400 ${pathname === '/security-and-patrol-contact-us' ? 'current-menu-item' : ''}`}>
+                      <a href="/security-and-patrol-contact-us" className={`elementor-item ${pathname === '/security-and-patrol-contact-us' ? 'elementor-item-active' : ''}`} tabIndex={-1}>Contact Us</a></li>
+                    <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-394 ${pathname.startsWith('/blog') ? 'current-menu-item' : ''}`}>
+                      <a href="/blog" className={`elementor-item ${pathname.startsWith('/blog') ? 'elementor-item-active' : ''}`} tabIndex={-1}>Blog</a></li>
                     <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-397 ${pathname === '/career' ? 'current-menu-item' : ''}`}>
                       <a href="/career" className={`elementor-item ${pathname === '/career' ? 'elementor-item-active' : ''}`} tabIndex={-1}>Career</a></li>
                     <li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3806 ${pathname === '/privacy-policy' ? 'current-menu-item' : ''}`}>

@@ -29,7 +29,7 @@ export default function Hero() {
           <div className="elementor-element elementor-element-06f0688 elementor-widget elementor-widget-button" data-id="06f0688" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
             <div className="elementor-widget-container">
               <div className="elementor-button-wrapper">
-                <a className="elementor-button elementor-button-link elementor-size-sm" href="/ads-guards-contact-us">
+                <a className="elementor-button elementor-button-link elementor-size-sm" href="/security-and-patrol-contact-us">
                   <span className="elementor-button-content-wrapper">
                     <span className="elementor-button-text">CONTACT
                       US NOW</span>

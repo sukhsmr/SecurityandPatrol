@@ -6,7 +6,7 @@ import { getPageBySlug } from '@/lib/data/pages';
 
 
 export default async function ContactUsPage() {
-  const contactData = await getPageBySlug('ads-guards-contact-us');
+  const contactData = await getPageBySlug('security-and-patrol-contact-us');
   return (
     <>
       <div id="wrapper" className="site wp-site-blocks">
