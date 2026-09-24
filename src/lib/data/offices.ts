@@ -12,18 +12,12 @@ export interface Office {
   imageAlt: string | null;
 }
 
+import officesDataRaw from '@/data/offices.json';
+
+const officesData = officesDataRaw as Office[];
+
 function getOfficesData(): Office[] {
-  try {
-    const filePath = path.join(process.cwd(), 'src', 'data', 'offices.json');
-    if (!fs.existsSync(filePath)) {
-      return [];
-    }
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContents);
-  } catch (error) {
-    console.error('Error reading offices.json', error);
-    return [];
-  }
+  return officesData;
 }
 
 export async function getAllOffices(): Promise<Office[]> {

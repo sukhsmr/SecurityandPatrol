@@ -10,12 +10,8 @@ export interface PageContent {
 
 export async function getPageBySlug(slug: string): Promise<PageContent | null> {
   try {
-    const filePath = path.join(process.cwd(), 'src', 'data', `${slug}.json`);
-    if (!fs.existsSync(filePath)) {
-      return null;
-    }
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(fileContents);
+    const dataModule = await import(`@/data/${slug}.json`);
+    const data = dataModule.default || dataModule;
     return {
       slug,
       title: data.title || '',

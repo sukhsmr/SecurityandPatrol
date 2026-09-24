@@ -54,7 +54,7 @@ export default async function AdsBlogPage() {
                 Our blogs
               </p>
               <h2 style={{ fontSize: '28px', margin: 0, fontWeight: 'bold', color: '#fff' }}>
-                Welcome to the American Discount Security (A.D.S.) Security Blog
+                Welcome to the Security and Patrol Security Blog
               </h2>
             </div>
 

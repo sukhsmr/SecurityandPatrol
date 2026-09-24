@@ -182,7 +182,7 @@ export default function ServicesIntro() {
                 data-widget_type="text-editor.default"
               >
                 <div className="elementor-widget-container">
-                  At American Discount Security (A.D.S.), we provide fast, reliable,
+                  At Security and Patrol, we provide fast, reliable,
                   and professional security guard services in California tailored to
                   meet the specific needs of every client. With over 28 years of
                   experience, our licensed and trained security guards deliver
@@ -201,8 +201,8 @@ export default function ServicesIntro() {
                   From armed and unarmed security guards to mobile patrol services,
                   our goal is to ensure safety, prevent risks, and maintain peace of
                   mind 24/7. Whether you need construction site security, event
-                  security, or commercial property protection, American Discount
-                  Security (A.D.S.) designs flexible solutions that fit your
+                  security, or commercial property protection, Security and Patrol
+                  designs flexible solutions that fit your
                   environment.
                 </div>
               </div>
@@ -290,7 +290,7 @@ export default function ServicesIntro() {
                         Proactive Risk Prevention
                       </h3>
                       <p className="text-gray-400 mt-4 font-light">
-                        American Discount Security (A.D.S.) can deploy trained
+                        Security and Patrol can deploy trained
                         security professionals to detect and prevent risks before they
                         become serious issues, ensuring complete safety for your site.
                       </p>

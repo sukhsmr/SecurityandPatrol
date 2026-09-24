@@ -10,18 +10,12 @@ export interface Service {
   contentHtml: string;
 }
 
+import servicesDataRaw from '@/data/services.json';
+
+const servicesData = servicesDataRaw as Service[];
+
 function getServicesData(): Service[] {
-  try {
-    const filePath = path.join(process.cwd(), 'src', 'data', 'services.json');
-    if (!fs.existsSync(filePath)) {
-      return [];
-    }
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContents);
-  } catch (error) {
-    console.error('Error reading services.json', error);
-    return [];
-  }
+  return servicesData;
 }
 
 export async function getAllServices(): Promise<Service[]> {
