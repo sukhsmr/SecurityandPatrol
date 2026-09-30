@@ -6,7 +6,7 @@ import "./services-inline.css";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: "Security and Patrol",
+  title: "Rayven Security Protection",
   description: "Licensed security guard services in California.",
 };
 

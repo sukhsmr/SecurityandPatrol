@@ -7,7 +7,7 @@ import { getAllBlogPosts } from '@/lib/data/blog';
 export const metadata = {
   title: 'Security Tips | Safety Advice | Licensed Security Guards & Patrols',
   description:
-    'Explore expert insights and updates from the Security and Patrol blog on security guard services, mobile patrols, and property protection.',
+    'Explore expert insights and updates from the Rayven Security Protection blog on security guard services, mobile patrols, and property protection.',
 };
 
 export default async function AdsBlogPage() {
@@ -54,7 +54,7 @@ export default async function AdsBlogPage() {
                 Our blogs
               </p>
               <h2 style={{ fontSize: '28px', margin: 0, fontWeight: 'bold', color: '#fff' }}>
-                Welcome to the Security and Patrol Security Blog
+                Welcome to the Rayven Security Protection Security Blog
               </h2>
             </div>
 

@@ -23,7 +23,7 @@ export default function PrivacyPolicyContent() {
           </div>
           <div className="elementor-element elementor-element-8780766 elementor-widget elementor-widget-text-editor" data-id="8780766" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
             <div className="elementor-widget-container">
-              <p style={{ textAlign: 'left' }}>At Security and Patrol, accessible from <a href="http://www.securityandpatrol.com">www.securityandpatrol.com</a>, your privacy is important to us. This Privacy Policy outlines how we collect, use, store, and protect your personal information in compliance with applicable U.S. laws, including the California Consumer Privacy Act (CCPA).</p>
+              <p style={{ textAlign: 'left' }}>At Rayven Security Protection, accessible from <a href="http://www.securityandpatrol.com">www.securityandpatrol.com</a>, your privacy is important to us. This Privacy Policy outlines how we collect, use, store, and protect your personal information in compliance with applicable U.S. laws, including the California Consumer Privacy Act (CCPA).</p>
             </div>
           </div>
           <div className="elementor-element elementor-element-6ca5707 elementor-widget elementor-widget-heading" data-id="6ca5707" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
@@ -91,7 +91,7 @@ export default function PrivacyPolicyContent() {
           </div>
           <div className="elementor-element elementor-element-877b2c1 elementor-widget elementor-widget-text-editor" data-id="877b2c1" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
             <div className="elementor-widget-container">
-              <p>Consent granted to Security and Patrol for sending text messages is specific and cannot be transferred to any third parties. This means that any authorization you provide to receive text messages from Security and Patrol cannot be reused or shared with other entities for their own purposes.</p>
+              <p>Consent granted to Rayven Security Protection for sending text messages is specific and cannot be transferred to any third parties. This means that any authorization you provide to receive text messages from Rayven Security Protection cannot be reused or shared with other entities for their own purposes.</p>
               <p>Furthermore, we want to assure you that no mobile information will be shared with third parties or affiliates for marketing or promotional purposes. This includes all data related to text messaging opt-in, as well as any consent provided for such communications. We prioritize your privacy, and as such, this information will remain confidential and will not be disclosed to any outside parties</p>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function PrivacyPolicyContent() {
           <div className="elementor-element elementor-element-d39f1a5 elementor-widget elementor-widget-text-editor" data-id="d39f1a5" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
             <div className="elementor-widget-container">
               <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
-              <p><strong>Security and Patrol</strong><br />Email: info@securityandpatrol.com<br />Phone: 510-742-8000<br />Address: 33446 Western Ave<br />Union City, CA 94587</p>
+              <p><strong>Rayven Security Protection</strong><br />Email: info@securityandpatrol.com<br />Phone: 510-754-8456<br />Address: 33446 Western Ave<br />Union City, CA 94587</p>
               <p>By using our website, you consent to our Privacy Policy.</p>
             </div>
           </div>

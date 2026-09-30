@@ -59,7 +59,7 @@ export default function Tracking() {
                         <li>We track security guard activities</li>
                         <li>GuardOne is GPS activated</li>
                         <li>Officers activities/reports are available real time</li>
-                        <li>Officers can contact Security and Patrol management directly from GuardOne</li>
+                        <li>Officers can contact Rayven Security Protection management directly from GuardOne</li>
                         <li>PDF reports are sent automatically to the clients</li>
                       </ul>
                     </div>

@@ -23,13 +23,13 @@ export default function Footer() {
               <div className="elementor-widget-container">
                 <div className="elementor-icon-box-wrapper">
                   <div className="elementor-icon-box-icon">
-                    <a href="tel:18007941550" className="elementor-icon" tabIndex={-1} aria-label="1-800-794-1550">
+                    <a href="tel:5107548456" className="elementor-icon" tabIndex={-1} aria-label="1-510-754-8456">
                       <i aria-hidden="true" className="icon icon-phone-call1" /> </a>
                   </div>
                   <div className="elementor-icon-box-content">
                     <h3 className="elementor-icon-box-title">
-                      <a href="tel:18007941550">
-                        1-800-794-1550 </a>
+                      <a href="tel:5107548456">
+                        1-510-754-8456 </a>
                     </h3>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function Footer() {
                   <li className="elementor-icon-list-item">
                     <a href="/benefits-of-security-and-patrol-security-guards"><span className="elementor-icon-list-icon">
                         <i aria-hidden="true" className="icon icon-right-arrow" /> </span>
-                      <span className="elementor-icon-list-text">Benefits of Security and Patrol</span>
+                      <span className="elementor-icon-list-text">Benefits of Rayven Security Protection</span>
                     </a>
                   </li>
                   <li className="elementor-icon-list-item">
@@ -225,7 +225,7 @@ export default function Footer() {
           <div className="elementor-widget-wrap elementor-element-populated">
             <div className="elementor-element elementor-element-228eac2 elementor-widget elementor-widget-heading" data-id="228eac2" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
               <div className="elementor-widget-container">
-                <h2 className="elementor-heading-title elementor-size-default">Security and Patrol</h2>
+                <h2 className="elementor-heading-title elementor-size-default">Rayven Security Protection</h2>
               </div>
             </div>
             <div className="elementor-element elementor-element-1c8d852 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="1c8d852" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
@@ -239,7 +239,7 @@ export default function Footer() {
             <div className="elementor-element elementor-element-e882635 elementor-widget elementor-widget-image" data-id="e882635" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
               <div className="elementor-widget-container">
                 <a href="/">
-                  <img src="/logos/logo.png" width={166} height={180} className="attachment-large size-large wp-image-4917" alt="Security and Patrol - 24/7 Private Security" /> </a>
+                  <img src="/logos/logo.png" width={166} height={180} className="attachment-large size-large wp-image-4917" alt="Rayven Security Protection - 24/7 Private Security" /> </a>
               </div>
             </div>
             <div className="elementor-element elementor-element-5bc861c elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5bc861c" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
@@ -281,7 +281,7 @@ export default function Footer() {
               <div className="elementor-widget-container">
                 <ul className="elementor-icon-list-items">
                   <li className="elementor-icon-list-item">
-                    <span className="elementor-icon-list-text">Toll Free # +1 (510) 859‑5401</span>
+                    <span className="elementor-icon-list-text">Toll Free # +1 (510) 754-8456</span>
                   </li>
                 </ul>
               </div>
@@ -314,7 +314,7 @@ export default function Footer() {
                 <form className="elementor-form" method="post" name="New Form" aria-label="New Form">
                   <input type="hidden" name="post_id" defaultValue={4740} />
                   <input type="hidden" name="form_id" defaultValue="a80258b" />
-                  <input type="hidden" name="referer_title" defaultValue="Licensed Security Guard Services in California - Security and Patrol" /><input type="hidden" name="queried_id" defaultValue={7} />
+                  <input type="hidden" name="referer_title" defaultValue="Licensed Security Guard Services in California - Rayven Security Protection" /><input type="hidden" name="queried_id" defaultValue={7} />
                   <div className="elementor-form-fields-wrapper elementor-labels-">
                     <div className="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
                       <input size={1} type="email" name="form_fields[email]" id="form-field-email" className="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Email" required={true} />

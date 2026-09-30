@@ -15,7 +15,7 @@ export default function ServicesIntro() {
               </div>
               <div className="elementor-element elementor-element-c88d7ec elementor-widget elementor-widget-text-editor" data-id="c88d7ec" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
-                  At Security and Patrol, we provide
+                  At Rayven Security Protection, we provide
                   fast, reliable, and professional security guard
                   services in California tailored to meet the specific
                   needs of every client. With over 28 years of
@@ -30,7 +30,7 @@ export default function ServicesIntro() {
                   prevent risks, and maintain peace of mind 24/7.
                   Whether you need construction site security, event
                   security, or commercial property protection,
-                  Security and Patrol designs flexible
+                  Rayven Security Protection designs flexible
                   solutions that fit your environment.</div>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function ServicesIntro() {
                       <h3 className="u-text-xl u-tracking-wider u-text-white u-font-light">
                         Proactive Risk Prevention</h3>
                       <p className="u-text-gray-400 u-mt-4 u-font-light">
-                        Security and Patrol can
+                        Rayven Security Protection can
                         deploy trained security professionals to
                         detect and prevent risks before they
                         become serious issues, ensuring complete
@@ -182,7 +182,7 @@ export default function ServicesIntro() {
                 data-widget_type="text-editor.default"
               >
                 <div className="elementor-widget-container">
-                  At Security and Patrol, we provide fast, reliable,
+                  At Rayven Security Protection, we provide fast, reliable,
                   and professional security guard services in California tailored to
                   meet the specific needs of every client. With over 28 years of
                   experience, our licensed and trained security guards deliver
@@ -201,7 +201,7 @@ export default function ServicesIntro() {
                   From armed and unarmed security guards to mobile patrol services,
                   our goal is to ensure safety, prevent risks, and maintain peace of
                   mind 24/7. Whether you need construction site security, event
-                  security, or commercial property protection, Security and Patrol
+                  security, or commercial property protection, Rayven Security Protection
                   designs flexible solutions that fit your
                   environment.
                 </div>
@@ -290,7 +290,7 @@ export default function ServicesIntro() {
                         Proactive Risk Prevention
                       </h3>
                       <p className="text-gray-400 mt-4 font-light">
-                        Security and Patrol can deploy trained
+                        Rayven Security Protection can deploy trained
                         security professionals to detect and prevent risks before they
                         become serious issues, ensuring complete safety for your site.
                       </p>

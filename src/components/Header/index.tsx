@@ -98,7 +98,7 @@ export default function Header({ services, offices }: { services: Service[]; off
           <div className="elementor-widget-wrap elementor-element-populated">
             <div className="elementor-element elementor-element-7ed16a9 elementor-widget elementor-widget-heading" data-id="7ed16a9" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
               <div className="elementor-widget-container">
-                <h2 className="elementor-heading-title elementor-size-default">Call US: 1-800-794-1550
+                <h2 className="elementor-heading-title elementor-size-default">Call US: 1-510-754-8456
                 </h2>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function Header({ services, offices }: { services: Service[]; off
                       <i aria-hidden="true" className="fab fa-linkedin-in" /> </a>
                   </span>
                   <span className="elementor-grid-item" role="listitem">
-                    <a className="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-repeater-item-8501dda" href="https://wa.me/+15108595401" target="_blank">
+                    <a className="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-repeater-item-8501dda" href="https://wa.me/+5107548456" target="_blank">
                       <span className="elementor-screen-only">Whatsapp</span>
                       <i aria-hidden="true" className="fab fa-whatsapp" /> </a>
                   </span>
@@ -153,7 +153,7 @@ export default function Header({ services, offices }: { services: Service[]; off
             <div className="elementor-element elementor-element-cb5f340 elementor-widget elementor-widget-image" data-id="cb5f340" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
               <div className="elementor-widget-container">
                 <a href="/">
-                  <img src="/logos/logo.png" fetchPriority="high" width={166} height={180} className="attachment-large size-large wp-image-4917" alt="Security and Patrol - 24/7 Private Security" /> </a>
+                  <img src="/logos/logo.png" fetchPriority="high" width={166} height={180} className="attachment-large size-large wp-image-4917" alt="Rayven Security Protection - 24/7 Private Security" /> </a>
               </div>
             </div>
           </div>
@@ -359,7 +359,7 @@ export default function Header({ services, offices }: { services: Service[]; off
             <div className="elementor-element elementor-element-8a14986 elementor-widget elementor-widget-image" data-id="8a14986" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
               <div className="elementor-widget-container">
                 <a href="/">
-                  <img src="/logos/logo.png" fetchPriority="high" width={166} height={180} className="attachment-large size-large wp-image-4917" alt="Security and Patrol - 24/7 Private Security" /> </a>
+                  <img src="/logos/logo.png" fetchPriority="high" width={166} height={180} className="attachment-large size-large wp-image-4917" alt="Rayven Security Protection - 24/7 Private Security" /> </a>
               </div>
             </div>
           </div>

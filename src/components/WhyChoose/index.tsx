@@ -22,13 +22,13 @@ export default function WhyChoose() {
           <div className="elementor-element elementor-element-a990fdb elementor-widget elementor-widget-heading" data-id="a990fdb" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
             <div className="elementor-widget-container">
               <h2 className="elementor-heading-title elementor-size-default">
-                Why California Businesses Choose Security and Patrol</h2>
+                Why California Businesses Choose Rayven Security Protection</h2>
             </div>
           </div>
           <div className="elementor-element elementor-element-3da4d4d elementor-widget elementor-widget-heading" data-id="3da4d4d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
             <div className="elementor-widget-container">
               <h2 className="elementor-heading-title elementor-size-default">
-                California Security Guard Services You Can Trust
+                Rayven Security Guard Services You Can Trust
               </h2>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function WhyChoose() {
           </div>
           <div className="elementor-element elementor-element-19cb1e1 elementor-widget elementor-widget-text-editor" data-id="19cb1e1" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
             <div className="elementor-widget-container">
-              <p data-start={487} data-end={799}>At Security and Patrol, we ensure your
+              <p data-start={487} data-end={799}>At Rayven Security Protection, we ensure your
                 business receives the most professional security
                 guard services in California. We provide
                 customizable security solutions tailored to your
@@ -47,7 +47,7 @@ export default function WhyChoose() {
                 security guards, event security, or commercial
                 and residential protection.</p>
               <p data-start={801} data-end={1056}>Our licensed
-                California security guards are trained to
+                Rayven Security Guards are trained to
                 protect your property, employees, and assets
                 with professionalism and vigilance. As your
                 business grows, our security services evolve
@@ -61,7 +61,7 @@ export default function WhyChoose() {
               <p data-start={1232} data-end={1406}>Remember,
                 unwanted events can happen anytime. A mindset of
                 “it can’t happen to me” won’t help — but having
-                Security and Patrol, your
+                Rayven Security Protection, your
                 trusted California security company, will.</p>
             </div>
           </div>
@@ -85,14 +85,14 @@ export default function WhyChoose() {
                         <strong>Theft<br /></strong><strong>Damage<br /></strong><strong>Property destruction</strong>
                       </p>
                       <p className="u-text-justify u-text-gray-400 u-mb-5">
-                        At Security and Patrol,
+                        At Rayven Security Protection,
                         we make it our mission to provide you
                         with top class security guard services.
                         Therefore, they add value to your
                         company. Being safe enables you to focus
                         on your mission. Certainly, together we
                         can improve our community! Technology
-                        driven security at Security and Patrol Security Guards
+                        driven security at Rayven Security Protection Security Guards
                         Service uses cutting edge mobile
                         technology. Above all, it is updated,
                         backed-up and fully reliant. As a
@@ -101,7 +101,7 @@ export default function WhyChoose() {
                         receive daily reports – complete
                         and thorough. Our reports provide a full
                         insight. We look at duties completed by
-                        Security and Patrol
+                        Rayven Security Protection
                         trained security guards. That helps us
                         assess their process. It manages their
                         interaction with your employees and your
