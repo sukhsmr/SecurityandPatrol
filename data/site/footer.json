@@ -1,0 +1,121 @@
+{
+  "ctaHeading": "24/7 Security Guard Services",
+  "ctaText": "Professional Security Guard Services Available 24/7. Request Your Free Quote Today.",
+  "ctaPhone": "1-510-754-8456",
+  "ctaPhoneHref": "tel:5107548456",
+  "linkColumns": [
+    {
+      "title": "POPULAR SEARCHES",
+      "links": [
+        {
+          "label": "Unarmed Security Guard Services",
+          "url": "/unarmed-security"
+        },
+        {
+          "label": "Armed Security Guard Services",
+          "url": "/armed-security"
+        },
+        {
+          "label": "Construction Guard Services",
+          "url": "/construction-site-security"
+        },
+        {
+          "label": "Mobile Patrol Guard Services",
+          "url": "/mobile-patrol-security"
+        },
+        {
+          "label": "Event Security Guard Services",
+          "url": "/event-security"
+        },
+        {
+          "label": "Commercial Security Guard Services",
+          "url": "/commercial-security"
+        },
+        {
+          "label": "Residential Security Guard Services",
+          "url": "/residential-security"
+        },
+        {
+          "label": "Shopping center & malls, Warehouse wholesale clubs",
+          "url": "/shopping-center-security-guards"
+        },
+        {
+          "label": "Office buildings, High rise, Parking lots",
+          "url": "/office-buildings"
+        }
+      ]
+    },
+    {
+      "title": "POPULAR AREAS",
+      "links": [
+        {
+          "label": "Security Guard Services in California",
+          "url": "/offices#California"
+        },
+        {
+          "label": "Security Guard Services in Portland Oregon",
+          "url": "/offices#portland"
+        },
+        {
+          "label": "Security Guard Services in Seattle Washington",
+          "url": "/offices#seattle"
+        },
+        {
+          "label": "Security Guard Services in San Antonio Texas",
+          "url": "/offices#san"
+        },
+        {
+          "label": "Security Guard Services in Vancouver Washington",
+          "url": "/offices#vanc"
+        },
+        {
+          "label": "Security Guard Services in Houston Texas",
+          "url": "/offices#Texas"
+        }
+      ]
+    },
+    {
+      "title": "TRENDING SEARCHES",
+      "links": [
+        {
+          "label": "Why You Need Security for Your Luxury Yacht",
+          "url": "/why-you-need-security-for-your-luxury-yacht"
+        },
+        {
+          "label": "Why you Need Residential Security",
+          "url": "/why-you-need-residential-security"
+        },
+        {
+          "label": "Benefits of Rayven Security Protection",
+          "url": "/benefits-of-security-and-patrol-security-guards"
+        },
+        {
+          "label": "About Security Guard Jobs",
+          "url": "/about-security-guard-jobs"
+        }
+      ]
+    }
+  ],
+  "brandTitle": "Rayven Security Protection",
+  "logo": {
+    "src": "/logos/logo.png",
+    "alt": "Rayven Security Protection - 24/7 Private Security",
+    "url": "/"
+  },
+  "brandItems": [
+    "Hospital Security Guards ",
+    "Retail Security Guards ",
+    "Hotel Security Guards ",
+    "Customized Security"
+  ],
+  "contactTitle": "CONTACT US",
+  "contactLines": [
+    "Toll Free # +1 (510) 754-8456"
+  ],
+  "officesTitle": "CORPORATE OFFICE",
+  "officesHtml": "<span style=\"color:#ffffff\"><a style=\"color:#ffffff\" href=\"/offices#California\">California (Bay Area)</a></span><br/><span style=\"color:#ffffff\"><a style=\"color:#ffffff\" href=\"/offices#portland\">Portland</a></span><br/><span style=\"color:#ffffff\"><a style=\"color:#ffffff\" href=\"/offices#seattle\">Seattle, WA</a></span><br/><span style=\"color:#ffffff\"><a style=\"color:#ffffff\" href=\"/offices#vanc\">Vancouver, WA</a></span><br/>Houston<a style=\"color:rgb(255, 255, 255)\" href=\"/offices#Texas\">, TX</a><br/><span style=\"color:#ffffff\"><a class=\"elementor-item elementor-item-anchor\" style=\"color:#ffffff\" href=\"/offices#san\" aria-current=\"page\">San Antonio</a></span>",
+  "newsletterHeadingHtml": "SUBSCRIBE TO OUR NEWSLETTER <br/>FOR EVERY NEW NOTIFICATION",
+  "newsletterPlaceholder": "Email",
+  "newsletterButtonText": "Subscribe",
+  "copyright": ""
+}

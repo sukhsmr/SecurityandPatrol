@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/bundle-css.cjs",
     "dev": "next dev --webpack",
-   "build": "node scripts/build.cjs",
+    "build": "node scripts/build.cjs",
+    "build:static": "node scripts/build.cjs --static",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cms:hash-password": "node scripts/hash-password.cjs",
+    "css:bundle": "node scripts/bundle-css.cjs"
   },
   "dependencies": {
     "framer-motion": "^13.3.0",

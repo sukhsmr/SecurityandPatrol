@@ -5,31 +5,11 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import type { TestimonialsData } from '@/lib/cms/sections/definitions';
 
-const testimonials = [
-  {
-    name: "Hiromi Mastumoto",
-    title: "V.P. of Finance International Transport U.S.A., Inc.",
-    content: "Liked the way you guys treat your customers, the prices are pretty great too!",
-  },
-  {
-    name: "Romeo Sanchez",
-    title: "Hotels group",
-    content: "We have been pleased with your serivce and it is my wish that we part on good terms.",
-  },
-  {
-    name: "Mary Vinero",
-    title: "Management",
-    content: "Thanks for the quick and professional service! I was happy to know about safety.",
-  },
-  {
-    name: "Andrea Owens",
-    title: "Client",
-    content: "Professional, friendly and fair prices. Loved the services, thank you for providing great security service.",
-  }
-];
 
-export default function Testimonials() {
+
+export default function Testimonials({ data }: { data: TestimonialsData }) {
   return (
     <section className="elementor-section elementor-top-section elementor-element elementor-element-643bc12a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="643bc12a" data-element_type="section" data-e-type="section" id="xs_testi_7" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
       <div className="elementor-container elementor-column-gap-default">
@@ -49,7 +29,7 @@ export default function Testimonials() {
                                 spaceBetween={15}
                                 slidesPerView={3}
                                 loop={true}
-                                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                                autoplay={{ delay: data.autoplayDelay || 3000, disableOnInteraction: false }}
                                 pagination={{ clickable: true }}
                                 breakpoints={{
                                   320: { slidesPerView: 1, spaceBetween: 10 },
@@ -58,13 +38,13 @@ export default function Testimonials() {
                                 }}
                                 className="u-pb-10" // Add padding for pagination dots
                               >
-                                {testimonials.map((testimonial, index) => (
+                                {data.items.map((testimonial, index) => (
                                   <SwiperSlide key={index}>
                                     <div className="swiper-slide-inner">
                                       <div className="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style">
                                         <div className="elementskit-commentor-bio client_left">
                                           <div className="elementskit-commentor-image ekit-testimonial--avatar">
-                                            <img src="/logos/logo.png" loading="lazy" decoding="async" width={166} height={180} className="attachment-full size-full" alt="" />
+                                            <img src={data.avatar.src} loading="lazy" decoding="async" width={166} height={180} className="attachment-full size-full" alt={data.avatar.alt ?? ''} />
                                           </div>
                                           <span className="elementskit-profile-info">
                                             <strong className="elementskit-author-name">{testimonial.name}</strong>

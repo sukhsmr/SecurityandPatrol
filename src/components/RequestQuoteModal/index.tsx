@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { QuoteModalContent } from '@/lib/cms/types';
 
 interface RequestQuoteModalProps {
+  content: QuoteModalContent;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModalProps) {
+export default function RequestQuoteModal({ content, isOpen, onClose }: RequestQuoteModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -68,60 +70,49 @@ export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModal
               </button>
 
               <h2 style={{ color: '#f28e24', fontSize: '24px', fontWeight: 'bold', marginBottom: '25px', marginTop: 0 }}>
-                Request a Quote
+                {content.title}
               </h2>
 
               <form style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                 <div style={{ display: 'flex', gap: '15px' }}>
                   <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                    <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>Name</label>
-                    <input type="text" placeholder="Enter your name" style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none' }} required />
+                    <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{content.nameLabel}</label>
+                    <input type="text" placeholder={content.namePlaceholder} style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none' }} required />
                   </div>
                   <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                    <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>Email</label>
-                    <input type="email" placeholder="Enter your email" style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none' }} required />
+                    <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{content.emailLabel}</label>
+                    <input type="email" placeholder={content.emailPlaceholder} style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none' }} required />
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>Phone Number</label>
-                  <input type="tel" placeholder="Enter your phone number" style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none' }} required />
+                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{content.phoneLabel}</label>
+                  <input type="tel" placeholder={content.phonePlaceholder} style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none' }} required />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>Your Location</label>
+                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{content.locationLabel}</label>
                   <select style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none', backgroundColor: '#fff' }} required>
-                    <option value="California (Bay Area)">California (Bay Area)</option>
-                    <option value="Portland Oregon">Portland Oregon</option>
-                    <option value="Seattle Washington">Seattle Washington</option>
-                    <option value="Vancouver Washington">Vancouver Washington</option>
-                    <option value="Houston Texas">Houston Texas</option>
-                    <option value="San Antonio Texas">San Antonio Texas</option>
+                    {content.locations.map((option) => <option key={option} value={option}>{option}</option>)}
                   </select>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>Service</label>
+                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{content.serviceLabel}</label>
                   <select style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none', backgroundColor: '#fff' }} required>
-                    <option value="Unarmed Security">Unarmed Security</option>
-                    <option value="Armed Security">Armed Security</option>
-                    <option value="Construction Site Security">Construction Site Security</option>
-                    <option value="Mobile Patrol Security">Mobile Patrol Security</option>
-                    <option value="Event Security">Event Security</option>
-                    <option value="Commercial Security">Commercial Security</option>
-                    <option value="Residential Security">Residential Security</option>
+                    {content.services.map((option) => <option key={option} value={option}>{option}</option>)}
                   </select>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>Message</label>
-                  <textarea placeholder="Type message..." rows={4} style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none', resize: 'vertical' }}></textarea>
+                  <label style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{content.messageLabel}</label>
+                  <textarea placeholder={content.messagePlaceholder} rows={4} style={{ padding: '10px 12px', border: '1px solid #ccc', borderRadius: '3px', fontSize: '14px', width: '100%', outline: 'none', resize: 'vertical' }}></textarea>
                 </div>
 
                 <div style={{ border: '1px solid #d3d3d3', borderRadius: '3px', padding: '10px 15px', backgroundColor: '#f9f9f9', display: 'inline-flex', alignItems: 'center', justifyContent: 'space-between', width: 'fit-content', marginTop: '5px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <input type="checkbox" id="recaptcha-mock" style={{ width: '20px', height: '20px', cursor: 'pointer' }} required />
-                    <label htmlFor="recaptcha-mock" style={{ fontSize: '14px', cursor: 'pointer' }}>I'm not a robot</label>
+                    <label htmlFor="recaptcha-mock" style={{ fontSize: '14px', cursor: 'pointer' }}>{content.captchaLabel}</label>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '30px' }}>
                     <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA logo" style={{ width: '24px' }} />
@@ -130,12 +121,12 @@ export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModal
                 </div>
 
                 <button type="submit" style={{ backgroundColor: '#f28e24', color: '#fff', padding: '12px', border: 'none', borderRadius: '3px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer', marginTop: '10px' }}>
-                  Send
+                  {content.submitText}
                 </button>
               </form>
 
               <p style={{ fontSize: '11px', color: '#666', lineHeight: '1.5', marginTop: '15px', marginBottom: 0 }}>
-                By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message & data rates may apply. You can reply STOP to opt-out of further messaging.
+                {content.disclaimer}
               </p>
             </div>
             </motion.div>

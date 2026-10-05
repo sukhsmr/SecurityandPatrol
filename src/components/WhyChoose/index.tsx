@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { AboutExpandableData } from '@/lib/cms/sections/definitions';
 
-export default function WhyChoose() {
+export default function WhyChoose({ data }: { data: AboutExpandableData }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -12,7 +13,7 @@ export default function WhyChoose() {
         <div className="elementor-widget-wrap elementor-element-populated">
           <div className="elementor-element elementor-element-c02854c elementor-widget elementor-widget-image" data-id="c02854c" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
             <div className="elementor-widget-container">
-              <img src="/wp-content/uploads/elementor/thumbs/ChatGPT-Image-Aug-8-2026-06_54_18-PM-1-rrnvq0nhmccvgsxtbrakvem04hlfc9h22fsklo563c.png" decoding="async" title="ChatGPT Image Aug 8, 2026, 06_54_18 PM (1)" alt="ChatGPT Image Aug 8, 2026, 06_54_18 PM (1)" loading="lazy" width={500} height={540} />
+              <img src={data.image.src} decoding="async" title={data.image.alt} alt={data.image.alt ?? ''} loading="lazy" width={500} height={540} />
             </div>
           </div>
         </div>
@@ -22,92 +23,55 @@ export default function WhyChoose() {
           <div className="elementor-element elementor-element-a990fdb elementor-widget elementor-widget-heading" data-id="a990fdb" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
             <div className="elementor-widget-container">
               <h2 className="elementor-heading-title elementor-size-default">
-                Why California Businesses Choose Rayven Security Protection</h2>
+                {data.heading}</h2>
             </div>
           </div>
+          {data.subheading && (
           <div className="elementor-element elementor-element-3da4d4d elementor-widget elementor-widget-heading" data-id="3da4d4d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
             <div className="elementor-widget-container">
               <h2 className="elementor-heading-title elementor-size-default">
-                Rayven Security Guard Services You Can Trust
+                {data.subheading}
               </h2>
             </div>
           </div>
+          )}
+          {data.tagline && (
           <div className="elementor-element elementor-element-55d5fb0 elementor-widget elementor-widget-text-editor" data-id="55d5fb0" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
             <div className="elementor-widget-container">
-              <p>Trusted Security Guard Company in California Since 1997</p>
+              <p>{data.tagline}</p>
             </div>
           </div>
+          )}
           <div className="elementor-element elementor-element-19cb1e1 elementor-widget elementor-widget-text-editor" data-id="19cb1e1" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
             <div className="elementor-widget-container">
-              <p data-start={487} data-end={799}>At Rayven Security Protection, we ensure your
-                business receives the most professional security
-                guard services in California. We provide
-                customizable security solutions tailored to your
-                needs, whether you require armed or unarmed
-                security guards, event security, or commercial
-                and residential protection.</p>
-              <p data-start={801} data-end={1056}>Our licensed
-                Rayven Security Guards are trained to
-                protect your property, employees, and assets
-                with professionalism and vigilance. As your
-                business grows, our security services evolve
-                with you to ensure maximum protection and peace
-                of mind.</p>
-              <p data-start={1058} data-end={1230}>We are
-                committed to delivering the best security guards
-                in California, providing 24/7 on-site security,
-                patrol services, and emergency response
-                solutions.</p>
-              <p data-start={1232} data-end={1406}>Remember,
-                unwanted events can happen anytime. A mindset of
-                “it can’t happen to me” won’t help — but having
-                Rayven Security Protection, your
-                trusted California security company, will.</p>
+              {data.paragraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
             </div>
           </div>
 
           <AnimatePresence>
             {expanded && (
-              <motion.div 
+              <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="elementor-element elementor-element-83f22b9 details-areaabout e-flex e-con-boxed e-con e-parent u-overflow-hidden" 
-                data-id="83f22b9" 
-                data-element_type="container" 
+                className="elementor-element elementor-element-83f22b9 details-areaabout e-flex e-con-boxed e-con e-parent u-overflow-hidden"
+                data-id="83f22b9"
+                data-element_type="container"
                 data-e-type="container"
               >
                 <div className="e-con-inner">
                   <div className="elementor-element elementor-element-aae0780 elementor-widget elementor-widget-text-editor" data-id="aae0780" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                     <div className="elementor-widget-container">
-                      <p className="u-text-gray-200 u-font-semibold u-tracking-wide">
-                        <strong>Theft<br /></strong><strong>Damage<br /></strong><strong>Property destruction</strong>
-                      </p>
+                      {data.highlights.length > 0 && (
+                        <p className="u-text-gray-200 u-font-semibold u-tracking-wide">
+                          {data.highlights.map((line, i) => (
+                            <strong key={i}>{line}{i < data.highlights.length - 1 && <br />}</strong>
+                          ))}
+                        </p>
+                      )}
                       <p className="u-text-justify u-text-gray-400 u-mb-5">
-                        At Rayven Security Protection,
-                        we make it our mission to provide you
-                        with top class security guard services.
-                        Therefore, they add value to your
-                        company. Being safe enables you to focus
-                        on your mission. Certainly, together we
-                        can improve our community! Technology
-                        driven security at Rayven Security Protection Security Guards
-                        Service uses cutting edge mobile
-                        technology. Above all, it is updated,
-                        backed-up and fully reliant. As a
-                        result, it enables us to stay on top of
-                        all our systems. So, it helps as we
-                        receive daily reports – complete
-                        and thorough. Our reports provide a full
-                        insight. We look at duties completed by
-                        Rayven Security Protection
-                        trained security guards. That helps us
-                        assess their process. It manages their
-                        interaction with your employees and your
-                        environment. With the help of
-                        professional risk assessors, we fully
-                        optimize your security needs.<span className="text-primary cursor-pointer">&nbsp;</span>
+                        {data.moreText}<span className="text-primary cursor-pointer">&nbsp;</span>
                       </p>
                     </div>
                   </div>
@@ -122,7 +86,7 @@ export default function WhyChoose() {
                 <div className="elementor-button-wrapper">
                   <a className="elementor-button elementor-button-link elementor-size-sm" href="#" onClick={(e) => { e.preventDefault(); setExpanded(true); }}>
                     <span className="elementor-button-content-wrapper">
-                      <span className="elementor-button-text">Show More</span>
+                      <span className="elementor-button-text">{data.showMoreText}</span>
                     </span>
                   </a>
                 </div>
@@ -134,7 +98,7 @@ export default function WhyChoose() {
                 <div className="elementor-button-wrapper">
                   <a className="elementor-button elementor-button-link elementor-size-sm" href="#" onClick={(e) => { e.preventDefault(); setExpanded(false); }}>
                     <span className="elementor-button-content-wrapper">
-                      <span className="elementor-button-text">Show Less</span>
+                      <span className="elementor-button-text">{data.showLessText}</span>
                     </span>
                   </a>
                 </div>

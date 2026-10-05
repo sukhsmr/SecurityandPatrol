@@ -1,8 +1,7 @@
 import Header from './index';
-import { getAllServices } from '@/lib/data/services';
-import { getAllOffices } from '@/lib/data/offices';
+import { getHeader, getOffices, getServiceMenu } from '@/lib/cms/services/content';
 
 export default async function ConnectedHeader() {
-  const [services, offices] = await Promise.all([getAllServices(), getAllOffices()]);
-  return <Header services={services} offices={offices} />;
+  const [content, services, offices] = await Promise.all([getHeader(), getServiceMenu(), getOffices()]);
+  return <Header content={content} services={services} offices={offices} />;
 }

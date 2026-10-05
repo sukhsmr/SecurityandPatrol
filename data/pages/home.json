@@ -1,0 +1,253 @@
+{
+  "id": "e8c6ec5f-563f-48bc-b91c-f6891f59e93b",
+  "status": "published",
+  "group": "page",
+  "seo": {},
+  "createdAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-05T11:51:40.425Z",
+  "slug": "home",
+  "title": "Home",
+  "layout": {
+    "type": "article",
+    "articleId": "post-7",
+    "articleClassName": "entry single-entry post-7 page type-page status-publish has-post-thumbnail hentry",
+    "elementorId": 7
+  },
+  "sections": [
+    {
+      "id": "ee68ce76-58cc-43fb-a965-7d5f9fe5c250",
+      "type": "hero",
+      "name": "Hero",
+      "enabled": true,
+      "data": {
+        "highlight": "Professional",
+        "title": "Security Guard Services in California",
+        "subtitle": "Licensed & Insured Security Guards Serving California, Texas, Oregon & Washington – Available 24/7.",
+        "buttonText": "CONTACT US NOW",
+        "buttonUrl": "/security-and-patrol-contact-us",
+        "badgeImage": {
+          "src": "/wp-content/uploads/2023/03/28-Years-Exp-1.png",
+          "alt": "Blue badge stating over 28 years of experience with laurel wreath and stars in design."
+        },
+        "sideImage": {
+          "src": "/wp-content/uploads/2026/08/exp_for_signature-removebg-preview.png",
+          "alt": "",
+          "srcSet": "/wp-content/uploads/2026/08/exp_for_signature-removebg-preview.png 500w, /wp-content/uploads/2026/08/exp_for_signature-removebg-preview-300x300.png 300w, /wp-content/uploads/2026/08/exp_for_signature-removebg-preview-150x150.png 150w"
+        }
+      }
+    },
+    {
+      "id": "9a2c754f-9b95-421c-be8c-2d9787621088",
+      "type": "feature-cards",
+      "name": "Guard Tracking & Dispatch",
+      "enabled": true,
+      "data": {
+        "cards": [
+          {
+            "logo": {
+              "src": "/wp-content/uploads/2023/02/GuardOne-Logowhite.png",
+              "alt": "Logo of GuardOne featuring a stylized G and 1 with gold and white color scheme."
+            },
+            "title": "Real-Time Guard Tracking, Reporting, and Client Updates",
+            "listHeading": "We use GuardOne to:",
+            "items": [
+              "Create incident reports/activity reports and more",
+              "Create and publish security guard’s schedules",
+              "We track security guard activities",
+              "GuardOne is GPS activated",
+              "Officers activities/reports are available real time",
+              "Officers can contact Rayven Security Protection management directly from GuardOne",
+              "PDF reports are sent automatically to the clients"
+            ]
+          },
+          {
+            "logo": {
+              "src": "",
+              "alt": ""
+            },
+            "title": "24/7 Dispatch Center",
+            "listHeading": "Friendly and reliable dispatch services:",
+            "items": [
+              "All dispatch is control from our 24/7 central office",
+              "Live operators are available to solve problems",
+              "Dispatcher monitor security guard activities",
+              "Prompt and reliable communication with clients and guard",
+              "Officers activities/reports are available real time",
+              "Prompt response to emergency situation(s)"
+            ]
+          }
+        ],
+        "showMoreText": "Show More",
+        "showLessText": "Show Less"
+      }
+    },
+    {
+      "id": "511e912e-9949-4704-bc0d-9da734388f2a",
+      "type": "about-expandable",
+      "name": "Why California Businesses Choose Us",
+      "enabled": true,
+      "data": {
+        "image": {
+          "src": "/wp-content/uploads/elementor/thumbs/ChatGPT-Image-Aug-8-2026-06_54_18-PM-1-rrnvq0nhmccvgsxtbrakvem04hlfc9h22fsklo563c.png",
+          "alt": "ChatGPT Image Aug 8, 2026, 06_54_18 PM (1)"
+        },
+        "heading": "Why California Businesses Choose Rayven Security Protection",
+        "subheading": "Rayven Security Guard Services You Can Trust",
+        "tagline": "Trusted Security Guard Company in California Since 1997",
+        "paragraphs": [
+          "At Rayven Security Protection, we ensure your business receives the most professional security guard services in California. We provide customizable security solutions tailored to your needs, whether you require armed or unarmed security guards, event security, or commercial and residential protection.",
+          "Our licensed Rayven Security Guards are trained to protect your property, employees, and assets with professionalism and vigilance. As your business grows, our security services evolve with you to ensure maximum protection and peace of mind.",
+          "We are committed to delivering the best security guards in California, providing 24/7 on-site security, patrol services, and emergency response solutions.",
+          "Remember, unwanted events can happen anytime. A mindset of “it can’t happen to me” won’t help — but having Rayven Security Protection, your trusted California security company, will."
+        ],
+        "highlights": [
+          "Theft",
+          "Damage",
+          "Property destruction"
+        ],
+        "moreText": "At Rayven Security Protection, we make it our mission to provide you with top class security guard services. Therefore, they add value to your company. Being safe enables you to focus on your mission. Certainly, together we can improve our community! Technology driven security at Rayven Security Protection Security Guards Service uses cutting edge mobile technology. Above all, it is updated, backed-up and fully reliant. As a result, it enables us to stay on top of all our systems. So, it helps as we receive daily reports – complete and thorough. Our reports provide a full insight. We look at duties completed by Rayven Security Protection trained security guards. That helps us assess their process. It manages their interaction with your employees and your environment. With the help of professional risk assessors, we fully optimize your security needs.",
+        "showMoreText": "Show More",
+        "showLessText": "Show Less"
+      }
+    },
+    {
+      "id": "8b615a96-ef78-4b58-b136-f9b472873f1c",
+      "type": "services-grid",
+      "name": "Our Security Guard Services",
+      "enabled": true,
+      "data": {
+        "heading": "OUR SECURITY GUARD SERVICES",
+        "introParagraphs": [
+          "At Rayven Security Protection, we provide fast, reliable, and professional security guard services in California tailored to meet the specific needs of every client. With over 28 years of experience, our licensed and trained security guards deliver dependable protection for businesses, residences, and events of all sizes.",
+          "From armed and unarmed security guards to mobile patrol services, our goal is to ensure safety, prevent risks, and maintain peace of mind 24/7. Whether you need construction site security, event security, or commercial property protection, Rayven Security Protection designs flexible solutions that fit your environment."
+        ],
+        "desktopItems": [
+          {
+            "title": "Unarmed Security Guards",
+            "description": "Our unarmed security guards in California are highly trained to handle a variety of security situations with professionalism and discretion, ensuring peace of mind for all our clients."
+          },
+          {
+            "title": "Armed Security Guards",
+            "description": "Our armed security guards are skilled, licensed, and experienced in managing complex environments, offering advanced protection for your people and property."
+          },
+          {
+            "title": "24/7 On-Site Security",
+            "description": "Our well-trained security professionals monitor your property 24 hours a day to ensure continuous safety and quick response to any potential threats."
+          },
+          {
+            "title": "Mobile Patrol Security Services",
+            "description": "Our mobile patrol units perform strategic and random patrols throughout the day and night, ensuring full property coverage and effective risk prevention."
+          },
+          {
+            "title": "Proactive Risk Prevention",
+            "description": "Rayven Security Protection can deploy trained security professionals to detect and prevent risks before they become serious issues, ensuring complete safety for your site."
+          },
+          {
+            "title": "Customized Commercial Security",
+            "description": "We tailor commercial and residential security services for corporations, apartment buildings, office complexes, hospitals, colleges, and hotels across California."
+          }
+        ],
+        "mobileItems": [
+          {
+            "title": "Unarmed Security",
+            "description": "Rayven Security Protection Unarmed Security Guards are trained to deal with our valued clients unique security needs"
+          },
+          {
+            "title": "Armed Security",
+            "description": "Rayven Security Protection Armed Security Guards are trained to deal with complex and unique security needs."
+          },
+          {
+            "title": "Construction Site Security",
+            "description": "Our well-trained onsite security professionals will monitor the site 24 hours a day."
+          },
+          {
+            "title": "Mobile Patrol Security",
+            "description": "Our Security Guards will patrol your property at random times yet systematically with visibly marked Rayven Security Protection security vehicles."
+          },
+          {
+            "title": "Event Security",
+            "description": "Rayven Security Protection can deploy trained security professionals to prevent any security risks before it becomes a problem."
+          },
+          {
+            "title": "Commercial Security",
+            "description": "We customized our commercial property security services for corporations, apartment buildings, hospitals, colleges, office buildings and hotels."
+          }
+        ]
+      }
+    },
+    {
+      "id": "107de4b5-188b-480f-8c30-8610c3f96fe4",
+      "type": "why-choose-us",
+      "name": "Why Choose Us",
+      "enabled": true,
+      "data": {
+        "heading": "WHY CHOOSE US?",
+        "intro": "At Rayven Security Protection, we proudly serve businesses and individuals across California with reliable and professional security guard services. Our security guard company is dedicated to protecting businesses, properties, and events across California, Texas, Oregon, and Washington. Whether you need armed or unarmed guards, event security, or on-site protection, we guarantee 100% client satisfaction and trusted protection by licensed professionals.",
+        "primaryFeature": {
+          "iconClass": "fas fa-credit-card",
+          "title": "Flexible Pricing",
+          "description": "We build lasting relationships with our California clients through flexible and affordable security service pricing. No long-term contracts are required, just quality protection when you need it. Fill out our form today to get the best security guard service in California at the lowest cost."
+        },
+        "secondaryFeature": {
+          "iconClass": "icon icon-team1",
+          "title": "Licensed, Trained Security Officers",
+          "description": "Rayven Security Protection is a locally owned and operated Rayven Security Guard company with more than 28 years of industry experience. Our professional security officers are fully trained, background-checked, and hold guard cards issued by the California Bureau of Security and Investigative Services (BSIS). We provide dependable, well-trained guards who protect your property and peace of mind."
+        },
+        "moreText": "We provide guard monitoring and have radios and vehicles with GPS capability. Our Security Guards submit electronic daily reports and clients can access the reports real-time on our online GuardOne portal or receive daily PDF reports via email.",
+        "showMoreText": "Show More",
+        "showLessText": "Show Less",
+        "formHeading": "GET A FREE QUOTE",
+        "namePlaceholder": "Name",
+        "emailPlaceholder": "Email",
+        "phonePlaceholder": "Phone Number",
+        "messagePlaceholder": "Message",
+        "submitText": "Submit",
+        "recaptchaSiteKey": "6LfBXe4kAAAAAF0M3DbCqRcEIcwuayRxvYhJ3ISJ"
+      }
+    },
+    {
+      "id": "d55716ec-58e1-4eec-9fe6-65400d8666ef",
+      "type": "offices",
+      "name": "Our Offices",
+      "enabled": true,
+      "data": {
+        "title": "Our offices"
+      }
+    },
+    {
+      "id": "85a64a23-851b-4e03-a16e-4796458abcd9",
+      "type": "testimonials",
+      "name": "Testimonials",
+      "enabled": true,
+      "data": {
+        "avatar": {
+          "src": "/logos/logo.png",
+          "alt": ""
+        },
+        "autoplayDelay": 3000,
+        "items": [
+          {
+            "name": "Hiromi Mastumoto",
+            "title": "V.P. of Finance International Transport U.S.A., Inc.",
+            "content": "Liked the way you guys treat your customers, the prices are pretty great too!"
+          },
+          {
+            "name": "Romeo Sanchez",
+            "title": "Hotels group",
+            "content": "We have been pleased with your serivce and it is my wish that we part on good terms."
+          },
+          {
+            "name": "Mary Vinero",
+            "title": "Management",
+            "content": "Thanks for the quick and professional service! I was happy to know about safety."
+          },
+          {
+            "name": "Andrea Owens",
+            "title": "Client",
+            "content": "Professional, friendly and fair prices. Loved the services, thank you for providing great security service."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "24453fb1-a9b7-4a12-95e4-081971a2c646",
+  "status": "published",
+  "group": "page",
+  "seo": {},
+  "createdAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "slug": "privacy-policy",
+  "title": "Privacy Policy",
+  "layout": {
+    "type": "article",
+    "articleId": "post-3",
+    "articleClassName": "entry content-bg single-entry post-3 page type-page status-publish hentry",
+    "elementorId": 3
+  },
+  "sections": [
+    {
+      "id": "faf31951-d4cd-4849-9d4e-465d6a2eded4",
+      "type": "legal-content",
+      "name": "Privacy Policy",
+      "enabled": true,
+      "data": {
+        "items": [
+          {
+            "heading": "Updated on: October 16, 2024",
+            "body": "<p style=\"text-align:left\">At Rayven Security Protection, accessible from <a href=\"http://www.securityandpatrol.com\">www.securityandpatrol.com</a>, your privacy is important to us. This Privacy Policy outlines how we collect, use, store, and protect your personal information in compliance with applicable U.S. laws, including the California Consumer Privacy Act (CCPA).</p>"
+          },
+          {
+            "heading": "1. Information We Collect",
+            "body": "<p>We collect personal information from candidates applying for jobs and from clients (potential). This information may include, but is not limited to, names, email addresses, phone numbers, and any other relevant data submitted through our website.</p>"
+          },
+          {
+            "heading": "2. Use of Information",
+            "body": "<ul><li><strong>Job Applicants:</strong> We use the information provided by candidates solely for the purpose of evaluating applications and hiring decisions. This information will not be shared with any third parties and will be stored securely.</li><li><strong>Clients:</strong> We utilize client information to provide our services and maintain our business relationship. Similar to job applicants, client data will not be shared with third parties.</li></ul>"
+          },
+          {
+            "heading": "3. Data Retention and Disposal",
+            "body": "<p>We are committed to the responsible management of your personal information. If a job candidate is not hired, their information will be securely discarded after a reasonable retention period. Client data will be retained as long as necessary to fulfill the purposes outlined in this Privacy Policy or as required by law.</p>"
+          },
+          {
+            "heading": "4. Data Security",
+            "body": "<p>We take the protection of your personal data very seriously. We implement a variety of security measures to maintain the safety of your personal information. These measures include access controls and secure data storage practices.</p>"
+          },
+          {
+            "heading": "5. Your Rights Under CCPA",
+            "body": "<p>If you are a US citizen or California resident, you have certain rights regarding your personal information, including:</p><ul><li>The right to request access to the personal information we collect about you.</li><li>The right to request the deletion of your personal information.</li><li>The right to opt-out of the sale of your personal information (though we do not sell personal information to third parties). To exercise any of these rights, please contact us using the information provided below.</li></ul>"
+          },
+          {
+            "heading": "6. Consent and Third Parties ",
+            "body": "<p>Consent granted to Rayven Security Protection for sending text messages is specific and cannot be transferred to any third parties. This means that any authorization you provide to receive text messages from Rayven Security Protection cannot be reused or shared with other entities for their own purposes.</p><p>Furthermore, we want to assure you that no mobile information will be shared with third parties or affiliates for marketing or promotional purposes. This includes all data related to text messaging opt-in, as well as any consent provided for such communications. We prioritize your privacy, and as such, this information will remain confidential and will not be disclosed to any outside parties</p>"
+          },
+          {
+            "heading": "7. Changes to This Privacy Policy",
+            "body": "<p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and we will notify you of any significant changes through our website.</p>"
+          },
+          {
+            "heading": "8. Contact Us",
+            "body": "<p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p><p><strong>Rayven Security Protection</strong><br/>Email: info@securityandpatrol.com<br/>Phone: 510-754-8456<br/>Address: 33446 Western Ave<br/>Union City, CA 94587</p><p>By using our website, you consent to our Privacy Policy.</p>"
+          }
+        ]
+      }
+    }
+  ]
+}

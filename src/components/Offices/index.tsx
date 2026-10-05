@@ -1,41 +1,8 @@
 import React from 'react';
-import type { Office } from '@/lib/data/offices';
+import { chunk } from '@/lib/chunk';
+import type { Office } from '@/lib/cms/types';
 
-export type OfficesAnchorIds = {
-  california?: string;
-  portland?: string;
-  houston?: string;
-  sanAntonio?: string;
-  seattle?: string;
-  vancouver?: string;
-};
-
-const ANCHOR_BY_KEY: Record<keyof OfficesAnchorIds, string> = {
-  california: 'California',
-  portland: 'portland',
-  houston: 'Texas',
-  sanAntonio: 'san',
-  seattle: 'seattle',
-  vancouver: 'vanc',
-};
-
-function resolveAnchorId(office: Office, ids?: OfficesAnchorIds): string | undefined {
-  if (!ids || !office.anchor) return undefined;
-  const key = (Object.keys(ANCHOR_BY_KEY) as Array<keyof OfficesAnchorIds>).find(
-    (k) => ANCHOR_BY_KEY[k] === office.anchor
-  );
-  return key ? ids[key] : undefined;
-}
-
-function chunk<T>(items: T[], size: number): T[][] {
-  const result: T[][] = [];
-  for (let i = 0; i < items.length; i += size) {
-    result.push(items.slice(i, i + size));
-  }
-  return result;
-}
-
-export default function Offices({ offices, ids }: { offices: Office[]; ids?: OfficesAnchorIds }) {
+export default function Offices({ offices, title }: { offices: Office[]; title: string }) {
   const columns = chunk(offices, Math.ceil(offices.length / 3) || 1);
 
   return (
@@ -46,7 +13,7 @@ export default function Offices({ offices, ids }: { offices: Office[]; ids?: Off
             <div className="elementor-widget-wrap elementor-element-populated">
               <div className="elementor-element elementor-element-9250e56 elementor-widget elementor-widget-heading" data-id="9250e56" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                 <div className="elementor-widget-container">
-                  <h2 className="elementor-heading-title elementor-size-default">Our offices</h2>
+                  <h2 className="elementor-heading-title elementor-size-default">{title}</h2>
                 </div>
               </div>
             </div>
@@ -60,7 +27,7 @@ export default function Offices({ offices, ids }: { offices: Office[]; ids?: Off
             <div key={columnIndex} className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7ae3e47" data-id="7ae3e47" data-element_type="column" data-e-type="column">
               <div className="elementor-widget-wrap elementor-element-populated">
                 {column.map((office) => {
-                  const anchorId = resolveAnchorId(office, ids) || office.anchor;
+                  const anchorId = office.anchor;
                   return (
                     <React.Fragment key={office.name}>
                       {anchorId && (

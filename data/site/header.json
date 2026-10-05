@@ -1,0 +1,196 @@
+{
+  "topBarText": "Call US: 1-510-754-8456",
+  "socialLinks": [
+    {
+      "network": "facebook-f",
+      "label": "Facebook-f",
+      "iconClass": "fab fa-facebook-f",
+      "url": "https://www.facebook.com/security-and-patrol-419408835286802",
+      "repeaterId": "38321e7"
+    },
+    {
+      "network": "twitter",
+      "label": "Twitter",
+      "iconClass": "fab fa-twitter",
+      "url": "https://twitter.com/securityandpatrol",
+      "repeaterId": "b0b1f9c"
+    },
+    {
+      "network": "youtube",
+      "label": "Youtube",
+      "iconClass": "fab fa-youtube",
+      "url": "https://www.youtube.com/channel/UCllIX4xuDtGGcd8Y5HagsJQ",
+      "repeaterId": "2d89bd4"
+    },
+    {
+      "network": "instagram",
+      "label": "Instagram",
+      "iconClass": "fab fa-instagram",
+      "url": "https://www.instagram.com/securityandpatrol/",
+      "repeaterId": "8044d7a"
+    },
+    {
+      "network": "linkedin-in",
+      "label": "Linkedin-in",
+      "iconClass": "fab fa-linkedin-in",
+      "url": "https://www.linkedin.com/company/28438799/",
+      "repeaterId": "b1ff4d5"
+    },
+    {
+      "network": "whatsapp",
+      "label": "Whatsapp",
+      "iconClass": "fab fa-whatsapp",
+      "url": "https://wa.me/+5107548456",
+      "repeaterId": "8501dda"
+    }
+  ],
+  "logo": {
+    "src": "/logos/logo.png",
+    "alt": "Rayven Security Protection - 24/7 Private Security",
+    "url": "/"
+  },
+  "servingLabel": "Serving:",
+  "servingLinks": [
+    {
+      "label": "California",
+      "url": "/offices#California"
+    },
+    {
+      "label": "Portland",
+      "url": "/offices#portland"
+    },
+    {
+      "label": "Seattle",
+      "url": "/offices#seattle"
+    },
+    {
+      "label": "Vancouver",
+      "url": "/offices#vanc"
+    },
+    {
+      "label": "Houston",
+      "url": "/offices#Texas"
+    },
+    {
+      "label": "San Antonio",
+      "url": "/offices#san"
+    }
+  ],
+  "quoteButtonText": "Request a Quote",
+  "readMoreText": "Read More →",
+  "desktopMenu": [
+    {
+      "label": "Home",
+      "url": "/",
+      "kind": "link",
+      "highlighted": true
+    },
+    {
+      "label": "Services",
+      "url": "#",
+      "kind": "services"
+    },
+    {
+      "label": "OUR OFFICES",
+      "url": "/offices",
+      "kind": "offices"
+    },
+    {
+      "label": "Blog",
+      "url": "/blog",
+      "kind": "link"
+    },
+    {
+      "label": "Contact Us",
+      "url": "/security-and-patrol-contact-us",
+      "kind": "link"
+    },
+    {
+      "label": "Career",
+      "url": "/career",
+      "kind": "link"
+    },
+    {
+      "label": "Privacy Policy",
+      "url": "/privacy-policy",
+      "kind": "link"
+    }
+  ],
+  "mobileMenu": [
+    {
+      "label": "Home",
+      "url": "/",
+      "kind": "link",
+      "activeMatch": "exact"
+    },
+    {
+      "label": "Services",
+      "url": "#",
+      "kind": "services"
+    },
+    {
+      "label": "Our Offices",
+      "url": "/offices",
+      "kind": "offices",
+      "activeMatch": "prefix"
+    },
+    {
+      "label": "Contact Us",
+      "url": "/security-and-patrol-contact-us",
+      "kind": "link",
+      "activeMatch": "exact"
+    },
+    {
+      "label": "Blog",
+      "url": "/blog",
+      "kind": "link",
+      "activeMatch": "prefix"
+    },
+    {
+      "label": "Career",
+      "url": "/career",
+      "kind": "link",
+      "activeMatch": "exact"
+    },
+    {
+      "label": "Privacy Policy",
+      "url": "/privacy-policy",
+      "kind": "link",
+      "activeMatch": "exact",
+      "rel": "privacy-policy"
+    }
+  ],
+  "quoteModal": {
+    "title": "Request a Quote",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "locationLabel": "Your Location",
+    "locations": [
+      "California (Bay Area)",
+      "Portland Oregon",
+      "Seattle Washington",
+      "Vancouver Washington",
+      "Houston Texas",
+      "San Antonio Texas"
+    ],
+    "serviceLabel": "Service",
+    "services": [
+      "Unarmed Security",
+      "Armed Security",
+      "Construction Site Security",
+      "Mobile Patrol Security",
+      "Event Security",
+      "Commercial Security",
+      "Residential Security"
+    ],
+    "messageLabel": "Message",
+    "messagePlaceholder": "Type message...",
+    "captchaLabel": "I'm not a robot",
+    "submitText": "Send",
+    "disclaimer": "By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message & data rates may apply. You can reply STOP to opt-out of further messaging."
+  }
+}

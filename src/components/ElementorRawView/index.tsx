@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { prepareContentHtml } from '@/lib/content-html';
+import { useDeferredScripts } from '@/lib/use-deferred-scripts';
 
 interface ElementorRawViewProps {
   contentHtml: string;
@@ -18,22 +20,17 @@ interface ElementorRawViewProps {
  */
 export default function ElementorRawView({ contentHtml }: ElementorRawViewProps) {
   // Elementor's CSS hides backgrounds on mobile for .e-con elements unless they have .e-lazyloaded or .e-no-lazyload
-  const patchedHtml = contentHtml.replace(/class="([^"]*\be-con\b[^"]*)"/g, 'class="$1 e-no-lazyload"');
-  
+  const html = useMemo(
+    () => prepareContentHtml(contentHtml.replace(/class="([^"]*\be-con\b[^"]*)"/g, 'class="$1 e-no-lazyload"')),
+    [contentHtml],
+  );
+
   const containerRef = useRef<HTMLDivElement>(null);
+  useDeferredScripts(containerRef, html);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-
-    // Browsers never execute <script> tags injected via innerHTML.
-    const scripts = Array.from(container.querySelectorAll('script'));
-    scripts.forEach((oldScript) => {
-      const newScript = document.createElement('script');
-      Array.from(oldScript.attributes).forEach((attr) => newScript.setAttribute(attr.name, attr.value));
-      newScript.textContent = oldScript.textContent;
-      oldScript.replaceWith(newScript);
-    });
 
     // Re-implement Elementor's accordion widget toggle (its own JS bundle
     // was never captured in this migration's asset export).
@@ -64,7 +61,7 @@ export default function ElementorRawView({ contentHtml }: ElementorRawViewProps)
     });
 
     return () => cleanups.forEach((fn) => fn());
-  }, [contentHtml]);
+  }, [html]);
 
-  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: patchedHtml }} suppressHydrationWarning />;
+  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: html }} suppressHydrationWarning />;
 }

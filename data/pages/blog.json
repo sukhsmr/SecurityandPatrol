@@ -1,0 +1,52 @@
+{
+  "id": "84b6408d-4c0d-4e9b-b87e-1844adaecca7",
+  "status": "published",
+  "group": "page",
+  "seo": {
+    "title": "Security Tips | Safety Advice | Licensed Security Guards & Patrols",
+    "description": "Explore expert insights and updates from the Rayven Security Protection blog on security guard services, mobile patrols, and property protection."
+  },
+  "createdAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "slug": "blog",
+  "title": "Blog",
+  "layout": {
+    "type": "full-width"
+  },
+  "sections": [
+    {
+      "id": "957a5d03-1352-43da-bbb3-978505d9a48c",
+      "type": "blog-banner",
+      "name": "Banner",
+      "enabled": true,
+      "data": {
+        "backgroundImage": {
+          "src": "/wp-content/uploads/2023/03/blogimage.png",
+          "alt": ""
+        },
+        "eyebrow": "OUR",
+        "title": "BLOGS",
+        "text": "New product features, the latest in technology and updates.",
+        "emailPlaceholder": "Enter your email",
+        "buttonText": "Subscribe"
+      }
+    },
+    {
+      "id": "42d17dae-0e3a-4a52-98d2-c497951c4fc5",
+      "type": "blog-intro",
+      "name": "Welcome Bar",
+      "enabled": true,
+      "data": {
+        "eyebrow": "Our blogs",
+        "heading": "Welcome to the Rayven Security Protection Security Blog"
+      }
+    },
+    {
+      "id": "c5995391-a203-400f-ab2c-0be8e0ff50dd",
+      "type": "blog-list",
+      "name": "Blog Posts",
+      "enabled": true,
+      "data": {}
+    }
+  ]
+}

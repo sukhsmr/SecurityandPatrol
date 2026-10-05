@@ -1,21 +1,12 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
+import { prepareContentHtml } from '@/lib/content-html';
+import { useDeferredScripts } from '@/lib/use-deferred-scripts';
 
-export interface BlogPost {
-  id: number;
-  slug: string;
-  title: string;
-  date: string;
-  modified?: string;
-  contentHtml: string;
-  excerpt?: string;
-  featuredImage?: { url: string; alt?: string };
-  author?: string;
-  categories?: string[];
-  seo?: { title?: string; description?: string };
-  audioUrl?: string;
-}
+import type { Post } from '@/lib/cms/types';
+
+export type BlogPost = Post;
 
 function formatDate(iso: string) {
   const d = new Date(iso);
@@ -114,18 +105,8 @@ function AudioPlayer({ src }: { src: string }) {
 
 export default function BlogPostView({ post }: { post: BlogPost }) {
   const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = contentRef.current;
-    if (!container) return;
-    const scripts = Array.from(container.querySelectorAll('script'));
-    scripts.forEach((oldScript) => {
-      const newScript = document.createElement('script');
-      Array.from(oldScript.attributes).forEach((attr) => newScript.setAttribute(attr.name, attr.value));
-      newScript.textContent = oldScript.textContent;
-      oldScript.replaceWith(newScript);
-    });
-  }, [post.contentHtml]);
+  const contentHtml = useMemo(() => prepareContentHtml(post.contentHtml), [post.contentHtml]);
+  useDeferredScripts(contentRef, contentHtml);
 
   return (
     <div style={{ backgroundColor: '#fff', padding: '60px 0' }}>
@@ -179,7 +160,7 @@ export default function BlogPostView({ post }: { post: BlogPost }) {
             ref={contentRef} 
             className="single-content" 
             style={{ fontSize: '18px', lineHeight: '1.8', color: '#333', width: '100%', overflowWrap: 'break-word' }} 
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
+            dangerouslySetInnerHTML={{ __html: contentHtml }} 
           />
         </div>
       </article>

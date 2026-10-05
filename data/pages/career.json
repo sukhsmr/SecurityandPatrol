@@ -1,0 +1,77 @@
+{
+  "id": "2daf728a-183c-4160-a669-08f164f90bf8",
+  "status": "published",
+  "group": "page",
+  "seo": {},
+  "createdAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "slug": "career",
+  "title": "Career",
+  "layout": {
+    "type": "article",
+    "articleId": "post-10",
+    "articleClassName": "entry content-bg single-entry post-10 page type-page status-publish hentry",
+    "elementorId": 10
+  },
+  "sections": [
+    {
+      "id": "59ac74ad-564e-46c4-812d-4f917330a2e9",
+      "type": "career-hero",
+      "name": "Career Banner",
+      "enabled": true,
+      "data": {
+        "lineOne": "THE BEST WAY TO START",
+        "highlight": "YOUR CAREER",
+        "buttonText": "CONTACT US NOW",
+        "buttonUrl": "/security-and-patrol-contact-us"
+      }
+    },
+    {
+      "id": "6548e11f-fb4c-46fe-9726-36da967f79d5",
+      "type": "section-heading",
+      "name": "Career Heading",
+      "enabled": true,
+      "data": {
+        "title": "Career",
+        "subtitle": "Choose the career that suit you best"
+      }
+    },
+    {
+      "id": "16119998-b58f-4588-8c3d-455e8e0bf1c6",
+      "type": "career-form",
+      "name": "Application Form",
+      "enabled": true,
+      "data": {
+        "heading": "Career selected",
+        "positions": [
+          "Administration",
+          "Security guard application",
+          "Patrol / Supervisor"
+        ],
+        "labels": {
+          "firstNameLabel": "First Name",
+          "firstNamePlaceholder": "First Name",
+          "middleNameLabel": "Middle Name",
+          "middleNamePlaceholder": "Middle Name",
+          "lastNameLabel": "Last Name",
+          "lastNamePlaceholder": "Last Name",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Example@gmail.com",
+          "phoneLabel": "Phone Number",
+          "phonePlaceholder": "123456789",
+          "addressLabel": "Current address",
+          "addressPlaceholder": "Street address",
+          "addressLine2Placeholder": "Street address line",
+          "cityPlaceholder": "City",
+          "statePlaceholder": "State/Province",
+          "zipPlaceholder": "Postal/Zip code",
+          "resumeLabel": "Upload your resume",
+          "coverLetterLabel": "Cover letter"
+        },
+        "submitText": "Apply",
+        "disclaimer": "By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message & data rates may apply. You can reply STOP to opt-out of further messaging.",
+        "recaptchaSiteKey": "6LfBXe4kAAAAAF0M3DbCqRcEIcwuayRxvYhJ3ISJ"
+      }
+    }
+  ]
+}

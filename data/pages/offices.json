@@ -1,0 +1,26 @@
+{
+  "id": "6bbe4e34-1080-4b43-bf9f-e9c755260506",
+  "status": "published",
+  "group": "page",
+  "seo": {},
+  "createdAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "slug": "offices",
+  "title": "Our Offices",
+  "layout": {
+    "type": "article",
+    "articleId": "post-966",
+    "articleClassName": "entry single-entry post-966 page type-page status-publish hentry"
+  },
+  "sections": [
+    {
+      "id": "b71fa4b5-98c8-474b-9972-cf57d36b5285",
+      "type": "offices",
+      "name": "Offices",
+      "enabled": true,
+      "data": {
+        "title": "Our offices"
+      }
+    }
+  ]
+}

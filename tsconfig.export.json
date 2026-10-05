@@ -1,0 +1,12 @@
+{
+  "//": "Used by `npm run build:static`. Same as tsconfig.json but without the dev server's generated route types, which describe server-only routes (admin, API) that the static export excludes.",
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules", ".next/dev"]
+}

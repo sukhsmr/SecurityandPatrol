@@ -1,0 +1,45 @@
+import React from 'react';
+import ConnectedHeader from '@/components/Header/Connected';
+import Footer from '@/components/Footer';
+import { getFooter } from '@/lib/cms/services/content';
+
+interface SiteShellProps {
+  children: React.ReactNode;
+  /** Edge-to-edge content without the theme's content container (blog listing). */
+  fullWidth?: boolean;
+}
+
+/** The theme wrapper shared by every public page: header, content area and footer. */
+export default async function SiteShell({ children, fullWidth = false }: SiteShellProps) {
+  const footer = await getFooter();
+  return (
+    <>
+      <div id="wrapper" className="site wp-site-blocks">
+        <a className="skip-link screen-reader-text scroll-ignore" href="#main">Skip to content</a>
+        <ConnectedHeader />
+        {fullWidth ? (
+          <div id="content" className="site-content" style={{ padding: 0 }}>
+            <main id="inner-wrap" className="wrap kt-clear" role="main" style={{ padding: 0, width: '100%', maxWidth: '100%' }}>
+              {children}
+            </main>
+          </div>
+        ) : (
+          <div id="content" className="site-content">
+            <main id="inner-wrap" className="wrap kt-clear" role="main">
+              <div id="primary" className="content-area">
+                <div className="content-container site-container">
+                  <div id="main" className="site-main">
+                    <div className="content-wrap">
+                      {children}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        )}
+        <Footer data={footer} />
+      </div>
+    </>
+  );
+}
