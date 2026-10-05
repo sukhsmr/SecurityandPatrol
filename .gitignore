@@ -43,3 +43,6 @@ next-env.d.ts
 
 # CMS content backups (rotating, local)
 /data/.backups/
+
+# Deployment package (npm run deploy:package)
+/deploy/

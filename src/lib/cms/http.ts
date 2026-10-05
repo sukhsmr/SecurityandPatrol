@@ -43,6 +43,8 @@ export function isSameOrigin(request: NextRequest): boolean {
 }
 
 export function isSecureRequest(request: NextRequest): boolean {
+  // IIS/iisnode reports HTTPS through a promoted server variable (see web.config).
+  if (request.headers.get('x-iisnode-https')?.toLowerCase() === 'on') return true;
   const forwarded = request.headers.get('x-forwarded-proto');
   return (forwarded ? forwarded.split(',')[0].trim() : request.nextUrl.protocol.replace(':', '')) === 'https';
 }

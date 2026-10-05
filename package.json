@@ -2,15 +2,19 @@
   "name": "securityand-patrol",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "predev": "node scripts/bundle-css.cjs",
     "dev": "next dev --webpack",
     "build": "node scripts/build.cjs",
     "build:static": "node scripts/build.cjs --static",
-    "start": "next start",
+    "start": "node server.js",
     "lint": "eslint",
     "cms:hash-password": "node scripts/hash-password.cjs",
-    "css:bundle": "node scripts/bundle-css.cjs"
+    "css:bundle": "node scripts/bundle-css.cjs",
+    "deploy:package": "node scripts/package-deploy.cjs"
   },
   "dependencies": {
     "framer-motion": "^13.3.0",

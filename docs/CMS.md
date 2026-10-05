@@ -31,6 +31,8 @@ There are two production build modes:
 | `npm run build` then `npm start` | Public site **and** admin panel and API. Needs Node.js on the server. Content edits go live immediately. | Hosting on a Node.js server (VPS, Plesk Node.js, Docker, etc.). |
 | `npm run build:static` | The public site only, as static HTML in `out/`. No admin. | Static hosting such as the current IIS deployment. |
 
+**Running the admin on the live server:** follow [DEPLOYMENT.md](DEPLOYMENT.md) (Plesk on Windows, via iisnode).
+
 **Static-hosting workflow:** run the admin locally (`npm run dev`), make your edits, run `npm run build:static`, then upload `out/` as before. The JSON files are the source of truth for both modes, so commit `data/` to keep edits under version control.
 
 > **Hosting note:** JSON edits are written to disk. Serverless platforms with read-only or ephemeral file systems (e.g. Vercel functions) will not keep admin edits. Use a host with a persistent disk, or swap the storage layer (see [Architecture](#architecture)).
