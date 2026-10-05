@@ -30,8 +30,10 @@ const copy = (rel, filter) => {
   fs.cpSync(from, path.join(out, rel), { recursive: true, filter: filter ?? (() => true) });
 };
 
-for (const file of ["server.js", "web.config", "package.json", "package-lock.json", "next.config.ts", ".env.example"]) copy(file);
-copy("public", (src) => !src.includes(`${path.sep}uploads${path.sep}`) || withData);
+for (const file of ["server.js", ".plesk.startup.cjs", "web.config", "package.json", "package-lock.json", "next.config.ts", ".env.example"]) copy(file);
+// public/uploads holds images uploaded through the live admin: content, like data/.
+const adminUploads = path.join(root, "public", "uploads");
+copy("public", (src) => withData || (src !== adminUploads && !src.startsWith(adminUploads + path.sep)));
 // Build output without the local build cache and dev-server files.
 copy(".next", (src) => {
   const rel = path.relative(path.join(root, ".next"), src);
