@@ -2,12 +2,12 @@
 
 The admin panel (`/admin`) and its API need a running Node.js server: they log you in and save content. The **static export** (`npm run build:static`, the `out/` folder) is plain HTML files, so it has **no admin panel**. Uploading `out/` is why `/admin/login` shows *"404 - File or directory not found"* from IIS.
 
-To get the admin working on `devtech.aviorconventschool.com`, run the site as a Node.js application in Plesk. Plesk on Windows does this through **iisnode**. The project includes what that needs:
+To get the admin working on `devtech.aviorconventschool.com`, run the site as a Node.js application in Plesk. The project includes what that needs:
 
 | File | Purpose |
 | --- | --- |
-| `server.js` | Starts the app. Listens on the named pipe iisnode provides (works with a normal port too). |
-| `web.config` | Sends every request to `server.js`, hides internal folders, and shows the site's own 404 pages. |
+| `server.js` | Starts the app on whatever address IIS provides (ASP.NET Core Module port, iisnode pipe, or a normal port), keeps `logs/server.log`, and maps IIS's default-document rewrite back to `/`. |
+| `web.config` | Runs `server.js` through IIS (ASP.NET Core Module), hides internal folders, and shows the site's own 404 pages. |
 | `npm run deploy:package` | Builds the server version and puts everything to upload in `deploy/`. |
 
 Requirements: Plesk with the **Node.js** extension, and **Node.js 20.9 or newer** (Next.js 16 requirement; pick 22.x if offered).
@@ -81,12 +81,23 @@ With the Document Root on `out/`, IIS serves the old static HTML files itself an
 ### 5. Install and start
 
 1. Click **NPM install**.
-2. Plesk may rewrite `web.config` when settings change. Open `web.config` in the application root. If it doesn't contain the rule `<rule name="NextApp"`, upload the project's `web.config` again.
-3. Click **Restart App**.
+2. Open `web.config` in the application root. It must be the project's file: it starts the app with `<aspNetCore processPath="C:\Program Files
+odejs
+ode.exe" arguments=".\server.js" …>`. If Plesk replaced it (it writes an iisnode version when Node.js is enabled), upload the project's `web.config` again.
+3. Click **Restart App** (or re-save `web.config`).
 
-### 6. File permissions
+> **Why not iisnode?** On this server the iisnode module fails to load for the site (IIS error 500.21), so `web.config` runs Node through the **ASP.NET Core Module**, which is installed with IIS. Plesk's Node.js page still shows `.plesk.startup.cjs` as the startup file; that file only forwards to `server.js`, and the page's NPM install button keeps working.
 
-The app writes to `data/` (content, backups), `public/uploads/` (uploaded images) and `.next/` (page cache). In Plesk → **Files**, make sure the site's system user / application-pool user has **Modify** permission on the application root (this is the Plesk default for subscription users).
+### 6. Give the app write access (required for the admin)
+
+The app must write to `data/` (content and backups), `public/uploads/` (images), `.next/` (page cache) and `logs/` (server log). By default the site's **application pool group (`IWPG_aviorcon`) has read-only access**: pages load, but saving in the admin fails with *"Unable to save content"*.
+
+In Plesk → **Files** → `devTech.aviorconventschool.com`:
+
+1. Create the folders `logs` and `public/uploads` if they don't exist.
+2. For each of `data`, `logs`, `.next` and `public/uploads`: click the folder's **⋯ menu → Change Permissions**, select **Application pool group (IWPG_aviorcon)**, tick **Allow → Modify**, make sure it applies to *this folder, subfolders and files*, and click **OK**.
+
+Only grant write access on these four folders, not on the whole site. The app never needs to modify its own code.
 
 ### 7. Check
 
@@ -117,9 +128,12 @@ npm run deploy:package          # no --with-data: live content is kept
 | Symptom | Fix |
 | --- | --- |
 | IIS "404 - File or directory not found" on `/admin/login` | Document Root still points to `out/` (step 4), or `web.config` is missing or was replaced (step 5). Also check the URL is `/admin/login`. |
-| "500 - iisnode encountered an error" | Open the `iisnode/` folder in the application root (logs) in Plesk Files. Usually a Node.js version below 20.9, or **NPM install** not run. |
+| App does not start | Read `logs/server.log` in Plesk Files. Usually a Node.js version below 20.9, or **NPM install** not run. |
 | Sign-in page says *"Admin login is not configured on this server"* | `.env.local` is missing or incomplete (step 2). Then **Restart App**. |
-| "Unable to save content" in the admin | Missing write permission on `data/` in the application root (step 6). |
-| Changes uploaded but site unchanged | Click **Restart App** (the app only restarts by itself when `server.js`, `web.config` or `.env.local` change). |
+| "Unable to save content" in the admin | The application pool group has no write access (step 6). |
+| IIS 500.21 / 500.19 on every page | `web.config` was replaced by Plesk's iisnode version. Upload the project's `web.config` (step 5). |
+| Home page (`/`) shows 500 but other pages work | An old `server.js`. The current one maps IIS's default document (`/.plesk.startup.cjs`) back to `/`. |
+| Need the server's error messages | Read `logs/server.log` in Plesk Files (after step 6). |
+| Changes uploaded but site unchanged | Click **Restart App**, or re-save `web.config` in Plesk Files. |
 
 The site is served over `http://`, so the admin login cookie is sent unencrypted. Add an SSL certificate in Plesk (free Let's Encrypt) and use `https://`. The app marks the cookie `Secure` automatically on HTTPS.

@@ -2,6 +2,7 @@ import 'server-only';
 import { cache } from 'react';
 import { repositories } from '../repositories';
 import { HOME_SLUG } from '../schema/documents';
+import { isSafeSegment } from '../storage/json-store';
 import type { Office, Page, Post, ServiceMenuItem, SiteDocumentKey, SiteDocuments } from '../types';
 
 /**
@@ -28,12 +29,14 @@ function toPublicPage(page: Page): Page {
 
 /** Published page with only its enabled sections, or null. */
 export const getPublishedPage = cache(async (slug: string): Promise<Page | null> => {
+  if (!isSafeSegment(slug)) return null; // not a storable slug, so no such page
   const page = await repositories.pages.get(slug);
   return page && page.status === 'published' ? toPublicPage(page) : null;
 });
 
 /** Any page regardless of status, for authenticated previews. */
 export const getPreviewPage = cache(async (slug: string): Promise<Page | null> => {
+  if (!isSafeSegment(slug)) return null; // not a storable slug, so no such page
   const page = await repositories.pages.get(slug);
   return page ? toPublicPage(page) : null;
 });
@@ -56,6 +59,7 @@ export const getPublishedPosts = cache(async (): Promise<Post[]> => {
 });
 
 export const getPublishedPost = cache(async (slug: string): Promise<Post | null> => {
+  if (!isSafeSegment(slug)) return null;
   const post = await repositories.posts.get(slug);
   return post && post.status === 'published' ? post : null;
 });

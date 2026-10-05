@@ -18,7 +18,7 @@ import {
 import type { Field } from '../schema/fields';
 import { validateFields } from '../schema/validate';
 import { getSectionDefinition } from '../sections/definitions';
-import { withLock } from '../storage/json-store';
+import { isSafeSegment, withLock } from '../storage/json-store';
 import type {
   ActivityEntry,
   Office,
@@ -111,6 +111,7 @@ export async function listPages(): Promise<Page[]> {
 }
 
 export async function getPage(slug: string): Promise<Page> {
+  if (!isSafeSegment(slug)) throw new NotFoundError('Page not found.');
   const page = await repositories.pages.get(slug);
   if (!page) throw new NotFoundError('Page not found.');
   return page;
@@ -338,6 +339,7 @@ export async function listPosts(): Promise<Post[]> {
 }
 
 export async function getPost(slug: string): Promise<Post> {
+  if (!isSafeSegment(slug)) throw new NotFoundError('Post not found.');
   const post = await repositories.posts.get(slug);
   if (!post) throw new NotFoundError('Post not found.');
   return post;
