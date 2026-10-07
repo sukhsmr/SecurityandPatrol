@@ -10,6 +10,7 @@
  *
  *   npm run build   →   node server.js   (PORT defaults to 3000)
  */
+const fs = require("node:fs");
 const { createServer } = require("node:http");
 const path = require("node:path");
 
@@ -18,12 +19,11 @@ const path = require("node:path");
 process.chdir(__dirname);
 process.env.NODE_ENV = "production";
 
-// Under IIS there is no console to read, so keep a log file (logs/server.log,
-// hidden from the web by web.config). Rotated when it passes 5 MB.
+// Under IIS there is no console to read, so keep a log file (CMS_LOG_DIR or
+// logs/, hidden from the web by web.config). Rotated when it passes 5 MB.
 if (process.env.ASPNETCORE_PORT || process.env.HTTP_PLATFORM_PORT || process.env.IISNODE_VERSION) {
-  const fs = require("node:fs");
   const util = require("node:util");
-  const logDir = path.join(__dirname, "logs");
+  const logDir = path.resolve(process.env.CMS_LOG_DIR || path.join(__dirname, "logs"));
   const logFile = path.join(logDir, "server.log");
   try {
     fs.mkdirSync(logDir, { recursive: true });
@@ -47,6 +47,22 @@ if (process.env.ASPNETCORE_PORT || process.env.HTTP_PLATFORM_PORT || process.env
   }
   process.on("uncaughtException", (error) => write("FATAL", [error]));
   process.on("unhandledRejection", (error) => write("FATAL", [error]));
+}
+
+// Hosts where the app folder is read-only (Plesk gives the app pool write
+// access to App_Data only) keep content in CMS_DATA_DIR. On first start it is
+// filled with the content deployed in data/; after that the admin owns it.
+if (process.env.CMS_DATA_DIR) {
+  const dataDir = path.resolve(process.env.CMS_DATA_DIR);
+  const seedDir = path.join(__dirname, "data");
+  try {
+    if (!fs.existsSync(path.join(dataDir, "site")) && fs.existsSync(seedDir) && dataDir !== seedDir) {
+      fs.cpSync(seedDir, dataDir, { recursive: true, force: false });
+      console.log(`[server] Copied content from ${seedDir} to ${dataDir}`);
+    }
+  } catch (error) {
+    console.error("[server] Could not prepare CMS_DATA_DIR", dataDir, error);
+  }
 }
 
 const next = require("next");

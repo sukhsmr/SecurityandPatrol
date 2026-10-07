@@ -1,3 +1,4 @@
+// Static export: generated at build time. The server build uses page.runtime.tsx.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PageView from '@/components/site/PageView';

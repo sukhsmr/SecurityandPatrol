@@ -2,6 +2,22 @@
   {
     "action": "updated",
     "entity": "section",
+    "label": "Privacy Policy section updated on Privacy Policy",
+    "href": "/admin/pages/privacy-policy",
+    "id": "889aa4f0-f421-4b2b-be4e-842aadeedead",
+    "at": "2026-10-07T16:02:19.048Z"
+  },
+  {
+    "action": "updated",
+    "entity": "section",
+    "label": "Hero section updated on Home",
+    "href": "/admin/pages/home",
+    "id": "f7f60df9-f569-4a5f-a613-e0d097f335e9",
+    "at": "2026-10-07T15:48:31.648Z"
+  },
+  {
+    "action": "updated",
+    "entity": "section",
     "label": "Why Choose Unarmed Private Security Services by Rayven Security Protection? section updated on Unarmed security",
     "href": "/admin/pages/unarmed-security",
     "id": "fd3189fd-ed5f-426d-81b9-0708f3a162cb",

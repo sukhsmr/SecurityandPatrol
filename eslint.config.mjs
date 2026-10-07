@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated deployment package (npm run deploy:package).
+    "deploy/**",
+    // Vendored WordPress theme/library assets.
+    "public/wp-includes/**",
+    "public/wp-content/**",
   ]),
 ]);
 

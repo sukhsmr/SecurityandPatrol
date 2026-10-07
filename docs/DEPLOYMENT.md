@@ -6,7 +6,7 @@ To get the admin working on `devtech.aviorconventschool.com`, run the site as a 
 
 | File | Purpose |
 | --- | --- |
-| `server.js` | Starts the app on whatever address IIS provides (ASP.NET Core Module port, iisnode pipe, or a normal port), keeps `logs/server.log`, and maps IIS's default-document rewrite back to `/`. |
+| `server.js` | Starts the app on whatever address IIS provides (ASP.NET Core Module port, iisnode pipe, or a normal port), keeps a server log (`App_Data/cms/logs/server.log`), copies `data/` into `App_Data` on first start, and maps IIS's default-document rewrite back to `/`. |
 | `web.config` | Runs `server.js` through IIS (ASP.NET Core Module), hides internal folders, and shows the site's own 404 pages. |
 | `npm run deploy:package` | Builds the server version and puts everything to upload in `deploy/`. |
 
@@ -88,16 +88,19 @@ ode.exe" arguments=".\server.js" …>`. If Plesk replaced it (it writes an iisno
 
 > **Why not iisnode?** On this server the iisnode module fails to load for the site (IIS error 500.21), so `web.config` runs Node through the **ASP.NET Core Module**, which is installed with IIS. Plesk's Node.js page still shows `.plesk.startup.cjs` as the startup file; that file only forwards to `server.js`, and the page's NPM install button keeps working.
 
-### 6. Give the app write access (required for the admin)
+### 6. Where content is saved (no permission changes needed)
 
-The app must write to `data/` (content and backups), `public/uploads/` (images), `.next/` (page cache) and `logs/` (server log). By default the site's **application pool group (`IWPG_aviorcon`) has read-only access**: pages load, but saving in the admin fails with *"Unable to save content"*.
+The site's application pool (`IWPG_aviorcon`) can only **read** the application folder, but Plesk gives it full access to **`App_Data`**, which IIS never serves to visitors. `web.config` therefore sets:
 
-In Plesk → **Files** → `devTech.aviorconventschool.com`:
+| Variable | Value | Holds |
+| --- | --- | --- |
+| `CMS_DATA_DIR` | `App_Data\cms\data` | All content (pages, posts, header, footer, settings, backups) |
+| `CMS_UPLOAD_DIR` | `App_Data\cms\uploads` | Images uploaded in the admin (served at `/uploads/...`) |
+| `CMS_LOG_DIR` | `App_Data\cms\logs` | `server.log` |
 
-1. Create the folders `logs` and `public/uploads` if they don't exist.
-2. For each of `data`, `logs`, `.next` and `public/uploads`: click the folder's **⋯ menu → Change Permissions**, select **Application pool group (IWPG_aviorcon)**, tick **Allow → Modify**, make sure it applies to *this folder, subfolders and files*, and click **OK**.
+On its first start, `server.js` copies the deployed `data/` folder into `App_Data\cms\data`. From then on **the live content is in `App_Data\cms\data`**; the `data/` folder is only the starting copy.
 
-Only grant write access on these four folders, not on the whole site. The app never needs to modify its own code.
+Public pages are rendered on request from that content, so edits appear immediately and the app never writes into `.next`.
 
 ### 7. Check
 
@@ -115,11 +118,12 @@ Whenever the **code** changes:
 npm run deploy:package          # no --with-data: live content is kept
 ```
 
-1. Upload the contents of `deploy/` into the application root (`/devTech.aviorconventschool.com`). This replaces `.next/`, `public/`, `server.js` and the other code files. It does **not** touch `data/` or `.env.local`.
+1. Upload the contents of `deploy/` into the application root (`/devTech.aviorconventschool.com`). This replaces `.next/`, `public/`, `server.js` and the other code files. It does **not** touch `App_Data/` (live content) or `.env.local`.
+   - Alternatively, upload only the changed source files and run the `build` script from Plesk → Node.js → **Run script**.
 2. If `package.json` changed, click **NPM install**.
-3. Click **Restart App**.
+3. **Restart the app by re-saving `web.config`** in Plesk Files (open it and click Save). Plesk's *Restart App* button does not restart the ASP.NET Core Module process. Until the app restarts after a build, pages load without their JavaScript (popups and the admin don't work), because the running process still has the old file list.
 
-> **Never upload `data/` again after the first deployment.** It would overwrite every edit made in the live admin. To move content from the live site back to your computer, download `data/` from the application root in Plesk.
+> **The live content is in `App_Data/cms/data`.** Uploading `data/` again does not change the live site. To copy live content back to your computer, download `App_Data/cms/data` in Plesk Files and put it in your project's `data/` folder.
 
 ---
 
@@ -128,12 +132,13 @@ npm run deploy:package          # no --with-data: live content is kept
 | Symptom | Fix |
 | --- | --- |
 | IIS "404 - File or directory not found" on `/admin/login` | Document Root still points to `out/` (step 4), or `web.config` is missing or was replaced (step 5). Also check the URL is `/admin/login`. |
-| App does not start | Read `logs/server.log` in Plesk Files. Usually a Node.js version below 20.9, or **NPM install** not run. |
+| App does not start | Read `App_Data/cms/logs/server.log` in Plesk Files. Usually a Node.js version below 20.9, or **NPM install** not run. |
 | Sign-in page says *"Admin login is not configured on this server"* | `.env.local` is missing or incomplete (step 2). Then **Restart App**. |
-| "Unable to save content" in the admin | The application pool group has no write access (step 6). |
+| "Unable to save content" in the admin | `web.config` is missing the `CMS_DATA_DIR` / `CMS_UPLOAD_DIR` settings (step 6), or `App_Data` lost the application pool group's write access. |
+| Popups don't open, `/admin` shows "Internal Server Error", browser console shows 404s for `/_next/static/...` | The app wasn't restarted after a build. Re-save `web.config`. |
 | IIS 500.21 / 500.19 on every page | `web.config` was replaced by Plesk's iisnode version. Upload the project's `web.config` (step 5). |
 | Home page (`/`) shows 500 but other pages work | An old `server.js`. The current one maps IIS's default document (`/.plesk.startup.cjs`) back to `/`. |
-| Need the server's error messages | Read `logs/server.log` in Plesk Files (after step 6). |
+| Need the server's error messages | Read `App_Data/cms/logs/server.log` in Plesk Files. |
 | Changes uploaded but site unchanged | Click **Restart App**, or re-save `web.config` in Plesk Files. |
 
 The site is served over `http://`, so the admin login cookie is sent unencrypted. Add an SSL certificate in Plesk (free Let's Encrypt) and use `https://`. The app marks the cookie `Secure` automatically on HTTPS.

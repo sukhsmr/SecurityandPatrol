@@ -4,7 +4,7 @@
   "group": "page",
   "seo": {},
   "createdAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-07T05:46:51.485Z",
+  "updatedAt": "2026-10-07T15:48:31.629Z",
   "slug": "home",
   "title": "Home",
   "layout": {
@@ -35,7 +35,7 @@
           "srcSet": "/wp-content/uploads/2026/08/exp_for_signature-removebg-preview.png 500w, /wp-content/uploads/2026/08/exp_for_signature-removebg-preview-300x300.png 300w, /wp-content/uploads/2026/08/exp_for_signature-removebg-preview-150x150.png 150w"
         },
         "background": {
-          "desktop": "/wp-content/uploads/2026/08/ChatGPT-Image-Aug-8-2026-09_40_42-PM.png",
+          "desktop": "/wp-content/uploads/2023/02/hero-home.jpg",
           "mobile": ""
         }
       }
