@@ -7,6 +7,7 @@ import Testimonials from '@/components/Testimonials';
 import Tracking from '@/components/Tracking';
 import WhyChoose from '@/components/WhyChoose';
 import { CareerForm, CareerHero, SectionHeading } from '@/components/CareerContent';
+import { backgroundCssForFields } from '@/lib/cms/backgrounds';
 import { getSectionDefinition } from '@/lib/cms/sections/definitions';
 import type * as S from '@/lib/cms/sections/definitions';
 import { getOffices } from '@/lib/cms/services/content';
@@ -61,8 +62,18 @@ export default function SectionRenderer({ section, pageScope }: SectionRendererP
     return null;
   }
 
-  const rendered = <Component data={section.data} />;
-  const scope = getSectionDefinition(section.type)?.scope;
+  const definition = getSectionDefinition(section.type);
+  // Background images changed in the admin override the design CSS.
+  const backgroundCss = definition ? backgroundCssForFields(definition.fields, section.data) : '';
+  const rendered = backgroundCss ? (
+    <>
+      <style data-cms-backgrounds="">{backgroundCss}</style>
+      <Component data={section.data} />
+    </>
+  ) : (
+    <Component data={section.data} />
+  );
+  const scope = definition?.scope;
   // Sections keep their original Elementor CSS scope when placed on another page.
   if (scope && scope !== pageScope) {
     return <div className={`elementor elementor-${scope}`}>{rendered}</div>;

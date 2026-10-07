@@ -2,9 +2,12 @@
 
 import React, { useState } from 'react';
 import type { FieldErrors } from '@/lib/cms/errors';
-import { emptyObjectFor, type Field, type ImageValue, type ListField, type StringListField } from '@/lib/cms/schema/fields';
+import { backgroundBreakpoints, backgroundElementId, getBackgroundDefault } from '@/lib/cms/backgrounds';
+import { emptyObjectFor, type BackgroundValue, type Field, type ImageValue, type ListField, type StringListField } from '@/lib/cms/schema/fields';
 import Icon from '../Icon';
+import BackgroundInput from './BackgroundInput';
 import ImageInput from './ImageInput';
+import RichTextEditor from './RichTextEditor';
 
 /**
  * Renders an editable form for any field schema (see lib/cms/schema/fields).
@@ -44,6 +47,7 @@ export default function SchemaForm({ fields, value, onChange, errors = {}, path 
       field={field}
       value={value[field.name]}
       onChange={(next) => set(field.name, next)}
+      siblings={value}
       errors={errors}
       path={join(path, field.name)}
     />
@@ -83,11 +87,13 @@ interface ControlProps {
   field: Field;
   value: unknown;
   onChange: (value: unknown) => void;
+  /** Values of the other fields in the same object. */
+  siblings: Value;
   errors: FieldErrors;
   path: string;
 }
 
-function FieldControl({ field, value, onChange, errors, path }: ControlProps) {
+function FieldControl({ field, value, onChange, siblings, errors, path }: ControlProps) {
   const text = typeof value === 'string' ? value : value == null ? '' : String(value);
 
   switch (field.type) {
@@ -113,6 +119,13 @@ function FieldControl({ field, value, onChange, errors, path }: ControlProps) {
         </FieldShell>
       );
     case 'html':
+      if (field.rich) {
+        return (
+          <FieldShell field={field} path={path} errors={errors}>
+            <RichTextEditor id={path} value={text} onChange={onChange} height={320} />
+          </FieldShell>
+        );
+      }
       return (
         <FieldShell field={{ ...field, help: field.help ?? 'HTML is allowed (e.g. <strong>, <br>, <a href="…">).' }} path={path} errors={errors}>
           <textarea id={path} className="cms-textarea" rows={field.rows ?? 4} value={text} onChange={(event) => onChange(event.target.value)} spellCheck={false} />
@@ -121,7 +134,7 @@ function FieldControl({ field, value, onChange, errors, path }: ControlProps) {
     case 'code':
       return (
         <FieldShell field={field} path={path} errors={errors}>
-          <textarea id={path} className="cms-textarea is-code" value={text} onChange={(event) => onChange(event.target.value)} spellCheck={false} wrap="off" />
+          <RichTextEditor id={path} value={text} onChange={onChange} />
         </FieldShell>
       );
     case 'number':
@@ -161,18 +174,42 @@ function FieldControl({ field, value, onChange, errors, path }: ControlProps) {
           </select>
         </FieldShell>
       );
-    case 'image':
+    case 'image': {
+      const key = field.pathKey ?? 'src';
+      const raw = (value ?? {}) as Record<string, string | undefined>;
+      const image: ImageValue = { ...raw, src: raw[key] ?? '', alt: raw.alt ?? '' };
       return (
         <FieldShell field={field} path={path} errors={errors}>
           <ImageInput
             id={path}
-            value={(value as ImageValue) ?? { src: '', alt: '' }}
-            onChange={onChange}
+            value={image}
+            onChange={key === 'src' ? onChange : ({ src, ...rest }) => onChange({ ...rest, [key]: src })}
             withSrcSet={field.withSrcSet}
-            error={errors[join(path, 'src')]}
+            error={errors[join(path, key)]}
           />
         </FieldShell>
       );
+    }
+    case 'background': {
+      const elementId = backgroundElementId(field, siblings);
+      const background = { desktop: '', mobile: '', ...(value as Partial<BackgroundValue>) };
+      // Imported HTML whose outer element has no background image: nothing to change.
+      if (!field.elementId && !getBackgroundDefault(elementId).desktop && !getBackgroundDefault(elementId).mobile && !background.desktop && !background.mobile) {
+        return null;
+      }
+      return (
+        <FieldShell field={field} path={path} errors={errors}>
+          <BackgroundInput
+            id={path}
+            elementId={elementId}
+            breakpoints={backgroundBreakpoints(field, elementId)}
+            value={background}
+            onChange={onChange}
+            errors={{ desktop: errors[join(path, 'desktop')], mobile: errors[join(path, 'mobile')] }}
+          />
+        </FieldShell>
+      );
+    }
     case 'group':
       return (
         <details className="cms-group" open={!field.advanced}>

@@ -342,6 +342,7 @@ export default function PageEditor({ page: initialPage, initialTab = 'sections' 
           key={modal.mode === 'edit' ? modal.section.id : 'create'}
           mode={modal.mode}
           section={modal.mode === 'edit' ? modal.section : undefined}
+          layout={page.layout}
           saving={saving}
           serverErrors={modalErrors}
           onSave={saveSection}

@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import type { ImageValue } from '@/lib/cms/schema/fields';
 import Icon from '../Icon';
-import MediaBrowser from '../media/MediaBrowser';
-import Modal from '../ui/Modal';
+import MediaPickerModal from '../media/MediaPickerModal';
 
 interface ImageInputProps {
   id: string;
@@ -17,7 +16,6 @@ interface ImageInputProps {
 /** Image path + alt text, with a picker over the existing media library. */
 export default function ImageInput({ id, value, onChange, withSrcSet, error }: ImageInputProps) {
   const [picking, setPicking] = useState(false);
-  const [selected, setSelected] = useState(value.src);
 
   return (
     <>
@@ -36,10 +34,7 @@ export default function ImageInput({ id, value, onChange, withSrcSet, error }: I
             <button
               type="button"
               className="cms-btn"
-              onClick={() => {
-                setSelected(value.src);
-                setPicking(true);
-              }}
+              onClick={() => setPicking(true)}
             >
               Browse
             </button>
@@ -57,34 +52,13 @@ export default function ImageInput({ id, value, onChange, withSrcSet, error }: I
         </div>
       </div>
 
-      <Modal
+      <MediaPickerModal
         open={picking}
-        title="Select image"
-        description="Choose an existing image or upload a new one."
-        size="xl"
+        initial={value.src}
         onClose={() => setPicking(false)}
-        footer={
-          <>
-            <button type="button" className="cms-btn" onClick={() => setPicking(false)}>
-              Cancel
-            </button>
-            <button
-              type="button"
-              className="cms-btn cms-btn-primary"
-              disabled={!selected}
-              onClick={() => {
-                // A new image's srcset would point at the old file's sizes, so clear it.
-                onChange({ ...value, src: selected, ...(withSrcSet && selected !== value.src ? { srcSet: '' } : {}) });
-                setPicking(false);
-              }}
-            >
-              Use selected image
-            </button>
-          </>
-        }
-      >
-        <MediaBrowser selected={selected} onSelect={setSelected} />
-      </Modal>
+        // A new image's srcset would point at the old file's sizes, so clear it.
+        onPick={(src) => onChange({ ...value, src, ...(withSrcSet && src !== value.src ? { srcSet: '' } : {}) })}
+      />
     </>
   );
 }

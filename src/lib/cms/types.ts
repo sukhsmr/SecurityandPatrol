@@ -6,6 +6,8 @@
  * implementation without touching the UI.
  */
 
+import type { BackgroundValue } from './schema/fields';
+
 export type PageStatus = 'draft' | 'published';
 
 /** `service` pages also feed the header "Services" menus. */
@@ -173,6 +175,9 @@ export interface HeaderContent {
   desktopMenu: MenuItem[];
   mobileMenu: MenuItem[];
   quoteModal: QuoteModalContent;
+  /** Admin-chosen background images; empty = the design's images. */
+  background?: BackgroundValue;
+  mobileBackground?: BackgroundValue;
 }
 
 export interface FooterLinkColumn {
@@ -198,6 +203,7 @@ export interface FooterContent {
   newsletterPlaceholder: string;
   newsletterButtonText: string;
   copyright?: string;
+  background?: BackgroundValue;
 }
 
 export interface SiteDocuments {

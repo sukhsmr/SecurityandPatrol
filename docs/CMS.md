@@ -43,6 +43,12 @@ Route files that need a Node.js server use the extension `.runtime.ts(x)` (admin
 
 The original WordPress/LiteSpeed theme CSS is ~70 files in `public/wp-content/litespeed/css/`. The site loads a single concatenated copy, `site.bundle.css`, built by `scripts/bundle-css.cjs` from the ordered list in `scripts/site-stylesheets.json`, so the cascade is identical. The bundle is regenerated automatically by `npm run dev`, `npm run build` and `npm run build:static`. After editing a source stylesheet or the list, run `npm run css:bundle`.
 
+The same script also writes:
+
+- `editor.bundle.css`: the site bundle plus `src/app/*.css`. The admin's rich text editor and preview load it, so content looks the same there as on the site.
+- `src/components/site/siteStylesheet.ts`: the versioned URLs of both bundles.
+- `src/lib/cms/sections/backgroundDefaults.json`: the background image each Elementor element gets from the CSS (desktop and mobile). The admin shows these as the original images of the **Background image** fields.
+
 ---
 
 ## Admin login and authentication
@@ -136,7 +142,30 @@ Click **Edit** (or the section name). The form matches the section type: text fi
 
 - Plain text fields are escaped, so `<` shows as `<`.
 - Fields labelled **(HTML)** accept HTML such as `<strong>`, `<br>` and `<a href="…">`.
-- Service pages are made of **Custom HTML** sections (the original Elementor markup). Edit the HTML directly. Keep the existing `class` attributes so the styling still matches.
+- Service pages are made of **Custom HTML** sections (the original Elementor markup). Their **Content** field is a rich text editor (see below).
+
+### Rich text editor
+
+Service page sections, blog post content and the Privacy Policy blocks use a rich text editor ([Jodit](https://xdsoft.net/jodit/), MIT licence) with three tabs:
+
+- **Visual editor**: edit text directly. The editor loads the website's own stylesheets, so headings, paragraphs, lists, links and buttons look as they do on the site. Toolbar: paragraph style, bold/italic/underline, lists, alignment, font, size, colour, links, video, tables, symbols, undo/redo, find and full screen.
+  - **Insert image** (picture icon): upload a file or enter a URL.
+  - **Media library** (folder icon): pick any existing image, or upload one.
+  - **Link** (chain icon): add or edit a link, optionally opening in a new tab.
+- **HTML**: the raw markup, for precise changes.
+- **Preview**: the content as the page shows it, at desktop, tablet or mobile width.
+
+Opening and saving without changes keeps the stored HTML exactly as it was. Editing keeps the existing Elementor classes, so new or changed headings and paragraphs pick up the site's styling automatically.
+
+### Background images
+
+Sections with a background image have a **Background image** field: the home hero, the GuardOne/Dispatch cards and their section, about, services grid, testimonials, career, contact and privacy banners, every service page section, and (under **Header & Menu** and **Footer**) the header and footer backgrounds.
+
+- The preview shows the image the site currently uses; **Original design** means no change has been made.
+- **Change** opens the media library. Fields with a separate mobile image (≤ 767 px) have a second picker. If only the desktop image is changed, it is used on mobile too.
+- The **×** button returns to the original image.
+
+The site keeps its design CSS; a changed image is added as a small CSS rule for that element only.
 
 ### Delete a section
 
@@ -158,7 +187,7 @@ The copy icon inserts a copy, named "(Copy)", directly below the original.
 
 ## Blog posts
 
-**Admin → Blog Posts** lists all posts, with search and a status filter. **New post** or **Edit** opens the editor with fields for title, slug, status, publish date, author, excerpt, featured image, categories, SEO and the article HTML. Published posts appear on the Blog page (newest first) and at `/<slug>/`.
+**Admin → Blog Posts** lists all posts, with search and a status filter. **New post** or **Edit** opens the editor with fields for title, slug, status, publish date, author, excerpt, featured image (picked from the media library), categories, SEO and the article content (rich text editor). Published posts appear on the Blog page (newest first) and at `/<slug>/`.
 
 ---
 

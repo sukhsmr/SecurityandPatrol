@@ -8,6 +8,7 @@ import { postFields } from '@/lib/cms/schema/documents';
 import { validateFields } from '@/lib/cms/schema/validate';
 import type { PageStatus, Post } from '@/lib/cms/types';
 import { apiRequest, ApiError } from '../api';
+import { EditorSurfaceProvider, type EditorSurface } from '../forms/EditorContext';
 import SchemaForm from '../forms/SchemaForm';
 import Icon from '../Icon';
 import { EmptyState, PageHeader, StatusBadge } from '../ui/common';
@@ -41,6 +42,8 @@ function toForm(post?: Post): PostForm {
     contentHtml: post?.contentHtml ?? '',
   };
 }
+
+const POST_SURFACE: EditorSurface = { variant: 'post' };
 
 const plainTitle = (title: string) => title.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#8217;/g, '’');
 
@@ -227,7 +230,9 @@ export default function PostsManager({ posts }: { posts: PostSummary[] }) {
             <Spinner /> Loading post…
           </div>
         ) : (
-          <SchemaForm fields={postFields} value={form} onChange={updateForm} errors={errors} />
+          <EditorSurfaceProvider value={POST_SURFACE}>
+            <SchemaForm fields={postFields} value={form} onChange={updateForm} errors={errors} />
+          </EditorSurfaceProvider>
         )}
       </Modal>
 

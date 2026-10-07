@@ -4,8 +4,9 @@ import React, { useMemo, useState } from 'react';
 import type { FieldErrors } from '@/lib/cms/errors';
 import { validateFields } from '@/lib/cms/schema/validate';
 import { defaultSectionData, getSectionDefinition, sectionDefinitions, type SectionDefinition } from '@/lib/cms/sections/definitions';
-import type { Section } from '@/lib/cms/types';
+import type { PageLayout, Section } from '@/lib/cms/types';
 import { scopeErrors } from '../api';
+import { EditorSurfaceProvider } from '../forms/EditorContext';
 import SchemaForm from '../forms/SchemaForm';
 import Icon from '../Icon';
 import { Switch } from '../ui/common';
@@ -22,6 +23,8 @@ export interface SectionDraft {
 interface SectionModalProps {
   mode: 'create' | 'edit';
   section?: Section;
+  /** Layout of the page the section belongs to (styles the rich text editor). */
+  layout: PageLayout;
   saving: boolean;
   serverErrors: FieldErrors;
   onSave: (draft: SectionDraft) => void;
@@ -31,7 +34,7 @@ interface SectionModalProps {
 const CATEGORIES = Array.from(new Set(sectionDefinitions.map((definition) => definition.category)));
 
 /** Create/edit modal. The form is generated from the section type's schema. */
-export default function SectionModal({ mode, section, saving, serverErrors, onSave, onClose }: SectionModalProps) {
+export default function SectionModal({ mode, section, layout, saving, serverErrors, onSave, onClose }: SectionModalProps) {
   const [definition, setDefinition] = useState<SectionDefinition | undefined>(section ? getSectionDefinition(section.type) : undefined);
   const [draft, setDraft] = useState<SectionDraft | null>(
     section ? { type: section.type, name: section.name, enabled: section.enabled, data: structuredClone(section.data) } : null,
@@ -64,7 +67,16 @@ export default function SectionModal({ mode, section, saving, serverErrors, onSa
   };
 
   const choosing = mode === 'create' && !draft;
-  const isCode = definition?.fields.some((field) => field.type === 'code');
+  const isCode = definition?.fields.some((field) => field.type === 'code' || (field.type === 'list' && field.fields.some((sub) => sub.type === 'html' && sub.rich)));
+  const surface = useMemo(
+    () => ({
+      variant: 'page' as const,
+      elementorId: layout.type === 'article' ? layout.elementorId ?? 0 : 0,
+      articleClassName: layout.type === 'article' ? layout.articleClassName : undefined,
+      scope: definition?.scope,
+    }),
+    [layout, definition],
+  );
 
   return (
     <Modal
@@ -147,7 +159,9 @@ export default function SectionModal({ mode, section, saving, serverErrors, onSa
                 <Icon name="alert" size={16} /> This section has no editable fields. {definition.description}
               </div>
             ) : (
-              <SchemaForm fields={definition.fields} value={draft.data} onChange={(data) => setDraft({ ...draft, data })} errors={dataErrors} />
+              <EditorSurfaceProvider value={surface}>
+                <SchemaForm fields={definition.fields} value={draft.data} onChange={(data) => setDraft({ ...draft, data })} errors={dataErrors} />
+              </EditorSurfaceProvider>
             )}
           </div>
         )

@@ -1,7 +1,9 @@
 import React from 'react';
 import ConnectedHeader from '@/components/Header/Connected';
 import Footer from '@/components/Footer';
-import { getFooter } from '@/lib/cms/services/content';
+import { backgroundCssForFields } from '@/lib/cms/backgrounds';
+import { footerFields, headerFields } from '@/lib/cms/schema/documents';
+import { getFooter, getHeader } from '@/lib/cms/services/content';
 
 interface SiteShellProps {
   children: React.ReactNode;
@@ -11,9 +13,12 @@ interface SiteShellProps {
 
 /** The theme wrapper shared by every public page: header, content area and footer. */
 export default async function SiteShell({ children, fullWidth = false }: SiteShellProps) {
-  const footer = await getFooter();
+  const [header, footer] = await Promise.all([getHeader(), getFooter()]);
+  // Background images changed in the admin override the design CSS.
+  const backgroundCss = backgroundCssForFields(headerFields, header) + backgroundCssForFields(footerFields, footer);
   return (
     <>
+      {backgroundCss && <style data-cms-backgrounds="">{backgroundCss}</style>}
       <div id="wrapper" className="site wp-site-blocks">
         <a className="skip-link screen-reader-text scroll-ignore" href="#main">Skip to content</a>
         <ConnectedHeader />

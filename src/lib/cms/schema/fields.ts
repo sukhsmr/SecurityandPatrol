@@ -24,9 +24,11 @@ export interface TextField extends BaseField {
 export interface HtmlField extends BaseField {
   type: 'html';
   rows?: number;
+  /** Edit in the rich text editor instead of a plain HTML textarea. */
+  rich?: boolean;
 }
 
-/** Large HTML document body, edited in a code editor. Rendered unescaped. */
+/** HTML document body (service-page sections, blog posts), edited in the rich text editor. Rendered unescaped. */
 export interface CodeField extends BaseField {
   type: 'code';
 }
@@ -42,10 +44,33 @@ export interface ImageValue {
   srcSet?: string;
 }
 
+/** Background image of an Elementor element, per breakpoint. Empty = keep the original design image. */
+export interface BackgroundValue {
+  desktop: string;
+  mobile: string;
+}
+
+export type Breakpoint = 'desktop' | 'mobile';
+
+/**
+ * Overrides the CSS background image of an element. The element is fixed
+ * (`elementId`) or, for imported HTML, the top-level element of the HTML
+ * stored in the sibling field `elementIdFromField`.
+ */
+export interface BackgroundField extends BaseField {
+  type: 'background';
+  elementId?: string;
+  elementIdFromField?: string;
+  /** Breakpoints the element has a background on. Defaults to those found in the design CSS. */
+  breakpoints?: Breakpoint[];
+}
+
 /** Image picker producing an `ImageValue`. */
 export interface ImageField extends BaseField {
   type: 'image';
   withSrcSet?: boolean;
+  /** Property holding the path; `url` for documents that store `{ url, alt }`. */
+  pathKey?: 'src' | 'url';
 }
 
 export interface NumberField extends BaseField {
@@ -96,6 +121,7 @@ export type Field =
   | CodeField
   | UrlField
   | ImageField
+  | BackgroundField
   | NumberField
   | BooleanField
   | SelectField
@@ -111,7 +137,9 @@ export function emptyValueFor(field: Field): unknown {
     case 'boolean':
       return false;
     case 'image':
-      return { src: '', alt: '' };
+      return { [field.pathKey ?? 'src']: '', alt: '' };
+    case 'background':
+      return { desktop: '', mobile: '' };
     case 'select':
       return field.options[0]?.value ?? '';
     case 'stringList':

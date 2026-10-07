@@ -66,12 +66,24 @@ function validateValue(field: Field, input: unknown, path: string, errors: Field
     }
 
     case 'image': {
-      const raw = (input && typeof input === 'object' ? input : {}) as Partial<ImageValue>;
-      const src = typeof raw.src === 'string' ? raw.src.trim() : '';
-      const value: ImageValue = { src, alt: typeof raw.alt === 'string' ? raw.alt : '' };
+      const key = field.pathKey ?? 'src';
+      const raw = (input && typeof input === 'object' ? input : {}) as Partial<ImageValue> & { url?: unknown };
+      const src = typeof raw[key] === 'string' ? (raw[key] as string).trim() : '';
+      const value: Record<string, string> = { [key]: src, alt: typeof raw.alt === 'string' ? raw.alt : '' };
       if (field.withSrcSet) value.srcSet = typeof raw.srcSet === 'string' ? raw.srcSet : '';
-      if (field.required && src === '') errors[join(path, 'src')] = `${label} is required.`;
-      else if (!isSafeImagePath(src)) errors[join(path, 'src')] = 'Please enter a valid image path (e.g. /wp-content/uploads/…).';
+      if (field.required && src === '') errors[join(path, key)] = `${label} is required.`;
+      else if (!isSafeImagePath(src)) errors[join(path, key)] = 'Please enter a valid image path (e.g. /wp-content/uploads/…).';
+      return value;
+    }
+
+    case 'background': {
+      const raw = (input && typeof input === 'object' ? input : {}) as Partial<Record<'desktop' | 'mobile', unknown>>;
+      const value = { desktop: '', mobile: '' };
+      for (const breakpoint of ['desktop', 'mobile'] as const) {
+        const src = typeof raw[breakpoint] === 'string' ? (raw[breakpoint] as string).trim() : '';
+        if (!isSafeImagePath(src) || /["'()<>\\]/.test(src)) errors[join(path, breakpoint)] = 'Please choose a valid image.';
+        else value[breakpoint] = src;
+      }
       return value;
     }
 

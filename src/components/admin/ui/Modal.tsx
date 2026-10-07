@@ -16,13 +16,21 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
+/** Ids of the open modals, oldest first (modals can open on top of each other, e.g. the image picker). */
+const openModals: string[] = [];
+
 export default function Modal({ open, title, description, size = 'md', onClose, locked = false, footer, children }: ModalProps) {
   const titleId = useId();
 
   useEffect(() => {
     if (!open) return;
+    openModals.push(titleId);
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && !locked) onClose();
+      if (event.key !== 'Escape' || locked || event.defaultPrevented) return;
+      // Only the topmost modal closes, and not while a rich text editor popup (link, image…) has focus.
+      if (openModals[openModals.length - 1] !== titleId) return;
+      if (event.target instanceof Element && event.target.closest('.jodit, .jodit-popup, .jodit-dialog')) return;
+      onClose();
     };
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -30,8 +38,9 @@ export default function Modal({ open, title, description, size = 'md', onClose, 
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', onKey);
+      openModals.splice(openModals.indexOf(titleId), 1);
     };
-  }, [open, locked, onClose]);
+  }, [open, locked, onClose, titleId]);
 
   if (!open) return null;
 

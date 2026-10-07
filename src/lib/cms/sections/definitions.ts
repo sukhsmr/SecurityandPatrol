@@ -1,4 +1,4 @@
-import { emptyObjectFor, type Field, type ImageValue } from '../schema/fields';
+import { emptyObjectFor, type BackgroundValue, type Field, type ImageValue } from '../schema/fields';
 
 /**
  * Section type registry: every section type that exists on the site, its
@@ -38,6 +38,7 @@ export interface HeroData {
   buttonText: string;
   buttonUrl: string;
   sideImage: ImageValue;
+  background?: BackgroundValue;
 }
 
 export interface FeatureCard {
@@ -51,6 +52,8 @@ export interface FeatureCardsData {
   cards: FeatureCard[];
   showMoreText: string;
   showLessText: string;
+  firstCardBackground?: BackgroundValue;
+  secondCardBackground?: BackgroundValue;
 }
 
 export interface AboutExpandableData {
@@ -63,6 +66,7 @@ export interface AboutExpandableData {
   moreText: string;
   showMoreText: string;
   showLessText: string;
+  background?: BackgroundValue;
 }
 
 export interface NumberedItem {
@@ -75,6 +79,8 @@ export interface ServicesGridData {
   introParagraphs: string[];
   desktopItems: NumberedItem[];
   mobileItems: NumberedItem[];
+  background?: BackgroundValue;
+  mobileBackground?: BackgroundValue;
 }
 
 export interface IconFeature {
@@ -114,6 +120,7 @@ export interface TestimonialsData {
   avatar: ImageValue;
   items: Testimonial[];
   autoplayDelay: number;
+  background?: BackgroundValue;
 }
 
 export interface BlogBannerData {
@@ -238,6 +245,7 @@ export interface ContactFormData {
 
 export interface HtmlSectionData {
   html: string;
+  background?: BackgroundValue;
 }
 
 // ---------------------------------------------------------------------------
@@ -286,6 +294,7 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'url', name: 'buttonUrl', label: 'Button URL' },
       { type: 'image', name: 'badgeImage', label: 'Mobile badge image' },
       { type: 'image', name: 'sideImage', label: 'Desktop side image', withSrcSet: true },
+      { type: 'background', name: 'background', label: 'Background image', elementId: '3a160be' },
     ],
   },
   {
@@ -310,6 +319,9 @@ export const sectionDefinitions: SectionDefinition[] = [
         ],
       },
       ...toggleLabelFields,
+      { type: 'background', name: 'background', label: 'Section background', elementId: '1f6bb37' },
+      { type: 'background', name: 'firstCardBackground', label: 'Card background (cards 1, 3, 5…)', elementId: 'f98bd95' },
+      { type: 'background', name: 'secondCardBackground', label: 'Card background (cards 2, 4, 6…)', elementId: '604aa78' },
     ],
     defaults: () => ({ cards: [], showMoreText: 'Show More', showLessText: 'Show Less' }),
   },
@@ -328,6 +340,7 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'stringList', name: 'highlights', label: 'Expanded panel highlights', itemLabel: 'Highlight', help: 'Bold lines at the top of the expanded panel.' },
       { type: 'textarea', name: 'moreText', label: 'Expanded panel text' },
       ...toggleLabelFields,
+      { type: 'background', name: 'background', label: 'Section background', elementId: 'e5066b8' },
     ],
     defaults: () => ({ showMoreText: 'Show More', showLessText: 'Show Less' }),
   },
@@ -342,6 +355,8 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'stringList', name: 'introParagraphs', label: 'Intro paragraphs', itemLabel: 'Paragraph' },
       { type: 'list', name: 'desktopItems', label: 'Desktop items', itemLabel: 'Item', titleField: 'title', fields: numberedItemFields },
       { type: 'list', name: 'mobileItems', label: 'Mobile & tablet items', itemLabel: 'Item', titleField: 'title', fields: numberedItemFields },
+      { type: 'background', name: 'background', label: 'Section background (desktop)', elementId: '16c05f7' },
+      { type: 'background', name: 'mobileBackground', label: 'Section background (mobile & tablet)', elementId: 'd8a61f1' },
     ],
   },
   {
@@ -396,6 +411,7 @@ export const sectionDefinitions: SectionDefinition[] = [
           { type: 'textarea', name: 'content', label: 'Quote', required: true },
         ],
       },
+      { type: 'background', name: 'background', label: 'Section background', elementId: '643bc12a' },
     ],
     defaults: () => ({ avatar: { src: '/logos/logo.png', alt: '' }, autoplayDelay: 3000, items: [] }),
   },
@@ -441,6 +457,7 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'text', name: 'highlight', label: 'Highlighted line' },
       { type: 'text', name: 'buttonText', label: 'Button text' },
       { type: 'url', name: 'buttonUrl', label: 'Button URL' },
+      { type: 'background', name: 'background', label: 'Background image', elementId: '3159fea' },
     ],
   },
   {
@@ -452,6 +469,7 @@ export const sectionDefinitions: SectionDefinition[] = [
     fields: [
       { type: 'text', name: 'title', label: 'Title', required: true },
       { type: 'text', name: 'subtitle', label: 'Subtitle' },
+      { type: 'background', name: 'background', label: 'Background image', elementId: 'c30d9e2' },
     ],
   },
   {
@@ -491,6 +509,7 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'text', name: 'submitText', label: 'Submit button text', required: true },
       { type: 'textarea', name: 'disclaimer', label: 'Disclaimer' },
       recaptchaField,
+      { type: 'background', name: 'background', label: 'Background image', elementId: '1d262a3' },
     ],
     defaults: () => ({ submitText: 'Apply' }),
   },
@@ -510,9 +529,10 @@ export const sectionDefinitions: SectionDefinition[] = [
         minItems: 1,
         fields: [
           { type: 'text', name: 'heading', label: 'Heading', required: true },
-          { type: 'html', name: 'body', label: 'Body (HTML)', rows: 6 },
+          { type: 'html', name: 'body', label: 'Body', rows: 6, rich: true },
         ],
       },
+      { type: 'background', name: 'background', label: 'Banner background', elementId: '9897ac2' },
     ],
   },
   {
@@ -527,6 +547,7 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'text', name: 'buttonText', label: 'Button text' },
       { type: 'url', name: 'buttonUrl', label: 'Button URL' },
       { type: 'text', name: 'phone', label: 'Phone number' },
+      { type: 'background', name: 'background', label: 'Background image', elementId: '899c573' },
     ],
   },
   {
@@ -541,6 +562,7 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'text', name: 'heading', label: 'Heading', required: true },
       { type: 'text', name: 'subheading', label: 'Subheading' },
       { type: 'url', name: 'subheadingUrl', label: 'Subheading link' },
+      { type: 'background', name: 'background', label: 'Background image', elementId: '5eab911' },
     ],
   },
   {
@@ -574,6 +596,7 @@ export const sectionDefinitions: SectionDefinition[] = [
           { type: 'stringList', name: 'lines', label: 'Lines', itemLabel: 'Line' },
         ],
       },
+      { type: 'background', name: 'background', label: 'Background image', elementId: '847061f' },
     ],
   },
   {
@@ -601,6 +624,7 @@ export const sectionDefinitions: SectionDefinition[] = [
       { type: 'textarea', name: 'disclaimer', label: 'Disclaimer' },
       { type: 'image', name: 'image', label: 'Side image', withSrcSet: true },
       recaptchaField,
+      { type: 'background', name: 'background', label: 'Background image', elementId: '081e0e0' },
     ],
   },
   {
@@ -608,7 +632,16 @@ export const sectionDefinitions: SectionDefinition[] = [
     label: 'Custom HTML',
     description: 'Raw HTML block. Used for imported Elementor layouts such as the service pages.',
     category: 'General',
-    fields: [{ type: 'code', name: 'html', label: 'HTML', required: true }],
+    fields: [
+      { type: 'code', name: 'html', label: 'Content', required: true },
+      {
+        type: 'background',
+        name: 'background',
+        label: 'Background image',
+        elementIdFromField: 'html',
+        help: "Background of the block's outer section. Only used when that section has a background image.",
+      },
+    ],
   },
 ];
 

@@ -94,15 +94,7 @@ export const postFields: Field[] = [
   { type: 'text', name: 'date', label: 'Publish date', required: true, help: 'ISO format, e.g. 2026-03-01T10:00:00' },
   { type: 'text', name: 'author', label: 'Author' },
   { type: 'textarea', name: 'excerpt', label: 'Excerpt' },
-  {
-    type: 'group',
-    name: 'featuredImage',
-    label: 'Featured image',
-    fields: [
-      { type: 'text', name: 'url', label: 'Image path' },
-      { type: 'text', name: 'alt', label: 'Alt text' },
-    ],
-  },
+  { type: 'image', name: 'featuredImage', label: 'Featured image', pathKey: 'url' },
   { type: 'stringList', name: 'categories', label: 'Categories', itemLabel: 'Category' },
   { type: 'text', name: 'audioUrl', label: 'Audio narration URL', advanced: true },
   {
@@ -114,7 +106,7 @@ export const postFields: Field[] = [
       { type: 'textarea', name: 'description', label: 'SEO description' },
     ],
   },
-  { type: 'code', name: 'contentHtml', label: 'Content (HTML)', required: true },
+  { type: 'code', name: 'contentHtml', label: 'Content', required: true },
 ];
 
 const linkFields: Field[] = [
@@ -221,6 +213,8 @@ export const headerFields: Field[] = [
       { type: 'textarea', name: 'disclaimer', label: 'Disclaimer' },
     ],
   },
+  { type: 'background', name: 'background', label: 'Header background (desktop)', elementId: '6c302ae' },
+  { type: 'background', name: 'mobileBackground', label: 'Header background (mobile & tablet)', elementId: 'b213eeb' },
 ];
 
 export const footerFields: Field[] = [
@@ -250,6 +244,7 @@ export const footerFields: Field[] = [
   { type: 'text', name: 'newsletterPlaceholder', label: 'Newsletter placeholder' },
   { type: 'text', name: 'newsletterButtonText', label: 'Newsletter button text' },
   { type: 'text', name: 'copyright', label: 'Copyright line', help: 'Optional. Leave empty to hide.' },
+  { type: 'background', name: 'background', label: 'Footer background', elementId: '2396415' },
 ];
 
 export const officeFields: Field[] = [

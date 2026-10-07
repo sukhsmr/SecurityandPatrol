@@ -2,6 +2,22 @@
   {
     "action": "updated",
     "entity": "section",
+    "label": "Why Choose Unarmed Private Security Services by Rayven Security Protection? section updated on Unarmed security",
+    "href": "/admin/pages/unarmed-security",
+    "id": "fd3189fd-ed5f-426d-81b9-0708f3a162cb",
+    "at": "2026-10-07T05:51:25.490Z"
+  },
+  {
+    "action": "updated",
+    "entity": "section",
+    "label": "Hero section updated on Home",
+    "href": "/admin/pages/home",
+    "id": "f849c98c-e533-4b15-a088-e0e8bdfcf2aa",
+    "at": "2026-10-07T05:46:51.511Z"
+  },
+  {
+    "action": "updated",
+    "entity": "section",
     "label": "Hero section updated on Home",
     "href": "/admin/pages/home",
     "id": "fe0bf24b-4efa-4dd4-9144-0f34c6ae13e8",
