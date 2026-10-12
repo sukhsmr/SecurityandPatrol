@@ -1,6 +1,6 @@
 import 'server-only';
 import nodemailer from 'nodemailer';
-import type { Submission } from './cms/types';
+import type { SiteSettings, Submission } from './cms/types';
 import { readDocument, writeDocument, withLock } from './cms/storage/json-store';
 
 export interface EmailResult {
@@ -137,9 +137,11 @@ function escapeHtml(text: string): string {
  * Sends notification email for a form submission.
  */
 export async function sendSubmissionNotificationEmail(submission: Submission): Promise<EmailResult> {
+  const siteSettings = await readDocument<SiteSettings>('site', 'settings');
   const recipient =
     process.env.NOTIFICATION_EMAIL ||
     process.env.SMTP_TO ||
+    siteSettings?.email ||
     'info@securityandpatrol.com';
 
   const sender =
