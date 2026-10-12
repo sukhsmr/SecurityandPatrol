@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Icon, { type IconName } from '@/components/admin/Icon';
 import { PageHeader, StatusBadge, timeAgo } from '@/components/admin/ui/common';
 import { pagePath } from '@/lib/cms/pages';
-import { getOffices, listActivity, listPages, listPosts } from '@/lib/cms/services/admin';
+import { getOffices, listActivity, listPages, listPosts, listSubmissions } from '@/lib/cms/services/admin';
 import type { ActivityEntry } from '@/lib/cms/types';
 
 export const metadata: Metadata = { title: 'Dashboard' };
@@ -17,18 +17,26 @@ const ACTIVITY_TONE: Record<ActivityEntry['action'], { icon: IconName; tone: str
 };
 
 export default async function DashboardPage() {
-  const [pages, posts, offices, activity] = await Promise.all([listPages(), listPosts(), getOffices(), listActivity(10)]);
+  const [pages, posts, offices, activity, submissions] = await Promise.all([
+    listPages(),
+    listPosts(),
+    getOffices(),
+    listActivity(10),
+    listSubmissions(),
+  ]);
   const published = pages.filter((page) => page.status === 'published').length;
   const sections = pages.reduce((total, page) => total + page.sections.length, 0);
   const recent = [...pages].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).slice(0, 6);
+  const newSubmissions = submissions.filter((s) => s.status === 'new').length;
 
   const stats: Array<{ label: string; value: number; icon: IconName; tone: string; href: string }> = [
+    { label: 'Inquiries & Quotes', value: submissions.length, icon: 'mail', tone: newSubmissions > 0 ? 'tone-green' : 'tone-indigo', href: '/admin/submissions' },
     { label: 'Total pages', value: pages.length, icon: 'pages', tone: 'tone-orange', href: '/admin/pages' },
     { label: 'Total sections', value: sections, icon: 'layers', tone: 'tone-indigo', href: '/admin/pages' },
+    { label: 'Offices', value: offices.length, icon: 'offices', tone: 'tone-slate', href: '/admin/offices' },
     { label: 'Published pages', value: published, icon: 'globe', tone: 'tone-green', href: '/admin/pages' },
     { label: 'Draft pages', value: pages.length - published, icon: 'draft', tone: 'tone-amber', href: '/admin/pages' },
     { label: 'Blog posts', value: posts.length, icon: 'posts', tone: 'tone-slate', href: '/admin/posts' },
-    { label: 'Offices', value: offices.length, icon: 'offices', tone: 'tone-slate', href: '/admin/offices' },
   ];
 
   return (
@@ -103,6 +111,7 @@ export default async function DashboardPage() {
         <div className="cms-card-header"><h2>Quick actions</h2></div>
         <div className="cms-card-body">
           <div className="cms-quick">
+            <Link href="/admin/submissions"><Icon name="mail" /> Inquiries & quotes</Link>
             <Link href="/admin/pages/home"><Icon name="pages" /> Edit home page</Link>
             <Link href="/admin/posts"><Icon name="posts" /> Write a blog post</Link>
             <Link href="/admin/header"><Icon name="header" /> Edit navigation</Link>

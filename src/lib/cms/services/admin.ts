@@ -29,6 +29,8 @@ import type {
   SeoFields,
   SiteDocumentKey,
   SiteDocuments,
+  Submission,
+  SubmissionStatus,
 } from '../types';
 
 /**
@@ -477,4 +479,33 @@ export function recordActivity(entry: Omit<ActivityEntry, 'id' | 'at'>): Promise
 export function listActivity(limit = 20): Promise<ActivityEntry[]> {
   return repositories.activity.list(limit);
 }
+
+export function listSubmissions(): Promise<Submission[]> {
+  return repositories.submissions.list();
+}
+
+export function getSubmission(id: string): Promise<Submission | null> {
+  return repositories.submissions.get(id);
+}
+
+export async function createSubmission(submission: Submission): Promise<Submission> {
+  await repositories.submissions.save(submission);
+  const typeLabel = submission.type === 'quote' ? 'Request a Quote' : 'Contact inquiry';
+  await record({
+    action: 'created',
+    entity: 'submission',
+    label: `${typeLabel} from ${submission.name}`,
+    href: '/admin/submissions',
+  });
+  return submission;
+}
+
+export function updateSubmissionStatus(id: string, status: SubmissionStatus): Promise<void> {
+  return repositories.submissions.updateStatus(id, status);
+}
+
+export function deleteSubmission(id: string): Promise<void> {
+  return repositories.submissions.delete(id);
+}
+
 

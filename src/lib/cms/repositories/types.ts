@@ -1,4 +1,4 @@
-import type { ActivityEntry, Office, Page, Post, SiteDocumentKey, SiteDocuments } from '../types';
+import type { ActivityEntry, Office, Page, Post, SiteDocumentKey, SiteDocuments, Submission, SubmissionStatus } from '../types';
 
 /**
  * Storage contracts. The services layer depends only on these interfaces;
@@ -35,10 +35,19 @@ export interface ActivityRepository {
   record(entry: Omit<ActivityEntry, 'id' | 'at'>): Promise<void>;
 }
 
+export interface SubmissionRepository {
+  list(): Promise<Submission[]>;
+  get(id: string): Promise<Submission | null>;
+  save(submission: Submission): Promise<void>;
+  updateStatus(id: string, status: SubmissionStatus): Promise<void>;
+  delete(id: string): Promise<void>;
+}
+
 export interface Repositories {
   pages: PageRepository;
   posts: PostRepository;
   site: SiteRepository;
   offices: OfficeRepository;
   activity: ActivityRepository;
+  submissions: SubmissionRepository;
 }

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "5660dbd4-1674-4352-a061-d52fe375e7e7",
+    "type": "quote",
+    "name": "Sarah Connor",
+    "email": "sarah@example.com",
+    "phone": "510-888-9999",
+    "service": "Mobile patrol Security",
+    "location": "Portland Oregon",
+    "message": "Need daily nighttime mobile patrol for retail plaza.",
+    "status": "new",
+    "ip": "::1",
+    "createdAt": "2026-10-12T13:42:38.548Z"
+  },
+  {
+    "id": "6cb95b66-8c9d-4559-8717-00b5aed04eae",
+    "type": "contact",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "510-754-8456",
+    "service": "Armed Security",
+    "location": "California",
+    "message": "Looking for armed security patrols.",
+    "status": "new",
+    "ip": "::1",
+    "createdAt": "2026-10-12T13:41:59.265Z"
+  }
+]

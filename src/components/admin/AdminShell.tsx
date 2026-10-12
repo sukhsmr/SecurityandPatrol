@@ -11,6 +11,12 @@ import { ToastProvider } from './ui/Toast';
 const NAV: Array<{ label: string; items: Array<{ href: string; label: string; icon: IconName }> }> = [
   { label: 'Overview', items: [{ href: '/admin', label: 'Dashboard', icon: 'dashboard' }] },
   {
+    label: 'Leads & Forms',
+    items: [
+      { href: '/admin/submissions', label: 'Inquiries & Quotes', icon: 'mail' },
+    ],
+  },
+  {
     label: 'Content',
     items: [
       { href: '/admin/pages', label: 'Pages', icon: 'pages' },

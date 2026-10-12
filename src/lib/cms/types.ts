@@ -216,11 +216,30 @@ export type SiteDocumentKey = keyof SiteDocuments;
 
 export type ActivityAction = 'created' | 'updated' | 'deleted' | 'duplicated' | 'reordered';
 
+export type SubmissionType = 'contact' | 'quote' | 'career' | 'general';
+export type SubmissionStatus = 'new' | 'read' | 'contacted' | 'archived';
+
+export interface Submission {
+  id: string;
+  type: SubmissionType;
+  name: string;
+  email: string;
+  phone: string;
+  service?: string;
+  location?: string;
+  message?: string;
+  status: SubmissionStatus;
+  sourceUrl?: string;
+  ip?: string;
+  createdAt: string;
+  updatedAt?: string;
+}
+
 export interface ActivityEntry {
   id: string;
   at: string;
   action: ActivityAction;
-  entity: 'page' | 'section' | 'post' | 'settings' | 'header' | 'footer' | 'offices' | 'media';
+  entity: 'page' | 'section' | 'post' | 'settings' | 'header' | 'footer' | 'offices' | 'media' | 'submission';
   label: string;
   /** Admin URL for the affected item, when one exists. */
   href?: string;

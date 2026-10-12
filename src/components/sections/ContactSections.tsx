@@ -5,7 +5,7 @@ import type {
   ContactIntroData,
   ContactLocationsData,
 } from '@/lib/cms/sections/definitions';
-import { button, esc, heading, idAt, img, widget } from './elementor/html';
+import { button, esc, heading, idAt, img } from './elementor/html';
 
 /** Contact page sections, rendered from the original Elementor markup (page id 9). */
 
@@ -144,63 +144,86 @@ export function ContactLocationsSection({ data }: { data: ContactLocationsData }
   return <ElementorRawView contentHtml={html} />;
 }
 
-function selectField(group: string, label: string, options: string[]): string {
-  const opts = options.map((option) => `<option value="${esc(option)}">${esc(option)}</option>`).join('');
-  return (
-    `<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-${group} elementor-col-100"><label for="form-field-${group}" class="elementor-field-label"> ${esc(label)} </label>` +
-    `<div class="elementor-field elementor-select-wrapper remove-before "><div class="select-caret-down-wrapper"><i aria-hidden="true" class="eicon-caret-down"></i></div>` +
-    `<select name="form_fields[${group}]" id="form-field-${group}" class="elementor-field-textual elementor-size-sm">${opts}</select></div></div>`
-  );
-}
+import ContactForm from './ContactForm';
 
 export function ContactFormSection({ data: d }: { data: ContactFormData }) {
-  const form =
-    `<form class="elementor-form" method="post" name="New Form" aria-label="New Form"><input type="hidden" name="post_id" value="9"/><input type="hidden" name="form_id" value="623f6a0"/><input type="hidden" name="referer_title" value="Rayven Security Protection | Trained Security Guards for Any Need" /><input type="hidden" name="queried_id" value="9"/>` +
-    `<div class="elementor-form-fields-wrapper elementor-labels-above">` +
-    `<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50"><label for="form-field-name" class="elementor-field-label"> ${esc(d.firstNameLabel)} </label><input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="${esc(d.firstNamePlaceholder)}"></div>` +
-    `<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-field_986fac2 elementor-col-50"><label for="form-field-field_986fac2" class="elementor-field-label"> ${esc(d.emailLabel)} </label><input size="1" type="email" name="form_fields[field_986fac2]" id="form-field-field_986fac2" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="${esc(d.emailPlaceholder)}"></div>` +
-    selectField('field_944ce13', d.serviceLabel, d.services) +
-    selectField('field_df9ab1a', d.locationLabel, d.locations) +
-    `<div class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_0362869 elementor-col-100"><label for="form-field-field_0362869" class="elementor-field-label"> ${esc(d.phoneLabel)} </label><input type="number" name="form_fields[field_0362869]" id="form-field-field_0362869" class="elementor-field elementor-size-sm elementor-field-textual" min="" max="" ></div>` +
-    `<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100"><label for="form-field-message" class="elementor-field-label"> ${esc(d.messageLabel)} </label><textarea class="elementor-field-textual elementor-field elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="4" placeholder="${esc(d.messagePlaceholder)}"></textarea></div>` +
-    `<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-field_e1d8d27 elementor-col-100"><div class="elementor-field-subgroup"><span class="elementor-field-option"><input type="checkbox" name="form_fields[field_e1d8d27]" id="form-field-field_e1d8d27" class="elementor-field elementor-size-sm elementor-acceptance-field"> <label for="form-field-field_e1d8d27">${esc(d.acceptanceText)}</label></span></div></div>` +
-    `<div class="elementor-field-type-recaptcha elementor-field-group elementor-column elementor-field-group-field_44a1ea6 elementor-col-100"><div class="elementor-field" id="form-field-field_44a1ea6"><div class="elementor-g-recaptcha" data-sitekey="${esc(d.recaptchaSiteKey)}" data-type="v2_checkbox" data-theme="light" data-size="normal"></div></div></div>` +
-    `<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons"><button class="elementor-button elementor-size-sm" type="submit"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">${esc(d.submitText)}</span></span></button></div>` +
-    `</div></form>`;
-
-  const formColumn =
-    heading('4d9e06f', esc(d.heading)) +
-    heading('2da045a', esc(d.subheading)) +
-    `<div class="elementor-element elementor-element-623f6a0 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="623f6a0" data-element_type="widget" data-e-type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default"><div class="elementor-widget-container">${form}</div></div>` +
-    widget('6e07928', 'text-editor', `<p>${esc(d.disclaimer)}</p>`);
-
-  const imageColumn = d.image.src
-    ? widget(
-        'bf7bb11',
-        'image',
-        img(d.image, 'decoding="async" width="510" height="697" class="attachment-large size-large wp-image-1210"').replace(
-          ' />',
-          ' sizes="(max-width: 510px) 100vw, 510px" />',
-        ),
-      )
-    : '';
-
-  const html = topSection(
-    '081e0e0',
-    'elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default',
-    STRETCH_BG,
-    `<div class="elementor-container elementor-column-gap-default">` +
-      col('47e0795', '16', '') +
-      col(
-        'bf52a29',
-        '66',
-        `<section class="elementor-section elementor-inner-section elementor-element elementor-element-86e3616 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="86e3616" data-element_type="section" data-e-type="section" data-settings="${BG}"><div class="elementor-container elementor-column-gap-default">` +
-          col('b69f831', '50', formColumn, 'inner') +
-          col('57659e3', '50', imageColumn, 'inner') +
-          `</div></section>`,
-      ) +
-      col('6ba205d', '16', '') +
-      `</div>`,
+  return (
+    <section
+      className="elementor-section elementor-top-section elementor-element elementor-element-081e0e0 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default"
+      data-id="081e0e0"
+      data-element_type="section"
+      data-e-type="section"
+      data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}"
+    >
+      <div className="elementor-container elementor-column-gap-default">
+        <div className="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-47e0795" data-id="47e0795" data-element_type="column" data-e-type="column">
+          <div className="elementor-widget-wrap" />
+        </div>
+        <div className="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-bf52a29" data-id="bf52a29" data-element_type="column" data-e-type="column">
+          <div className="elementor-widget-wrap elementor-element-populated">
+            <section
+              className="elementor-section elementor-inner-section elementor-element elementor-element-86e3616 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+              data-id="86e3616"
+              data-element_type="section"
+              data-e-type="section"
+              data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
+            >
+              <div className="elementor-container elementor-column-gap-default">
+                <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b69f831" data-id="b69f831" data-element_type="column" data-e-type="column">
+                  <div className="elementor-widget-wrap elementor-element-populated">
+                    {/* Heading */}
+                    <div className="elementor-element elementor-element-4d9e06f elementor-widget elementor-widget-heading" data-id="4d9e06f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+                      <div className="elementor-widget-container">
+                        <h2 className="elementor-heading-title elementor-size-default">{d.heading}</h2>
+                      </div>
+                    </div>
+                    {/* Subheading */}
+                    <div className="elementor-element elementor-element-2da045a elementor-widget elementor-widget-heading" data-id="2da045a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+                      <div className="elementor-widget-container">
+                        <h4 className="elementor-heading-title elementor-size-default">{d.subheading}</h4>
+                      </div>
+                    </div>
+                    {/* Interactive Contact Form */}
+                    <ContactForm data={d} />
+                    {/* Disclaimer */}
+                    {d.disclaimer && (
+                      <div className="elementor-element elementor-element-6e07928 elementor-widget elementor-widget-text-editor" data-id="6e07928" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+                        <div className="elementor-widget-container">
+                          <p>{d.disclaimer}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-57659e3" data-id="57659e3" data-element_type="column" data-e-type="column">
+                  <div className="elementor-widget-wrap elementor-element-populated">
+                    {d.image?.src && (
+                      <div className="elementor-element elementor-element-bf7bb11 elementor-widget elementor-widget-image" data-id="bf7bb11" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+                        <div className="elementor-widget-container">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            decoding="async"
+                            width="510"
+                            height="697"
+                            src={d.image.src}
+                            className="attachment-large size-large wp-image-1210"
+                            alt={d.image.alt || ''}
+                            srcSet={d.image.srcSet}
+                            sizes="(max-width: 510px) 100vw, 510px"
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div className="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-6ba205d" data-id="6ba205d" data-element_type="column" data-e-type="column">
+          <div className="elementor-widget-wrap" />
+        </div>
+      </div>
+    </section>
   );
-  return <ElementorRawView contentHtml={html} />;
 }

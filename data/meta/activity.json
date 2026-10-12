@@ -1,5 +1,29 @@
 [
   {
+    "action": "created",
+    "entity": "submission",
+    "label": "Contact inquiry from test",
+    "href": "/admin/submissions",
+    "id": "ebe0314e-b531-4382-832c-698c658882fa",
+    "at": "2026-10-12T14:54:03.947Z"
+  },
+  {
+    "action": "created",
+    "entity": "submission",
+    "label": "Request a Quote from Sarah Connor",
+    "href": "/admin/submissions",
+    "id": "9d054140-49f8-44d1-858f-15f0a9dd8b74",
+    "at": "2026-10-12T13:42:38.561Z"
+  },
+  {
+    "action": "created",
+    "entity": "submission",
+    "label": "Contact inquiry from John Doe",
+    "href": "/admin/submissions",
+    "id": "5c9f352f-6209-4adc-9d67-12d4cd340379",
+    "at": "2026-10-12T13:41:59.300Z"
+  },
+  {
     "action": "updated",
     "entity": "section",
     "label": "Privacy Policy section updated on Privacy Policy",

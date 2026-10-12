@@ -2,7 +2,7 @@ import 'server-only';
 import { randomUUID } from 'node:crypto';
 import { StorageError } from '../errors';
 import { deleteDocument, listDocuments, readDocument, withLock, writeDocument } from '../storage/json-store';
-import type { ActivityEntry, Office, Page, Post, SiteDocumentKey, SiteDocuments } from '../types';
+import type { ActivityEntry, Office, Page, Post, SiteDocumentKey, SiteDocuments, Submission, SubmissionStatus } from '../types';
 import type {
   ActivityRepository,
   OfficeRepository,
@@ -10,6 +10,7 @@ import type {
   PostRepository,
   Repositories,
   SiteRepository,
+  SubmissionRepository,
 } from './types';
 
 /** One JSON file per document: `data/<collection>/<slug>.json`. */
@@ -71,4 +72,42 @@ const activity: ActivityRepository = {
   },
 };
 
-export const jsonRepositories: Repositories = { pages, posts, site, offices, activity };
+const submissions: SubmissionRepository = {
+  async list(): Promise<Submission[]> {
+    return (await readDocument<Submission[]>('collections', 'submissions')) ?? [];
+  },
+  async get(id: string): Promise<Submission | null> {
+    const list = (await readDocument<Submission[]>('collections', 'submissions')) ?? [];
+    return list.find((item) => item.id === id) ?? null;
+  },
+  save(submission: Submission): Promise<void> {
+    return withLock('collections/submissions', async () => {
+      const list = (await readDocument<Submission[]>('collections', 'submissions')) ?? [];
+      const index = list.findIndex((item) => item.id === submission.id);
+      let next: Submission[];
+      if (index >= 0) {
+        next = [...list];
+        next[index] = submission;
+      } else {
+        next = [submission, ...list];
+      }
+      await writeDocument('collections', 'submissions', next);
+    });
+  },
+  updateStatus(id: string, status: SubmissionStatus): Promise<void> {
+    return withLock('collections/submissions', async () => {
+      const list = (await readDocument<Submission[]>('collections', 'submissions')) ?? [];
+      const next = list.map((item) => (item.id === id ? { ...item, status, updatedAt: new Date().toISOString() } : item));
+      await writeDocument('collections', 'submissions', next);
+    });
+  },
+  delete(id: string): Promise<void> {
+    return withLock('collections/submissions', async () => {
+      const list = (await readDocument<Submission[]>('collections', 'submissions')) ?? [];
+      const next = list.filter((item) => item.id !== id);
+      await writeDocument('collections', 'submissions', next);
+    });
+  },
+};
+
+export const jsonRepositories: Repositories = { pages, posts, site, offices, activity, submissions };
