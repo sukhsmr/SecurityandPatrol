@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type { Submission, SubmissionStatus, SubmissionType } from '@/lib/cms/types';
 import { apiRequest } from '../api';
@@ -131,11 +132,16 @@ export default function SubmissionsManager({ submissions: initial }: { submissio
         title="Inquiries & Quotes"
         description="Records received from the Contact Us page and Request a Quote popup."
         actions={
-          submissions.length > 0 && (
-            <button type="button" className="cms-btn cms-btn-secondary" onClick={exportCsv}>
-              <Icon name="external" size={15} /> Export CSV
-            </button>
-          )
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Link href="/admin/settings" className="cms-btn cms-btn-ghost" title="Set recipient email address for inquiries">
+              <Icon name="mail" size={15} /> Email Settings
+            </Link>
+            {submissions.length > 0 && (
+              <button type="button" className="cms-btn cms-btn-secondary" onClick={exportCsv}>
+                <Icon name="external" size={15} /> Export CSV
+              </button>
+            )}
+          </div>
         }
       />
 

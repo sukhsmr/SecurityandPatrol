@@ -126,7 +126,13 @@ export const settingsFields: Field[] = [
   { type: 'text', name: 'logo', label: 'Logo path', required: true },
   { type: 'text', name: 'favicon', label: 'Favicon path', help: 'Leave empty to use the built-in icon.' },
   { type: 'text', name: 'phone', label: 'Phone' },
-  { type: 'email', name: 'email', label: 'Email' },
+  { type: 'email', name: 'email', label: 'Public contact email', help: 'General business email displayed publicly on the website.' },
+  {
+    type: 'text',
+    name: 'notificationEmail',
+    label: 'Inquiry & quote notification email',
+    help: 'Email address where Contact Us and Request a Quote form notifications are sent. Separate multiple emails with commas. If left blank, notifications go to the Public contact email.',
+  },
   { type: 'textarea', name: 'address', label: 'Address' },
   { type: 'text', name: 'copyright', label: 'Copyright text', help: 'Shown at the bottom of the footer when set.' },
   {
@@ -136,6 +142,20 @@ export const settingsFields: Field[] = [
     fields: [
       { type: 'text', name: 'title', label: 'Default SEO title', required: true },
       { type: 'textarea', name: 'description', label: 'Default SEO description' },
+    ],
+  },
+  {
+    type: 'group',
+    name: 'smtp',
+    label: 'Email Server (SMTP) Dispatch Settings',
+    advanced: true,
+    fields: [
+      { type: 'text', name: 'host', label: 'SMTP Host', help: 'e.g. smtp.gmail.com (for Gmail) or mail.yourdomain.com' },
+      { type: 'number', name: 'port', label: 'SMTP Port', integer: true, help: '465 for SSL, 587 for TLS' },
+      { type: 'boolean', name: 'secure', label: 'Use SSL/TLS secure connection (port 465)' },
+      { type: 'text', name: 'user', label: 'SMTP Username / Sender Email', help: 'e.g. your_email@gmail.com or info@securityandpatrol.com' },
+      { type: 'text', name: 'pass', label: 'SMTP Password / App Password', help: 'For Gmail, use a 16-character Google App Password' },
+      { type: 'text', name: 'from', label: 'Sender From Address', help: 'Optional: e.g. "Rayven Security" <no-reply@securityandpatrol.com>' },
     ],
   },
 ];

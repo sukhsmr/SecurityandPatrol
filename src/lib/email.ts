@@ -21,14 +21,18 @@ interface SentEmailLog {
 }
 
 /**
- * Creates nodemailer transporter if SMTP credentials are configured.
+ * Creates nodemailer transporter if SMTP credentials are configured
+ * either via environment variables or via Admin Portal settings.
  */
-function getTransporter() {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  const port = Number(process.env.SMTP_PORT || 587);
-  const secure = process.env.SMTP_SECURE === 'true' || port === 465;
+export function getTransporter(siteSettings?: SiteSettings | null) {
+  const host = siteSettings?.smtp?.host?.trim() || process.env.SMTP_HOST;
+  const user = siteSettings?.smtp?.user?.trim() || process.env.SMTP_USER;
+  const pass = siteSettings?.smtp?.pass?.trim() || process.env.SMTP_PASS;
+  const port = Number(siteSettings?.smtp?.port || process.env.SMTP_PORT || (host === 'smtp.gmail.com' ? 465 : 587));
+  const secure =
+    typeof siteSettings?.smtp?.secure === 'boolean'
+      ? siteSettings.smtp.secure
+      : process.env.SMTP_SECURE === 'true' || port === 465;
 
   if (!host || !user || !pass) {
     return null;
@@ -40,6 +44,13 @@ function getTransporter() {
     secure,
     auth: { user, pass },
   });
+}
+
+export function isSmtpConfigured(siteSettings?: SiteSettings | null): boolean {
+  const host = siteSettings?.smtp?.host?.trim() || process.env.SMTP_HOST;
+  const user = siteSettings?.smtp?.user?.trim() || process.env.SMTP_USER;
+  const pass = siteSettings?.smtp?.pass?.trim() || process.env.SMTP_PASS;
+  return Boolean(host && user && pass);
 }
 
 function formatHtmlEmail(submission: Submission, recipientEmail: string): string {
@@ -139,13 +150,16 @@ function escapeHtml(text: string): string {
 export async function sendSubmissionNotificationEmail(submission: Submission): Promise<EmailResult> {
   const siteSettings = await readDocument<SiteSettings>('site', 'settings');
   const recipient =
+    siteSettings?.notificationEmail?.trim() ||
     process.env.NOTIFICATION_EMAIL ||
     process.env.SMTP_TO ||
-    siteSettings?.email ||
+    siteSettings?.email?.trim() ||
     'info@securityandpatrol.com';
 
   const sender =
     process.env.SMTP_FROM ||
+    siteSettings?.smtp?.from ||
+    (siteSettings?.smtp?.user ? `"Rayven Security Protection" <${siteSettings.smtp.user}>` : undefined) ||
     `"Rayven Security Protection" <${process.env.SMTP_USER || 'no-reply@securityandpatrol.com'}>`;
 
   const isQuote = submission.type === 'quote';
@@ -154,7 +168,7 @@ export async function sendSubmissionNotificationEmail(submission: Submission): P
 
   const html = formatHtmlEmail(submission, recipient);
 
-  const transporter = getTransporter();
+  const transporter = getTransporter(siteSettings);
 
   // If SMTP is not yet configured, log and record simulation
   if (!transporter) {

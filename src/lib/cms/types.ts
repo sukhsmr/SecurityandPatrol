@@ -111,6 +111,15 @@ export interface ImageRef {
   alt?: string;
 }
 
+export interface SmtpSettings {
+  host?: string;
+  port?: number;
+  secure?: boolean;
+  user?: string;
+  pass?: string;
+  from?: string;
+}
+
 export interface SiteSettings {
   siteName: string;
   siteUrl?: string;
@@ -118,6 +127,8 @@ export interface SiteSettings {
   favicon?: string;
   phone?: string;
   email?: string;
+  notificationEmail?: string;
+  smtp?: SmtpSettings;
   address?: string;
   copyright?: string;
   defaultSeo: { title: string; description: string };

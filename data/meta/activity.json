@@ -1,5 +1,29 @@
 [
   {
+    "action": "updated",
+    "entity": "settings",
+    "label": "Site settings updated",
+    "href": "/admin/settings",
+    "id": "38f2ad3a-69c5-4e39-a304-2dad848830c4",
+    "at": "2026-10-13T07:34:11.982Z"
+  },
+  {
+    "action": "created",
+    "entity": "submission",
+    "label": "Contact inquiry from test",
+    "href": "/admin/submissions",
+    "id": "3e65a4ac-8d60-4569-9fcf-657c5967cbbf",
+    "at": "2026-10-13T06:24:21.885Z"
+  },
+  {
+    "action": "updated",
+    "entity": "settings",
+    "label": "Site settings updated",
+    "href": "/admin/settings",
+    "id": "44b5cdb4-4fad-4ab9-90c3-e9e99228a0b2",
+    "at": "2026-10-13T06:23:00.294Z"
+  },
+  {
     "action": "created",
     "entity": "submission",
     "label": "Contact inquiry from test",

@@ -61,6 +61,12 @@ function validateValue(field: Field, input: unknown, path: string, errors: Field
         errors[path] = 'Please enter a valid URL (e.g. /about, https://…, mailto:, tel:).';
       } else if (field.type === 'email' && value !== '' && !EMAIL_PATTERN.test(value)) {
         errors[path] = 'Please enter a valid email address.';
+      } else if (field.name === 'notificationEmail' && value.trim() !== '') {
+        const parts = value.split(',').map((p) => p.trim()).filter(Boolean);
+        const invalid = parts.filter((p) => !EMAIL_PATTERN.test(p));
+        if (invalid.length > 0) {
+          errors[path] = `Please enter valid email address(es): ${invalid.join(', ')}`;
+        }
       }
       return value;
     }
